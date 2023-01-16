@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon Battle</title>
+
+  <script src="./js/initialize.js"></script>
+  <script src="./js/components/sign_up.js" defer></script>
+  <script src="./js/components/login.js" defer></script>
+  <script src="./js/components/modals.js" defer></script>
+  
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/modals/modals.css">
+  <link rel="stylesheet" href="./css/modals/modals_backdrop.css">
+</head>
+<body>
+  <nav class="header-nav">
+      <h1>Welcome to Pokemon Battle!</h1>
+      <button onClick="renderSignUpModal()">Sign Up</button>
+      <button onClick="renderLoginModal()">Login</button>
+  </nav>
+
+  <main id="page" class="content">
+    <div id="backdrop"></div>
+  </main>
+  
+</body>
+</html>
