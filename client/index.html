@@ -7,8 +7,10 @@
   <title>Pokemon Battle</title>
 
   <script src="./js/initialize.js"></script>
-  <script src="./js/components/sign_up.js" defer></script>
-  <script src="./js/components/login.js" defer></script>
+  <script src="./js/components/start_options_modal/start_options.js" defer></script>
+  <script src="./js/components/start_options_modal/sign_up.js" defer></script>
+  <script src="./js/components/start_options_modal/login.js" defer></script>
+  <script src="./js/components/how_to_play_modal.js" defer></script>
   <script src="./js/components/modals.js" defer></script>
   
   <link rel="stylesheet" href="./css/main.css">
@@ -18,13 +20,13 @@
 <body>
   <nav class="header-nav">
       <h1>Welcome to Pokemon Battle!</h1>
-      <button onClick="renderSignUpModal()">Sign Up</button>
-      <button onClick="renderLoginModal()">Login</button>
+      <button onClick="renderStartOptions()">Start</button>
+      <button onClick="renderHowToPlayModal()">How to play</button>
   </nav>
 
-  <main id="page" class="content">
-    <div id="backdrop"></div>
-  </main>
+  <main id="page" class="content"></main>
+  <div id="backdrop"></div>
   
 </body>
 </html>
+
