@@ -21,9 +21,6 @@
                 .then(response => {
                   let pokemon = response
                   console.log((pokemon.evolves_from_species))
-                  // the reason why i get this different api is to get the information about evolution. 
-                  // api/v2/pokemon -> has base stats for its pokemon but api/v2/pokemon-species is the one with the information that has the Details whether it can be evolved or not.
-                  // https://pokeapi.co/api/v2/pokemon-species/1
                 })
               }
         </p>
