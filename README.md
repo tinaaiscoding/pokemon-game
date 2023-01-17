@@ -69,24 +69,56 @@ The app that we are building must:
 *Initial Concept*
 
 Wireframing / Conceptual Design of website<br/> 
-![Planning Photo 3](./images/Planning_03.png)<br/> 
+![Planning Photo 3](./client/images/README-images/Planning_03.png)<br/> 
 *Team Concept Planning via Zoom*
 
-![Planning Photo 4](./images/Planning_04.png)<br/> 
+![Planning Photo 4](./client/images/README-images/Planning_04.png)<br/> 
 *Wireframing Concept of MVP*
 
-![Planning Photo 5](./images/Planning_05.png)<br/>
+![Planning Photo 5](./client/images/README-images/Planning_05.png)<br/>
 *Setting up Github Workflow* 
 
-![Planning Photo 6](./images/Planning_06.png)<br/>
+![Planning Photo 6](./client/images/README-images/Planning_06.png)<br/>
 *Trello initial tasks* 
 
-![Planning Photo 7](./images/Planning_07.png)<br/>
-![Planning Photo 8](./images/Planning_08.png)<br/>
+![Planning Photo 7](./client/images/README-images/Planning_07.png)<br/>
+![Planning Photo 8](./client/images/README-images/Planning_08.png)<br/>
 *Landing page options* 
 
+![Planning Photo 11](./client/images/README-images/Planning_11.png)<br/>
+*After pressing start, option to sign up or login*
 
-Use the Problem Solving Process framework to break down the project into manageable components. From Technical Requirements & Necessary Deliverables
+![Planning Photo 12](./client/images/README-images/Planning_12.png)<br/>
+*Login* 
+
+![Planning Photo 13](./client/images/README-images/Planning_13.png)<br/>
+*Sign Up* 
+
+![Planning Photo 14](./client/images/README-images/Planning_14.png)<br/>
+*Starter Pokemon page appears after clicking Sign Up. Click on one to choose*
+
+![Planning Photo 15](./client/images/README-images/Planning_15.png)<br/>
+*Selecting one Pokeball shows what starter pokemon is inside. User can then confirm selection or choose a different pokemon*
+
+![Planning Photo 16](./client/images/README-images/Planning_16.png)<br/>
+*Party page. Displays pokemon in your party. Injured/fainted pokemon are shown in grey. When injured/fainted, you can press the heal button to restore it back to full health. Links to Battle page and Pokedex page are at the top corners.*
+
+![Planning Photo 17](./client/images/README-images/Planning_17.png)<br/>
+*Battle page. Your pokemon is on the left battling an opponent. Press attack button to generate an attack. Fight is logged at the bottom and HP bar represents health of each pokemon.*
+
+![Planning Photo 18](./client/images/README-images/Planning_18.png)<br/>
+*Win/Lose Modal will show once either of the pokemon have fainted*
+
+![Planning Photo 19](./client/images/README-images/Planning_19.png)<br/>
+*Pokedex page for what we think MVP should be. Just displays the pokemon that you have owned.*
+
+![Planning Photo 20](./client/images/README-images/Planning_20.png)<br/>
+*Pokedex page if we are able to link to API and also the user table in the database that would specify whether a pokemon has been caught.*
+
+![Planning Photo 21](./client/images/README-images/Planning_21.png)<br/>
+*View Pokemon page. Able to view your particular pokemon and see how many more wins until it can evolve. Can also give that pokemon a nickname*
+
+### Use the Problem Solving Process framework to break down the project into manageable components. From Technical Requirements & Necessary Deliverables
 1.  Keywords 
     - Git Workflow
     - sign up & Login features
@@ -109,11 +141,28 @@ Use the Problem Solving Process framework to break down the project into managea
 
 
 3.  Implement - Coding Journey and debugging.<br/> 
-    Below are some "highlights" where problems arose and how I dealt with this problems. <br/> 
+    Below are some "highlights" where problems arose and how we dealt with these problems. <br/> 
 
-    ### Progress
-    ![Progress 1](./images/Progress_01.png)
+    ## Progress
+    ![Planning Photo 9](./client/images/README-images/Planning_09.png)<br/>
+    ![Planning Photo 10](./client/images/README-images/Planning_10.png)<br/>
+    *Day 2 Team Standup and discussion*
+
+
     
+    ### Move List Problem
+    Some Pokemon only have one move they are able to use (eg. Ditto) whereas some are able to learn 300+ moves. This meant that the browser would provide an error and not render the move list onto the screen. We were able to resolve this using a for loop and appending only the first four moves listed in the API. 
+
+    ```
+        Can you put code snipet here Mitch
+    ```
+
+    ![Development Photo 01](./client/images/README-images/Development_01.png)<br/>
+    *Team Screen sharing whilst solving problem together*
+
+    ![Development Photo 02](./client/images/README-images/Development_02.png)<br/>
+    *Solved the problem! Good milestone*
+
 
     ### For further details and complete code of the app, please feel free to click into any of the files in the repo.  
 
@@ -154,4 +203,5 @@ Use the Problem Solving Process framework to break down the project into managea
 -   
 
 ## Conclusions
-![Collab Photo 1](./images/Collab_01.png)
+![Collab Photo 1](./client/images/README-images/Collab_01.png)
+*Teamwork!!*
