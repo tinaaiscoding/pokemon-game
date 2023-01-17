@@ -148,8 +148,6 @@ Wireframing / Conceptual Design of website<br/>
     ![Planning Photo 10](./client/images/README-images/Planning_10.png)<br/>
     *Day 2 Team Standup and discussion*
 
-
-    
     ### Move List Problem
     Some Pokemon only have one move they are able to use (eg. Ditto) whereas some are able to learn 300+ moves. This meant that the browser would provide an error and not render the move list onto the screen. We were able to resolve this using a for loop and appending only the first four moves listed in the API. 
 
@@ -162,6 +160,9 @@ Wireframing / Conceptual Design of website<br/>
 
     ![Development Photo 02](./client/images/README-images/Development_02.png)<br/>
     *Solved the problem! Good milestone*
+
+    ### How To Play Section
+    
 
 
     ### For further details and complete code of the app, please feel free to click into any of the files in the repo.  
