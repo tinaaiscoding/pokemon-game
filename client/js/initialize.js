@@ -1,7 +1,14 @@
 const state = {
+  pokemons: [],
   loggedInUserName: null
 }
 
+fetch('/api/pokemons')
+    .then(res =>res.json())
+    .then(pokemons => {
+        state.pokemons = pokemons
+        renderPokemonList()
+    }) 
 
 
 
