@@ -15,7 +15,7 @@
   position: relative;
   left: 107px;
   top: 333px;
-  z-index: 100;
+  z-index: 1;
 }
 
 .starter-pokemon {
@@ -43,6 +43,20 @@
 .select-starters-btn {
   position: relative;
   margin: 0 154px;
+}
+
+#starter-pokemon-modal {
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
+}
+
+#starter-pokemon-modal img {
+  width: 200px;
+}
+
+#starter-pokemon-modal .button-32 {
+  width: 40%;
 }
 
 /* BUTTON STYLING */
