@@ -1,11 +1,7 @@
-const pg = require('pg');
+const pg = require('pg')
 
-const localDbName = 'pokedex'
+const db = new pg.Pool({
+  database: 'pokedex',
+})
 
-
-    const db = new pg.Pool({
-      database: 'pokedex',
-    })
-
-
-module.exports = db;
+module.exports = db

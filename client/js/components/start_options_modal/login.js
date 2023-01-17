@@ -1,7 +1,9 @@
-function renderLoginModal() {
-    const modal = document.createElement('div')
-    modal.innerHTML =  `
-      <div class="modal" id="login-modal">
+const modal1 = document.createElement('div')
+
+function renderLogin() {
+
+  document.querySelector('#start-options').innerHTML =  `
+      <div id="login-modal">
         <div class="modal-content">
           <form onSubmit="login(event)">
             <h2 class="modal-title">Login</h2>
@@ -24,19 +26,11 @@ function renderLoginModal() {
       </div>
       `
   
-      document.querySelector('#page').appendChild(modal);
-
       const loginModal = document.querySelector('#login-modal');
       const allUserInputs = document.querySelectorAll('input');
 
-      loginModal.classList.add('visible');
-      backDropOn();
-    
-      backdrop.addEventListener('click', () => {
-        closeFormModal('login-modal', allUserInputs);
-      });
       loginModal.querySelector('.btn-cancel').addEventListener('click', () => {
-        closeFormModal('login-modal', allUserInputs);
+        closeFormModal('start-option-modal', allUserInputs);
       });
 }
 

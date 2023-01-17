@@ -1,7 +1,8 @@
-function renderSignUpModal() {
-  const modal = document.createElement('div');
-  modal.innerHTML = `
-    <div class="modal" id="sign-up-modal">
+const modal = document.createElement('div');
+function renderSignUp() {
+
+  document.querySelector('#start-options').innerHTML = `
+    <div id="sign-up-modal">
       <div class="modal-content">
         <form onSubmit="signUp(event)">
           <h2 class="modal-title">Sign Up</h2>
@@ -28,13 +29,8 @@ function renderSignUpModal() {
     </div>
     `;
 
-  document.querySelector('#page').appendChild(modal);
-
   const signUpModal = document.querySelector('#sign-up-modal');
   const allUserInputs = document.querySelectorAll('input');
-  
-  signUpModal.classList.add('visible');
-  backDropOn();
 
   backdrop.addEventListener('click', () => {
     closeFormModal('sign-up-modal', allUserInputs);

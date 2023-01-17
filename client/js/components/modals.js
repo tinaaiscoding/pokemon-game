@@ -8,8 +8,8 @@ function backDropOff() {
   backdrop.classList.remove('visible');
 }
 
-function closeFormModal(modalClass, inputs = null) {
-  document.querySelector(`#${modalClass}`).classList.remove('visible');
+function closeFormModal(modalId, inputs = []) {
+  document.querySelector(`#${modalId}`).classList.remove('visible');
   backDropOff();
   resetForm(inputs);
 }
