@@ -1,0 +1,92 @@
+#new_starter_pokemon_page {
+  background-image: url(../images/new_starter_pokemon/bg_professor_oaks_lab.png);
+  background-size: contain;
+  height: 100vh;
+  position: relative;
+}
+
+.pokeball {
+  display: inline-block;
+  width: 200px;
+  margin: 0 98px;
+}
+
+.pokeballs-group {
+  position: relative;
+  left: 107px;
+  top: 333px;
+  z-index: 1;
+}
+
+.starter-pokemon {
+  width: 300px;
+  margin: 0 58px;
+}
+
+.starter-pokemon-group {
+  position: relative;
+  left: 63px;
+  bottom: 0px;
+}
+
+.starter-pokemon-group .bulbasaur {
+  position: relative;
+  top: 11px;
+}
+
+.select-starters-btn-group {
+  position: relative;
+  left: 93px;
+  bottom: -8px;
+}
+
+.select-starters-btn {
+  position: relative;
+  margin: 0 154px;
+}
+
+#starter-pokemon-modal {
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
+}
+
+#starter-pokemon-modal img {
+  width: 200px;
+}
+
+#starter-pokemon-modal .button-32 {
+  width: 40%;
+}
+
+/* BUTTON STYLING */
+.button-32 {
+  background-color: #b0a684;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 7%;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-32:not(:disabled):hover,
+.button-32:not(:disabled):focus {
+  outline: 0;
+  background: #ffc712;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+}
+
+.button-32:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  -webkit-filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
+}

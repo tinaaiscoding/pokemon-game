@@ -33,6 +33,9 @@ function renderSignUp() {
   signUpModal.querySelector('.btn-cancel').addEventListener('click', () => {
     closeFormModal('start-option-modal', allUserInputs);
   });
+
+  signUpModal.querySelector('.btn-success').addEventListener('click', backDropOff);
+  
 }
 
 function signUp(event) {
@@ -48,5 +51,5 @@ function signUp(event) {
   })
     .then((res) => res.json())
     .then((userName) => state.loggedInUserName = userName)
-    // .then(() => renderTreasureList()) - RENDER POKEMON PARTY
+    .then(() => renderNewStaterPokemon()) // - RENDER POKEMON STARTER FILE
 }

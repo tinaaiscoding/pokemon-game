@@ -1,6 +1,6 @@
 function renderStartOptions() {
   document.querySelector('#page').innerHTML = `
-    <div class="modal" id="start-option-modal">
+    <div class="modal visible" id="start-option-modal">
       <div class="modal-content">
         <nav class="start-nav">
           <ul>
@@ -14,10 +14,8 @@ function renderStartOptions() {
       </div>
     </div>
   `
-  const startOptionsModal = document.querySelector('#start-option-modal');
   const allUserInputs = document.querySelectorAll('input');
 
-  startOptionsModal.classList.add('visible');
   backDropOn();
 
   backdrop.addEventListener('click', () => {
