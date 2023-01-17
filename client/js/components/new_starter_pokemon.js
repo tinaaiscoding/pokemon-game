@@ -8,6 +8,7 @@ function renderNewStaterPokemon() {
       </div>
 
       <div class="starter-pokemon-group">
+      
         <img class="starter-pokemon bulbasaur hidden" src="./images/new_starter_pokemon/selected_bulbasaur.png" alt="">
         <img class="starter-pokemon charmander hidden" src="./images/new_starter_pokemon/selected_charmander.png" alt="">
         <img class="starter-pokemon squirtle hidden" src="./images/new_starter_pokemon/selected_squirtle.png" alt="">
@@ -15,7 +16,7 @@ function renderNewStaterPokemon() {
     </div>
   `
 
-
+}
   const pokeball1 = document.querySelector('.pokeball-1')
   const pokeball2 = document.querySelector('.pokeball-2')
   const pokeball3 = document.querySelector('.pokeball-3')
@@ -56,4 +57,4 @@ function renderNewStaterPokemon() {
     selected_charmander.classList.add('hidden')
   })
 
-}
+// }
