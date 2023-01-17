@@ -1,7 +1,4 @@
-const modal1 = document.createElement('div')
-
 function renderLogin() {
-
   document.querySelector('#start-options').innerHTML =  `
       <div id="login-modal">
         <div class="modal-content">
