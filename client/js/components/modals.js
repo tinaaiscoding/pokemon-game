@@ -17,3 +17,8 @@ function closeFormModal(modalId, inputs = []) {
 function resetForm(inputs) {
   inputs.forEach((input) => (input.value = ''));
 }
+
+function closeModal(modalId) {
+  document.querySelector(`#${modalId}`).classList.remove('visible');
+  backDropOff();
+}

@@ -11,5 +11,13 @@ body {
 }
 
 .invisible {
-  display: hidden;
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.unhidden {
+  visibility: visible;
 }
