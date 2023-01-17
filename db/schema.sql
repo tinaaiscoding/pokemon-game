@@ -33,8 +33,20 @@ VALUES
 CREATE TABLE mypokemons (
   id SERIAL PRIMARY KEY,
   name TEXT,
-  win_counts NUMBER
+  win_counts NUMBER,
+  evolution TEXT
 );
+
+INSERT INTO
+  mypokemons (name, win_counts, evolution)
+VALUES
+  ('charmander', 0),
+  ('bulbasaur', 0),
+  ('psyduck', 0),
+  ('mankey', 0),
+  ('growlithe', 0),
+  ('bellsprout', 0),
+  ('charizad', 0);
 
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
@@ -43,4 +55,6 @@ CREATE TABLE users(
   password_digest TEXT,
 
 );
+
+
 
