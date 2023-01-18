@@ -24,16 +24,3 @@ function takePokemonToBattle(event) {
     })
 }
 
-function deleteTreasure(event) {  
-  const deleteBtn = event.target
-  const treasureDOM = deleteBtn.closest('.treasure')
-  const treasureId = treasureDOM.dataset.id
-
-  fetch(`/api/treasures/${treasureId}`, {
-    method: 'DELETE'
-  })
-    .then(() => {
-      state.treasures = state.treasures.filter(t => t.id != treasureId)
-      renderTreasureList()
-    })
-}
