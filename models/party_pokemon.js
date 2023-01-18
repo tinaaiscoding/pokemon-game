@@ -17,6 +17,12 @@ const Party_Pokemon = {
         .then(dbRes => {dbRes.rows
           console.log(dbRes.rows)})
           // need to check once pokemon party page is loading. 
+    },
+
+    delete: pokemonId => {
+      const sql = 'DELETE FROM mypokemons WHERE id = $1'
+  
+      return db.query(sql, [pokemonId])
     }
 }
 

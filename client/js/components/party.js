@@ -26,16 +26,31 @@ function renderMyPokemons() {
         <p>SPEED: ${myPokemon.speed}</p>
         <img src="${myPokemon.img}" alt="">
         <p>WIN COUNT: ${myPokemon.win_counts} </p>
-        <button onClick="takePokemonToBattle() class="to-battle-btn">BATTLE</button>
-        <button onClick="releasePokemon() class="to-battle-btn">RELEASE</button>
+        <button onClick="takePokemonToBattle(event)" class="to-battle-btn">BATTLE</button>
+        <button onClick="releasePokemon(event)" class="to-battle-btn">RELEASE</button>
     </section>
     `).join('')
 
 }
 
-function editName(event) {
-    event.preventDefault()
+function releasePokemon(event) {
+    const deleteBtn = event.target
+    const pokemonDOM = deleteBtn.closest('.myPokemon')
+    const pokemonId = pokemonDOM.dataset.id
+
+
+    fetch(`/api/pokemons/${pokemonId}`, {
+      method: 'DELETE'
+    })
+      .then(() => {
+        state.myPokemons = state.myPokemons.filter(t => t.id != pokemonId)
+        renderMyPokemonsList()
+      })
+    }
+
+// function editName(event) {
+//     event.preventDefault()
 
 
 
-}
+// }
