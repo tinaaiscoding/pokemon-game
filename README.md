@@ -163,7 +163,9 @@ Wireframing / Conceptual Design of website<br/>
 
     ### How To Play Section
     
-
+    ### Stand up Day 3
+    ![Planning Photo 22](./client/images/README-images/Planning_22.png)<br/>
+    ![Planning Photo 23](./client/images/README-images/Planning_23.png)<br/>
 
     ### For further details and complete code of the app, please feel free to click into any of the files in the repo.  
 
