@@ -26,7 +26,8 @@ function renderMyPokemons() {
         <p>SPEED: ${myPokemon.speed}</p>
         <img src="${myPokemon.img}" alt="">
         <p>WIN COUNT: ${myPokemon.win_counts} </p>
-        <button onClick="takePokemonToBattle() class="to-battle-btn">BATTLE</button>
+        <button onClick="takePokemonToBattle(event)" class="to-battle-btn">BATTLE</button>
+        <button onClick="releasePokemon(event)" class="to-battle-btn">RELEASE</button>
     </section>
     `).join('')
 
