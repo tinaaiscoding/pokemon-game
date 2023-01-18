@@ -34,7 +34,7 @@ function renderNewStaterPokemon() {
   const btn_selected_squirtle = document.querySelector('.select-starters-btn.btn-squirtle')
 
   pokeball1.addEventListener('click', () => {
-    console.log('1');
+
     pokeball1.classList.add('hidden')
     pokeball2.classList.remove('hidden')
     pokeball3.classList.remove('hidden')
@@ -45,7 +45,7 @@ function renderNewStaterPokemon() {
   })
 
   pokeball2.addEventListener('click', () => {
-    console.log('2');
+
     pokeball1.classList.remove('hidden')
     pokeball2.classList.add('hidden')
     pokeball3.classList.remove('hidden')
@@ -56,7 +56,7 @@ function renderNewStaterPokemon() {
   })
 
   pokeball3.addEventListener('click', () => {
-    console.log('3');
+
     pokeball1.classList.remove('hidden')
     pokeball2.classList.remove('hidden')
     pokeball3.classList.add('hidden')
