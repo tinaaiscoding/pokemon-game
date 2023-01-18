@@ -30,7 +30,6 @@ function renderMyPokemons() {
         <button onClick="releasePokemon(event)" class="to-battle-btn">RELEASE</button>
     </section>
     `).join('')
-
 }
 
 function renderEditModal(event) {
@@ -56,35 +55,25 @@ function renderEditModal(event) {
                     </div>
                 </section>
             `
-
-            // backDropOn()
-
-            // backdrop.addEventListener('click', () => {
-            //     closeFormModal('edit-nickname-modal', allUserInputs);
-            // });
         }
-        function releasePokemon(event) {
-            const deleteBtn = event.target
-            const pokemonDOM = deleteBtn.closest('.myPokemon')
-            const pokemonId = pokemonDOM.dataset.id
+    })
+}
 
-            // const editNicknameModal = document.querySelector('#edit-nickname-modal');
-            // editNicknameModal.querySelector('.btn-cancel').addEventListener('click', () => {
-            //     closeFormModal('edit-nickname-modal', allUserInputs);
-            // });
+function releasePokemon(event) {
+    const deleteBtn = event.target
+    const pokemonDOM = deleteBtn.closest('.myPokemon')
+    const pokemonId = pokemonDOM.dataset.id
 
-            fetch(`/api/pokemons/${pokemonId}`, {
-                method: 'DELETE'
-            })
-                .then(() => {
-                    state.myPokemons = state.myPokemons.filter(t => t.id != pokemonId)
-                    renderMyPokemonsList()
-                })
-        }
+    // const editNicknameModal = document.querySelector('#edit-nickname-modal');
+    // editNicknameModal.querySelector('.btn-cancel').addEventListener('click', () => {
+    //     closeFormModal('edit-nickname-modal', allUserInputs);
+    // });
 
-// function editName(event) {
-//     event.preventDefault()
-
-
-
-// }
+    fetch(`/api/pokemons/${pokemonId}`, {
+        method: 'DELETE'
+    })
+        .then(() => {
+            state.myPokemons = state.myPokemons.filter(t => t.id != pokemonId)
+            renderMyPokemonsList()
+        })
+}
