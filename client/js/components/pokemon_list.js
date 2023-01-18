@@ -6,6 +6,7 @@
   //   `
   // }
 
+<<<<<<< HEAD
   // function renderPokemons() {
   //   return state.pokemons.map(pokemon => `
   //   <section class='pokemon' data-id='${pokemon.id}'>
@@ -26,6 +27,21 @@
   //       </p>
   //   </section>
   //   `).join('')
+=======
+  function renderPokemons() {
+    return state.pokemons.map(pokemon => `
+    <section class='pokemon' data-id='${pokemon.id}'>
+        <header>
+            <h2>Name: ${pokemon.name}</h2>
+        </header>
+        <p>HP: ${pokemon.hp}</p>
+        <p>ATTACK: ${pokemon.attack}</p>
+        <p>DEFENSE: ${pokemon.defense}</p>
+        <img src="${pokemon.img}" alt="">
+        <p>Win Count: ${pokemon.win_counts}</p>
+    </section>
+    `).join('')
+>>>>>>> 09811df (small modification)
     
   // }
 
