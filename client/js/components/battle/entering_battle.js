@@ -12,10 +12,13 @@ function takePokemonToBattle(event) {
   const battleBTN = event.target
   const pokemonDOM = battleBTN.closest('.myPokemon')
   const pokemonId = pokemonDOM.dataset.id
+  // console.log(pokemonId); working
 
-  fetch(`/api/pokemons/${pokemonId}`)
+  fetch(`/api/mypokemons/${pokemonId}`)
+    // .then(res => res.json())
     .then((pokemonToBattle) => {
       // need to console log the state below and see what it looks like
+      console.log(pokemonToBattle);
       state.playerPokemonToBattle = pokemonToBattle
       
       pickOpponentPokemon()

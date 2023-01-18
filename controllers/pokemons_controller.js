@@ -1,4 +1,3 @@
-const { response } = require('express')
 const express = require('express')
 const router = express.Router()
 // models
@@ -12,11 +11,14 @@ router.get('/', (req, res) => {
         .then(myPokemon => res.json(myPokemon))
 })
 
-router.get('/api/pokemons/:id', (req, res) => {
+router.get('/api/mypokemons/:id', (req, res) => {
   const pokemonId = req.params.id
+  console.log(pokemonId);
   Party_Pokemon
     .findById(pokemonId)
-    .then(pokemon => res.json(pokemon)) 
+    .then(pokemon => {res.json(pokemon)
+    console.log(pokemon)
+  }); 
 })
 
 router.get('/api/pokemons/:id', (req, res) => {
