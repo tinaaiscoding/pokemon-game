@@ -59,6 +59,30 @@ function renderEditModal(event) {
     })
 }
 
+function editNickname(event) {
+    event.preventDefault()
+    const form = event.target
+    const myPokemonDOM = form.closest('.edit-nickname')
+    const myPokemonId = myPokemonDOM.dataset.id
+
+    const data = Object.fromEntries(new FormData(form))
+
+    fetch(`/api/pokemons/${myPokemonId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+        .then(pokemon => {
+            state.myPokemons[myPokemonId - 1].nickname = pokemon.nickname
+            renderMyPokemonsList()
+        })
+
+}
+
+
+
+
 function releasePokemon(event) {
     const deleteBtn = event.target
     const pokemonDOM = deleteBtn.closest('.myPokemon')

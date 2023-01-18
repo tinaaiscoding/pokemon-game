@@ -2,7 +2,7 @@ const db = require('../db/db')
 
 const Party_Pokemon = {
   findAll: () => {
-    const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name'
+    const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name ORDER BY mypokemons.id'
 
     return db
       .query(sql)
@@ -12,9 +12,9 @@ const Party_Pokemon = {
   findById: (pokemonId) => {
     const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name WHERE mypokemons.id = $1'
 
-  return db
-    .query(sql, [pokemonId])
-    .then(dbRes => dbRes.rows[0])
+    return db
+      .query(sql, [pokemonId])
+      .then(dbRes => dbRes.rows[0])
     // need to check once pokemon party page is loading. 
   },
 
@@ -28,7 +28,7 @@ const Party_Pokemon = {
       .query(sql, [pokemonId, nickname])
       .then(dbRes => dbRes.rows[0])
   },
-      
+
   delete: pokemonId => {
     const sql = 'DELETE FROM mypokemons WHERE id = $1'
 
