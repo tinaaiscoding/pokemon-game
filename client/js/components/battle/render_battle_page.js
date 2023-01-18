@@ -1,4 +1,5 @@
 function renderBattleGround() {
+
   document.querySelector('#page').innerHTML =
   `<h2>Battle Ground</h2>
     <div class="mainBattleFlex">
