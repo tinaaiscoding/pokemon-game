@@ -7,6 +7,14 @@ const Pokemon = {
         return db
         .query(sql)
         .then(dbRes => dbRes.rows)
+    },
+
+    findById: (pokemonId) => {
+        const sql = 'SELECT * FROM pokemons WHERE id = $1'
+  
+        return db
+          .query(sql, [pokemonId])
+          .then(dbRes => dbRes.rows)
     }
 }
 

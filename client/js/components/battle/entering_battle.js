@@ -2,8 +2,9 @@
 // Clikcing the button will INSERT THAT pokemon into battle. 
 function pickOpponentPokemon() {
   let oppIdNum = Math.floor((Math.random() * 7) + 1)
-  fetch(`/api/pokemons/${oppIdNum}`)
+  fetch(`/opponent/${oppIdNum}`)
   .then((opponentToBattle) => {
+    console.log(opponentToBattle)
     state.opponentPokemon = opponentToBattle
   })
 }   
@@ -14,16 +15,20 @@ function takePokemonToBattle(event) {
   const pokemonId = pokemonDOM.dataset.id
   // console.log(pokemonId); working
 
-  fetch(`/api/mypokemons/${pokemonId}`)
-    // .then(res => res.json())
+  fetch(`/api/battle/${pokemonId}`)
+    .then(res => res.json())
     .then((pokemonToBattle) => {
+      console.log('ENTERING');
+      
+    console.log(pokemonToBattle)
       // need to console log the state below and see what it looks like
       console.log(pokemonToBattle);
       state.playerPokemonToBattle = pokemonToBattle
       
       pickOpponentPokemon()
-        // make sure the above two fetch commands are finished before renderBattleGround actions. 
-      renderBattleGround()
+      // make sure the above two fetch commands are finished before renderBattleGround actions. 
+    renderBattleGround()
     })
+ 
 }
 
