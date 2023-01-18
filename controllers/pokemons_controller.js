@@ -9,15 +9,6 @@ router.get('/', (req, res) => {
     .then(myPokemon => res.json(myPokemon))
 })
 
-router.delete('/:id', (req, res) => {
-  const pokemonId = req.params.id
-
-  Party_Pokemon
-    .delete(pokemonId)
-    .then(() => res.json({ message: 'deleted successfully' }))
-})
-
-
 router.get('/api/pokemons/:id', (req, res) => {
   const pokemonId = req.params.id
   console.log(pokemonId);
@@ -50,6 +41,15 @@ router.delete('/:id', (req, res) => {
     .delete(pokemonId)
     .then(() => res.json({ message: 'deleted successfully' }))
 })
+
+router.delete('/:id', (req, res) => {
+  const pokemonId = req.params.id
+  console.log(pokemonId)
+  Party_Pokemon
+    .delete(pokemonId)
+    .then(() => res.json({ message: 'deleted successfully' }))
+})
+
 
 
 

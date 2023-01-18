@@ -88,10 +88,28 @@ function releasePokemon(event) {
     const pokemonDOM = deleteBtn.closest('.myPokemon')
     const pokemonId = pokemonDOM.dataset.id
 
-    // const editNicknameModal = document.querySelector('#edit-nickname-modal');
-    // editNicknameModal.querySelector('.btn-cancel').addEventListener('click', () => {
-    //     closeFormModal('edit-nickname-modal', allUserInputs);
-    // });
+            fetch(`/api/pokemons/${pokemonId}`, {
+                method: 'DELETE'
+            })
+                .then(() => {
+                    state.myPokemons = state.myPokemons.filter(t => t.id != pokemonId)
+                    renderMyPokemonsList()
+                })
+        }
+function releasePokemon(event) {
+    const deleteBtn = event.target
+    const pokemonDOM = deleteBtn.closest('.myPokemon')
+    const pokemonId = pokemonDOM.dataset.id
+
+
+    fetch(`/api/pokemons/${pokemonId}`, {
+      method: 'DELETE'
+    })
+      .then(() => {
+        state.myPokemons = state.myPokemons.filter(t => t.id != pokemonId)
+        renderMyPokemonsList()
+      })
+    }
 
     fetch(`/api/pokemons/${pokemonId}`, {
         method: 'DELETE'
@@ -100,4 +118,3 @@ function releasePokemon(event) {
             state.myPokemons = state.myPokemons.filter(t => t.id != pokemonId)
             renderMyPokemonsList()
         })
-}
