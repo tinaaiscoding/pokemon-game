@@ -5,31 +5,31 @@ function renderBattleGround() {
     <div class="mainBattleFlex">
     <div class="fourColumns">
       <div class="playerStats">
-        <div class="nameP"> Name: ${state.playerPokemonToBattle[0].name}</div>
-        <div class="hpP"> HP: ${state.playerPokemonToBattle[0].hp}</div>
-        <div class="attackP"> Attack = ${state.playerPokemonToBattle[0].attack}</div>
-        <div class="defenseP"> Defense = ${state.playerPokemonToBattle[0].defense}</div>
-        <div class="speedP"> Speed = ${state.playerPokemonToBattle[0].speed}</div>
+        <div class="nameP"> Name: ${state.playerPokemonToBattle.name}</div>
+        <div class="hpP"> HP: ${state.playerPokemonToBattle.hp}</div>
+        <div class="attackP"> Attack = ${state.playerPokemonToBattle.attack}</div>
+        <div class="defenseP"> Defense = ${state.playerPokemonToBattle.defense}</div>
+        <div class="speedP"> Speed = ${state.playerPokemonToBattle.speed}</div>
       </div>
       <div class="playerImg">
-        <div>HP: <span class="numericalPlayerHealth">${state.playerPokemonToBattle[0].hp}</span><span>/${state.playerPokemonToBattle[0].hp}</span></div>
+        <div>HP: <span class="numericalPlayerHealth">${state.playerPokemonToBattle.hp}</span><span>/${state.playerPokemonToBattle.hp}</span></div>
         <progress id="player-health" max="100" value="100"></progress>
-        <div class="imageContainer"><img src="${state.playerPokemonToBattle[0].img}" alt=""></div>
+        <div class="imageContainer"><img src="${state.playerPokemonToBattle.img}" alt=""></div>
       </div>
       <div class="opponentImg">
-        <div>HP: <span class="numericalOpponentHealth">${state.opponentPokemon[3]}</span><span>/${state.opponentPokemon[3]}</span></div>
+        <div>HP: <span class="numericalOpponentHealth">${state.opponentPokemon.hp}</span><span>/${state.opponentPokemon.hp}</span></div>
         <progress id="opponent-health" max="100" value="100"></progress>
         <div class="imageContainer">
-          <img src="${state.opponentPokemon[2]}" alt="">
+          <img src="${state.opponentPokemon.img}" alt="">
         </div>
       
       </div>
       <div class="opponentStats">
-        <div class="nameP"> Name: ${state.opponentPokemon[1]}</div>
-        <div class="hpP"> HP: ${state.opponentPokemon[3]}</div>
-        <div class="attackP"> Attack = ${state.opponentPokemon[4]}</div>
-        <div class="defenseP"> Defense = ${state.opponentPokemon[5]}</div>
-        <div class="speedP"> Speed = ${state.opponentPokemon[6]}</div>
+        <div class="nameP"> Name: ${state.opponentPokemon.name}</div>
+        <div class="hpP"> HP: ${state.opponentPokemon.hp}</div>
+        <div class="attackP"> Attack = ${state.opponentPokemon.attack}</div>
+        <div class="defenseP"> Defense = ${state.opponentPokemon.defense}</div>
+        <div class="speedP"> Speed = ${state.opponentPokemon.speed}</div>
       </div>
     </div>
     <div>

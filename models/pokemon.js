@@ -9,12 +9,16 @@ const Pokemon = {
         .then(dbRes => dbRes.rows)
     },
 
-    findById: (pokemonId) => {
+    findById: (opponentId) => {
         const sql = 'SELECT * FROM pokemons WHERE id = $1'
   
         return db
-          .query(sql, [pokemonId])
-          .then(dbRes => dbRes.rows)
+        .query(sql, [opponentId])
+        .then(dbRes => {
+            console.log('OPPONENT DB DATA');
+            console.log(dbRes.rows[0]);    
+            return dbRes.rows[0]
+        })
     }
 }
 
