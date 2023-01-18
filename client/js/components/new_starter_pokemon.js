@@ -32,52 +32,52 @@ function renderNewStaterPokemon() {
   const btn_selected_bulbasaur = document.querySelector('.select-starters-btn.btn-bulbasaur')
   const btn_selected_charmander = document.querySelector('.select-starters-btn.btn-charmander')
   const btn_selected_squirtle = document.querySelector('.select-starters-btn.btn-squirtle')
-  
+
   pokeball1.addEventListener('click', () => {
     console.log('1');
     pokeball1.classList.add('hidden')
     pokeball2.classList.remove('hidden')
     pokeball3.classList.remove('hidden')
-  
+
     selected_bulbasaur.classList.remove('hidden')
     selected_charmander.classList.add('hidden')
     selected_squirtle.classList.add('hidden')
   })
-  
+
   pokeball2.addEventListener('click', () => {
     console.log('2');
     pokeball1.classList.remove('hidden')
     pokeball2.classList.add('hidden')
     pokeball3.classList.remove('hidden')
-  
+
     selected_bulbasaur.classList.add('hidden')
     selected_charmander.classList.remove('hidden')
     selected_squirtle.classList.add('hidden')
   })
-  
+
   pokeball3.addEventListener('click', () => {
     console.log('3');
     pokeball1.classList.remove('hidden')
     pokeball2.classList.remove('hidden')
     pokeball3.classList.add('hidden')
-  
+
     selected_squirtle.classList.remove('hidden')
     selected_bulbasaur.classList.add('hidden')
     selected_charmander.classList.add('hidden')
   })
-  
+
   btn_selected_bulbasaur.addEventListener('click', () => {
     renderPickBulbasaur()
   })
-  
+
   btn_selected_charmander.addEventListener('click', () => {
     renderPickCharmander()
   })
-  
+
   btn_selected_squirtle.addEventListener('click', () => {
     renderPickSquirtle()
   })
-  
+
   const starterPokemonModal = document.createElement('div')
   function renderPickBulbasaur() {
     starterPokemonModal.innerHTML = `
@@ -88,18 +88,18 @@ function renderNewStaterPokemon() {
         <img src="./images/new_starter_pokemon/starter_pokemon_bulbasaur.png" alt=""> 
         <br>
         <br>
-        <button class="button-32">PLAY</button>
+        <button onClick="renderMyPokemons()" class="button-32">PLAY</button>
       </div>
     </div>
     `
     document.querySelector('#page').appendChild(starterPokemonModal)
-  
-    backDropOn();
+
+    // backDropOn();
   }
-  
+
   function renderPickCharmander() {
-    
-      starterPokemonModal.innerHTML = `
+
+    starterPokemonModal.innerHTML = `
         <div class="modal visible" id="starter-pokemon-modal">
         <div class="modal-content">
           <h2>I CHOOSE YOU!</h2>
@@ -107,16 +107,16 @@ function renderNewStaterPokemon() {
           <img src="./images/new_starter_pokemon/starter_pokemon_charmander.png" alt=""> 
           <br>
           <br>
-          <button class="button-32">PLAY</button>
+          <button onClick="renderMyPokemons()" class="button-32">PLAY</button>
         </div>
       </div>
       `
-      document.querySelector('#page').appendChild(starterPokemonModal)
-  
-      backDropOn();
-    }
-    
-  function renderPickCSquirtle() {
+    document.querySelector('#page').appendChild(starterPokemonModal)
+
+    backDropOn();
+  }
+
+  function renderPickSquirtle() {
     starterPokemonModal.innerHTML = `
       <div class="modal visible" id="starter-pokemon-modal">
       <div class="modal-content">
@@ -125,15 +125,15 @@ function renderNewStaterPokemon() {
         <img src="./images/new_starter_pokemon/starter_pokemon_squirtle.png" alt=""> 
         <br>
         <br>
-        <button class="button-32">PLAY</button>
+        <button onClick="renderMyPokemons()" class="button-32">PLAY</button>
       </div>
     </div>
     `
     document.querySelector('#page').appendChild(starterPokemonModal)
-  
+
     backDropOn();
   }
-  
+
   // document.querySelector('#starter-pokemon-modal .button-32').addEventListener('click', () => {
   //   renderPokemonParty()
   // })

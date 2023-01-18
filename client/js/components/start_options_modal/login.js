@@ -1,5 +1,5 @@
 function renderLogin() {
-  document.querySelector('#start-options').innerHTML =  `
+  document.querySelector('#start-options').innerHTML = `
       <div id="login-modal">
         <div class="modal-content">
           <form onSubmit="login(event)">
@@ -15,20 +15,20 @@ function renderLogin() {
               <input type="password" name="password">
             </fieldset>
   
-            <button class="btn btn-success">Login</button>
+            <button onClick="renderMyPokemons()" class="btn btn-success">Login</button>
           </form>
          
           <button class="btn btn-cancel">Cancel</button>
         </div>
       </div>
       `
-  
-      const loginModal = document.querySelector('#login-modal');
-      const allUserInputs = document.querySelectorAll('input');
 
-      loginModal.querySelector('.btn-cancel').addEventListener('click', () => {
-        closeFormModal('start-option-modal', allUserInputs);
-      });
+  const loginModal = document.querySelector('#login-modal');
+  const allUserInputs = document.querySelectorAll('input');
+
+  loginModal.querySelector('.btn-cancel').addEventListener('click', () => {
+    closeFormModal('start-option-modal', allUserInputs);
+  });
 }
 
 function login(event) {
@@ -49,7 +49,7 @@ function login(event) {
         renderError(res.error)
       } else {
         state.loggedInUserName = res
-        // renderTreasureList() - RENDER POKEMON PARTY
+        renderMyPokemons()
       }
     })
 }
