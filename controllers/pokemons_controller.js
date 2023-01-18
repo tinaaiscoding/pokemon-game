@@ -21,12 +21,21 @@ router.get('/api/mypokemons/:id', (req, res) => {
   }); 
 })
 
-router.get('/api/pokemons/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   const opponentId = req.params.id
   Db_Pokemon
     .findById(opponentId)
     .then(opponent => res.json(opponent)) 
 })
+
+router.delete('/:id', (req, res) => {
+  const pokemonId = req.params.id
+  console.log(pokemonId)
+  Party_Pokemon
+    .delete(pokemonId)
+    .then(() => res.json({ message: 'deleted successfully' }))
+})
+
 
 
 module.exports = router

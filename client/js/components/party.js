@@ -33,9 +33,24 @@ function renderMyPokemons() {
 
 }
 
-function editName(event) {
-    event.preventDefault()
+function releasePokemon(event) {
+    const deleteBtn = event.target
+    const pokemonDOM = deleteBtn.closest('.myPokemon')
+    const pokemonId = pokemonDOM.dataset.id
+
+
+    fetch(`/api/pokemons/${pokemonId}`, {
+      method: 'DELETE'
+    })
+      .then(() => {
+        state.myPokemons = state.myPokemons.filter(t => t.id != pokemonId)
+        renderMyPokemonsList()
+      })
+    }
+
+// function editName(event) {
+//     event.preventDefault()
 
 
 
-}
+// }
