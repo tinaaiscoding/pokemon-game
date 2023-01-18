@@ -1,15 +1,23 @@
 const state = {
   pokemons: [],
+  myPokemons: [],
   playerPokemonToBattle: [],
   opponentPokemon: [],
   loggedInUserName: null
 }
 
+// fetch('/api/pokemons')
+//   .then(res => res.json())
+//   .then(pokemons => {
+//     state.pokemons = pokemons
+//     renderPokemonList()
+//   })
+
 fetch('/api/pokemons')
   .then(res => res.json())
-  .then(pokemons => {
-    state.pokemons = pokemons
-    renderPokemonList()
+  .then(myPokemons => {
+    state.myPokemons = myPokemons
+    renderMyPokemonsList()
   })
 
 

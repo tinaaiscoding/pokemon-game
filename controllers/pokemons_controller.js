@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
 // models
-const Pokemon = require('../models/pokemon')
+const Party_Pokemon = require('../models/pokemon')
 
-router.get('/', (req,res) => {
-    Pokemon
-    .findAll()
-    .then(pokemon => res.json(pokemon))
+router.get('/', (req, res) => {
+    Party_Pokemon
+        .findAll()
+        .then(myPokemon => res.json(myPokemon))
 })
 
 module.exports = router
