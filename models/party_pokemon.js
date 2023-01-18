@@ -14,8 +14,7 @@ const Party_Pokemon = {
 
       return db
         .query(sql, [pokemonId])
-        .then(dbRes => {dbRes.rows
-          console.log(dbRes.rows)})
+        .then(dbRes => dbRes.rows[0])
           // need to check once pokemon party page is loading. 
     }
 }
