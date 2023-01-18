@@ -2,7 +2,9 @@
 // Clikcing the button will INSERT THAT pokemon into battle. 
 function pickOpponentPokemon() {
   let oppIdNum = Math.floor((Math.random() * 7) + 1)
-
+  console.log('RANDOM NUMBER');
+  
+  console.log(oppIdNum);
   fetch(`/api/battle/opponent/${oppIdNum}`)
   .then(res => res.json())
   .then((opponentToBattle) => {
