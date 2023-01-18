@@ -18,17 +18,13 @@ function takePokemonToBattle(event) {
   fetch(`/api/battle/${pokemonId}`)
     .then(res => res.json())
     .then((pokemonToBattle) => {
-      console.log('ENTERING');
-      
-    console.log(pokemonToBattle)
       // need to console log the state below and see what it looks like
       console.log(pokemonToBattle);
       state.playerPokemonToBattle = pokemonToBattle
       
       pickOpponentPokemon()
       // make sure the above two fetch commands are finished before renderBattleGround actions. 
-    renderBattleGround()
+      renderBattleGround()
     })
- 
 }
 

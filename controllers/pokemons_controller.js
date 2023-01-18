@@ -2,8 +2,6 @@ const express = require('express')
 const router = express.Router()
 // models
 const Party_Pokemon = require('../models/party_pokemon')
-const Db_Pokemon = require('../models/pokemon')
-
 
 router.get('/', (req, res) => {
   Party_Pokemon
