@@ -15,7 +15,7 @@ function renderLogin() {
               <input type="password" name="password">
             </fieldset>
   
-            <button onClick="renderMyPokemons()" class="btn btn-success">Login</button>
+            <button class="btn btn-success">Login</button>
           </form>
          
           <button class="btn btn-cancel">Cancel</button>
