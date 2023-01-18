@@ -13,12 +13,7 @@ const state = {
 //     renderPokemonList()
 //   })
 
-fetch('/api/pokemons')
-  .then(res => res.json())
-  .then(myPokemons => {
-    state.myPokemons = myPokemons
-    renderMyPokemonsList()
-  })
+
 
 
 

@@ -44,10 +44,10 @@ CREATE TABLE mypokemons (
 );
 
 INSERT INTO
-  mypokemons (name, win_counts)
+  mypokemons (name, nickname, win_counts)
 VALUES
-  ('charmander', 0),
-  ('psyduck', 0)
+  ('charmander', 'charmander', 0),
+  ('psyduck', 'psyduck', 0)
   ;
 
 CREATE TABLE users(

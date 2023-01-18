@@ -49,7 +49,8 @@ function login(event) {
         renderError(res.error)
       } else {
         state.loggedInUserName = res
-        renderMyPokemons()
+        renderMyPokemonsList()
+        backDropOff()
       }
     })
 }
