@@ -1,5 +1,7 @@
 const state = {
   pokemons: [],
+  playerPokemonToBattle: [],
+  opponentPokemon: [],
   loggedInUserName: null
 }
 
