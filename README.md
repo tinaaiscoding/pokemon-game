@@ -152,7 +152,7 @@ Wireframing / Conceptual Design of website<br/>
     Some Pokemon only have one move they are able to use (eg. Ditto) whereas some are able to learn 300+ moves. This meant that the browser would provide an error and not render the move list onto the screen. We were able to resolve this using a for loop and appending only the first four moves listed in the API. 
 
     ```
-        Can you put code snipet here Mitch
+        Can you put code snippet of solution here Mitch?
     ```
 
     ![Development Photo 01](./client/images/README-images/Development_01.png)<br/>
@@ -166,6 +166,15 @@ Wireframing / Conceptual Design of website<br/>
     ### Stand up Day 3
     ![Planning Photo 22](./client/images/README-images/Planning_22.png)<br/>
     ![Planning Photo 23](./client/images/README-images/Planning_23.png)<br/>
+
+    ### The renderBulbasaur problem
+    ![Development Photo 03](./client/images/README-images/Development_03.png)<br/>
+    Why is this happening? 
+    ```
+        Can you put code snippet of solution here Harry?
+    ```
+
+
 
     ### For further details and complete code of the app, please feel free to click into any of the files in the repo.  
 
