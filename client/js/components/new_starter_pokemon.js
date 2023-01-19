@@ -105,16 +105,17 @@ function renderPickBulbasaur() {
 }
 
 function renderbulbasaur(event) {
-  event.preventDefault()
+  event.preventDefault() 
   fetch('/api/mypokemons')
+  
     .then(res => res.json())
-    .then(pokemons => {
-        state.pokemons = pokemons
-        console.log(pokemons)
-        state.myPokemons.push(state.pokemons[0])
+    .then(pokemon => {
+
+        state.myPokemons.push(pokemon)
+        renderMyPokemonsList()
     })
-    
-    renderMyPokemonsList()    
+    // .then(renderMyPokemonsList() )
+       
 }
 
 function renderPickCharmander() {

@@ -1,8 +1,8 @@
-fetch('/api/pokemons')
-    .then(res => res.json())
-    .then(myPokemons => {
-        state.myPokemons = myPokemons
-    })
+// fetch('/api/mypokemons')
+//     .then(res => res.json())
+//     .then(pokemons => {
+//         state.pokemons = pokemons
+//     })
 
 function renderMyPokemonsList() {
     backDropOff()
@@ -14,6 +14,7 @@ function renderMyPokemonsList() {
 }
 
 function renderMyPokemons() {
+    
     return state.myPokemons.map(myPokemon => `
     <section class='myPokemon' data-id='${myPokemon.id}'>
         <header>
@@ -25,7 +26,7 @@ function renderMyPokemons() {
         <p>DEFENSE: ${myPokemon.defense}</p>
         <p>SPEED: ${myPokemon.speed}</p>
         <img src="${myPokemon.img}" alt="">
-        <p>WIN COUNT: ${myPokemon.win_counts} </p>
+        <p>WIN COUNT: ${myPokemon.win_count} </p>
         <button onClick="takePokemonToBattle(event)" class="to-battle-btn">BATTLE</button>
         <button onClick="releasePokemon(event)" class="to-battle-btn">RELEASE</button>
     </section>
@@ -72,17 +73,3 @@ function releasePokemon(event) {
                     renderMyPokemonsList()
                 })
         }
-function releasePokemon(event) {
-    const deleteBtn = event.target
-    const pokemonDOM = deleteBtn.closest('.myPokemon')
-    const pokemonId = pokemonDOM.dataset.id
-
-
-    fetch(`/api/pokemons/${pokemonId}`, {
-      method: 'DELETE'
-    })
-      .then(() => {
-        state.myPokemons = state.myPokemons.filter(t => t.id != pokemonId)
-        renderMyPokemonsList()
-      })
-    }

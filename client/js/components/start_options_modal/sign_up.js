@@ -50,6 +50,9 @@ function signUp(event) {
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
-    .then((userName) => state.loggedInUserName = userName)
+    .then((user) => {
+      state.loggedInUserName = user.email
+      state.loggedInId = user.id})
+    
     .then(() => renderNewStaterPokemon()) // - RENDER POKEMON STARTER FILE
 }

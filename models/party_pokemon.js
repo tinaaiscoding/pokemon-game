@@ -2,7 +2,9 @@ const db = require('../db/db')
 
 const Party_Pokemon = {
   findAll: () => {
-    const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name ORDER BY mypokemons.id'
+    // const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name ORDER BY mypokemons.id'
+      const sql = 'SELECT * FROM pokemons'
+
 
     return db
       .query(sql)
@@ -10,7 +12,7 @@ const Party_Pokemon = {
   },
 
   findById: (pokemonId) => {
-    const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name WHERE mypokemons.id = $1'
+    const sql = 'SELECT * FROM pokemons'
 
     return db
       .query(sql, [pokemonId])
@@ -19,7 +21,7 @@ const Party_Pokemon = {
   },
 
   edit: (pokemonId, nickname) => {
-    const sql = `UPDATE mypokemons 
+    const sql = `UPDATE pokemons 
         SET nickname = $2
         WHERE id = $1
         RETURNING *
@@ -30,7 +32,7 @@ const Party_Pokemon = {
   },
 
   delete: pokemonId => {
-    const sql = 'DELETE FROM mypokemons WHERE id = $1'
+    const sql = 'DELETE FROM pokemons WHERE id = $1'
 
     return db.query(sql, [pokemonId])
   }

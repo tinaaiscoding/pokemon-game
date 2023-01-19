@@ -3,10 +3,22 @@ const router = express.Router()
 
 const Pokemon = require('../models/pokemon')
 
+// router.get('/', (req, res) => {
+//     Pokemon
+//       .findStarterPokemon()
+//       .then(myPokemon => res.json(myPokemon))
+//   })
+
 router.get('/', (req, res) => {
     Pokemon
       .insertBulbasaur()
-      .then(myPokemon => res.json(myPokemon))
+      .then(myPokemon => {
+        console.log("hi")
+        console.log(myPokemon)
+      return res.json(myPokemon)
+     
+    })
+      
   })
 
   module.exports = router

@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     .then(myPokemon => res.json(myPokemon))
 })
 
-router.get('/api/pokemons/:id', (req, res) => {
+router.get('/api/pokemons/', (req, res) => {
   const pokemonId = req.params.id
   console.log(pokemonId);
   Party_Pokemon
