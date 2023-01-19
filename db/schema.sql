@@ -202,10 +202,3 @@ CREATE TABLE users(
   email TEXT,
   password_digest TEXT
 );
-
-
-SELECT name, nickname, win_counts, user_id
-FROM mypokemons
-INNER JOIN users 
-  ON mypokemons.user_id = users.id
-
