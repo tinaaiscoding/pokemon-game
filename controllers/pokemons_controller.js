@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     .then(myPokemon => res.json(myPokemon))
 })
 
-router.get('/api/mypokemons/:id', (req, res) => {
+router.get('/api/pokemons/', (req, res) => {
   const pokemonId = req.params.id
   console.log(pokemonId);
   Party_Pokemon
@@ -41,7 +41,6 @@ router.delete('/:id', (req, res) => {
     .delete(pokemonId)
     .then(() => res.json({ message: 'deleted successfully' }))
 })
-
 
 
 module.exports = router

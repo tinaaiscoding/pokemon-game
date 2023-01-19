@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
 
   User
     .create(name, email, passwordDigest)
-    .then(userName => res.json(userName))
+    .then(user => res.json(user))
 })
 
 module.exports = router;
