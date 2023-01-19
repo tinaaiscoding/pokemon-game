@@ -5,6 +5,7 @@ fetch('/api/pokemons')
 })
 
 function renderMyPokemonsList() {
+  pickOpponentPokemon()
   backDropOff()
   document.querySelector('#page').innerHTML = `
         <section class='party-pokemon-list'>
