@@ -104,7 +104,7 @@ function renderbulbasaur(event, userId, pokemonId) {
     .then((res) => res.json())
     .then((pokemon) => {
       state.myPokemons.push(pokemon)
-      renderMyPokemonsList(userId)
+      renderMyPokemonsList()
     })
   // .then(renderMyPokemonsList() )
 }
@@ -132,7 +132,7 @@ function renderCharmander(event, userId, pokemonId) {
     .then((res) => res.json())
     .then((pokemon) => {
       state.myPokemons.push(pokemon)
-      renderMyPokemonsList(userId)
+      renderMyPokemonsList()
     })
   // .then(renderMyPokemonsList() )
 }
@@ -160,6 +160,6 @@ function renderSquirtle(event, userId, pokemonId) {
     .then((res) => res.json())
     .then((pokemon) => {
       state.myPokemons.push(pokemon)
-      renderMyPokemonsList(userId)
+      renderMyPokemonsList()
     })
 }

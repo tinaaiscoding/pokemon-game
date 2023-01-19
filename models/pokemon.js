@@ -23,11 +23,17 @@ const Pokemon = {
   },
 
   findById: (pokemonId) => {
-    const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name WHERE mypokemons.id = $1'
+    const sql = 'SELECT * FROM pokemons WHERE id = $1'
 
     return db
       .query(sql, [pokemonId])
-      .then(dbRes => dbRes.rows[0])
+      .then(dbRes =>{
+        console.log('MODEL');
+        console.log(dbRes);
+
+        console.log('DB RESSSSS');
+        console.log(dbRes.rows[0]);
+        return dbRes.rows[0]})
   },
 
   findOppById: (opponentId) => {

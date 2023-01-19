@@ -49,9 +49,7 @@ function login(event) {
     fetch('/api/pokemons/mypokemon')
     .then((res) => res.json())
     .then((myPokemons) => {
-      console.log(myPokemons);
       state.myPokemons.push(myPokemons)
-      console.log(state.myPokemons)
       renderMyPokemonsList()
     })
 }
