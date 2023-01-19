@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const router = express.Router()
 // models
 const Pokemon = require('../models/pokemon')
@@ -9,12 +10,13 @@ router.get('/', (req, res) => {
     .then(pokemons => res.json(pokemons))
 })
 
-router.get('/mypokemon', (req, res) => {
+router.get('/:id/mypokemon', (req, res) => {
+  console.log('USER ID SESSION');
+  const userId = req.params.id
+  console.log(userId);
   Pokemon
-    .findAllMyPokemon(7)
+    .findAllMyPokemon(userId)
     .then(myPokemons => {
-      console.log('BEFORE INTO STATE OBJ');
-      console.log(myPokemons);
       return res.json(myPokemons[0])
     })
 })
@@ -31,7 +33,6 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const pokemonId = req.params.id
-  console.log(pokemonId)
   Pokemon
     .delete(pokemonId)
     .then(() => res.json({ message: 'deleted successfully' }))

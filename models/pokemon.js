@@ -15,10 +15,7 @@ const Pokemon = {
     return db
       .query(sql, [userId])
       .then(dbRes => {
-        console.log('FROM DB');
-        console.log(dbRes.rows);
         return dbRes.rows
-      
       })
   },
 
