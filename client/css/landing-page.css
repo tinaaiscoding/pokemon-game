@@ -1,0 +1,62 @@
+.landing-page {
+    background: url("../images/landing-page/kanto_map.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-btns {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+
+.landing-btns>div>h1 {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+.landing-btns>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.landing-btns>div:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid white;
+    transition: 0.3s;
+}
+
+.landing-btn {
+    background-size: cover;
+    cursor: pointer;
+    padding: 60px;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 20px;
+    border: none;
+}
+
+.start-btn {
+    background-image: url("../images/landing-page/ball.png");
+
+}
+
+.how-to-btn {
+    background-image: url("../images/landing-page/information.png");
+
+}
+
+nav {
+    margin-top: 15%;
+}

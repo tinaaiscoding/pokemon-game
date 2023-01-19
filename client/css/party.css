@@ -1,0 +1,91 @@
+.party-pokemon-list {
+    background-image: url(../images/landing-page/tiled-png.png);
+    padding: 40px;
+    border: 5px solid black;
+    border-radius: 30px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.h1-title {
+    font-size: 3rem;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+    margin: 20px 100px;
+}
+
+.myPokemon {
+    display: inline-grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: 0 5px 10px;
+}
+
+.cards {
+    border: 10px solid rgb(255, 222, 78);
+    background-color: rgb(250, 163, 128);
+    border-radius: 20px;
+    padding: 18px;
+}
+
+.cards h2 {
+    margin: 5px;
+}
+
+.cards img {
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.cards header {
+    display: flex;
+}
+
+.cards p {
+    font-weight: 600;
+}
+
+.cards span,
+button {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cards button {
+    border-radius: 3px;
+}
+
+.cards div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.material-symbols-outlined.edit-nickname {
+    color: rgb(9, 51, 98);
+    display: flex;
+    align-items: center;
+}
+
+
+/* EDIT NICKNAME */
+.btn-edit {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: rgb(255, 222, 78);
+    width: 250px;
+    padding: 8px 20px;
+    border-radius: 25px;
+    border: 2px solid black;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.modal-content.edit-nickname>form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

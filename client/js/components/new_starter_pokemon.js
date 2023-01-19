@@ -1,4 +1,6 @@
 function renderNewStaterPokemon() {
+  backDropOff()
+  document.querySelector('.header-nav').innerHTML = ``
   document.querySelector('#page').innerHTML = `
   <div id="new_starter_pokemon_page">
     <div class="pokeballs-group">
@@ -107,7 +109,7 @@ function renderPickBulbasaur() {
 // function renderbulbasaur(event) {
 //   event.preventDefault() 
 //   fetch('/api/mypokemons')
-  
+
 //     .then(res => res.json())
 //     .then(pokemon => {
 
@@ -115,7 +117,7 @@ function renderPickBulbasaur() {
 //         renderMyPokemonsList()
 //     })
 //     // .then(renderMyPokemonsList() )
-       
+
 // }
 
 function renderPickCharmander() {

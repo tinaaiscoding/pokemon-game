@@ -1,4 +1,5 @@
 const backdrop = document.querySelector('#backdrop');
+const navbar = document.querySelector('#header-nav');
 
 function backDropOn() {
   backdrop.classList.add('visible');
@@ -21,4 +22,8 @@ function resetForm(inputs) {
 function closeModal(modalId) {
   document.querySelector(`#${modalId}`).classList.remove('visible');
   backDropOff();
+}
+
+function hideNav() {
+  navbar.classList.add('hidden');
 }

@@ -27,14 +27,34 @@
   <link rel="stylesheet" href="./css/modals/modals_backdrop.css">
   <link rel="stylesheet" href="./css/new_starter_pokemon.css">
   <link rel="stylesheet" href="./css/battle_ground.css">
+  <link rel="stylesheet" href="./css/landing-page.css">
+  <link rel="stylesheet" href="./css/party.css">
+
+  <!-- Material Icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
 
-<body>
+<header>
+
+</header>
+
+<body class="landing-page">
   <nav class="header-nav">
-    <h1>Welcome to Pokemon Battle!</h1>
-    <button onClick="renderStartOptions()">Start</button>
-    <button onClick="renderHowToPlayModal()">How to play</button>
+    <img src="./images/landing-page/PokeBattles.png" alt="PokeBattles Logo">
+    <section class="landing-btns">
+      <div>
+        <button class="landing-btn start-btn" onClick="renderStartOptions()"></button>
+        <h1>START</h1>
+      </div>
+      <div>
+        <button class="landing-btn how-to-btn" onClick="renderHowToPlayModal()"></button>
+        <h1>HOW TO PLAY</h1>
+      </div>
+
+    </section>
+
   </nav>
 
   <main id="page" class="content"></main>
@@ -42,9 +62,6 @@
 
   <div class="view-pokemon"></div>
   <div class="evol-pokemon"></div>
-
-
-
 </body>
 
 </html>

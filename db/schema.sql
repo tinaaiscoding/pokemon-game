@@ -193,7 +193,12 @@ CREATE TABLE mypokemons (
 INSERT INTO
   mypokemons (name, nickname, win_counts, user_id)
 VALUES
-  ('psyduck', 'psyduck', 0, 0)
+  ('charmander', 'charmander', 0, 0),
+  ('dratini', 'dratini', 0, 0),
+  ('mew', 'mew', 0, 0),
+  ('cubone', 'cubone', 0, 0),
+  ('snorlax', 'snorlax', 0, 0),
+  ('gengar', 'gengar', 0, 0)
   ;
 
 CREATE TABLE users(

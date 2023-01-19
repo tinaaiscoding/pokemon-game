@@ -2,21 +2,19 @@
   position: fixed;
   z-index: 100;
   background: white;
-  border-radius: 10px;
-  width: 80%;
+  border: 5px solid black;
+  border-radius: 30px;
+  min-width: 50%;
   top: 30vh;
-  left: 10%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  left: 25%;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   display: none;
 }
 
 .modal .modal-title {
   margin: 0;
   padding: 1rem;
-  border-bottom: 1px solid #00329e;
-  background: #00329e;
-  color: white;
-  border-radius: 10px 10px 0 0;
+  color: black;
 }
 
 .modal .modal-content {
@@ -35,15 +33,86 @@
 }
 
 /* START OPTIONS MODAL */
-#start-option-modal {
+.start-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.start-nav div {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.start-btns,
+.btn-success {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: rgb(255, 222, 78);
+  width: 150px;
+  padding: 8px 20px;
+  border-radius: 25px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.close-btn {
+  display: flex;
+  justify-content: center;
+  padding: 5px 19px;
+  width: 35px;
+  border-radius: 50%;
+  border: 2px solid black;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: rgb(253, 223, 90);
+}
+
+.start-btns:hover,
+.close-btn:hover,
+.btn-success:hover,
+.btn-edit:hover {
+  color: white;
+  background-color: rgb(253, 214, 42);
+  transition: 0.3s;
+}
+
+/* lOGIN/SIGNUP MODAL */
+.modal-content h2 {
   text-align: center;
 }
 
-#start-option-modal ul {
-  padding-left: 0;
+.modal-content>form>div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#start-option-modal li {
-  display: inline-block;
-  margin: 0 15px;
+.modal-content input {
+  width: 60%;
+  text-align: center;
+  padding: 5px;
+  border-radius: 25px;
+  border: 1px solid rgb(163, 163, 163);
+  margin: 5px;
+}
+
+.btn-success {
+  margin: 10px auto;
+}
+
+/* HOW TO PLAY OPTIONS MODAL */
+.how-to {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px;
 }

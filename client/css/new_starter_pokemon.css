@@ -1,7 +1,19 @@
+/* .tile-bg {
+  background-image: url(../images/landing-page/tiled-png.png);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  border: none;
+  display: none;
+} */
+
 #new_starter_pokemon_page {
   background-image: url(../images/new_starter_pokemon/bg_professor_oaks_lab.png);
   width: 100%;
-  object-fit: cover;  
+  object-fit: cover;
   position: relative;
 }
 
@@ -86,7 +98,7 @@
 .button-32:not(:disabled):focus {
   outline: 0;
   background: #ffc712;
-  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15);
 }
 
 .button-32:disabled {
