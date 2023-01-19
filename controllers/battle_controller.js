@@ -9,10 +9,6 @@ router.get('/:id', (req, res) => {
   Pokemon
     .findById(pokemonId)
     .then(pokemon => {
-      console.log('ROUTE');
-      console.log(pokemon);
-      console.log('RES JSON');
-      console.log(res.pokemon);
       return res.json(pokemon)
     }) 
 })
