@@ -193,7 +193,7 @@ CREATE TABLE mypokemons (
 INSERT INTO
   mypokemons (name, nickname, win_counts, user_id)
 VALUES
-  ('psyduck', 'psyduck', 0)
+  ('psyduck', 'psyduck', 0, 0)
   ;
 
 CREATE TABLE users(
