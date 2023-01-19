@@ -186,11 +186,12 @@ CREATE TABLE mypokemons (
   id SERIAL PRIMARY KEY,
   name TEXT,
   nickname TEXT,
-  win_counts INTEGER
+  win_counts INTEGER,
+  user_id INTEGER
 );
 
 INSERT INTO
-  mypokemons (name, nickname, win_counts)
+  mypokemons (name, nickname, win_counts, user_id)
 VALUES
   ('psyduck', 'psyduck', 0)
   ;
@@ -203,4 +204,8 @@ CREATE TABLE users(
 );
 
 
+SELECT name, nickname, win_counts, user_id
+FROM mypokemons
+INNER JOIN users 
+  ON mypokemons.user_id = users.id
 

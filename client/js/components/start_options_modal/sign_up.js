@@ -29,13 +29,13 @@ function renderSignUp() {
 
   const signUpModal = document.querySelector('#sign-up-modal');
   const allUserInputs = document.querySelectorAll('input');
-  
+
   signUpModal.querySelector('.btn-cancel').addEventListener('click', () => {
     closeFormModal('start-option-modal', allUserInputs);
   });
 
   signUpModal.querySelector('.btn-success').addEventListener('click', backDropOff);
-  
+
 }
 
 function signUp(event) {
