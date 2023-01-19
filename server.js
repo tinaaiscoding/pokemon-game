@@ -7,9 +7,9 @@ const sessions = require('./middlewares/sessions');
 // CONTROLLERS
 const usersController = require('./controllers/users_controller');
 const sessionsController = require('./controllers/sessions_controller');
-const pokemonsStartController = require('./controllers/start_pokemon_controller')
 const battleController = require('./controllers/battle_controller')
 const pokemonsController = require('./controllers/pokemons_controller')
+const pokemonsStartController = require('./controllers/start_pokemon_controller')
 
 const app = express()
 const port = process.env.PORT || 3000;

@@ -100,6 +100,9 @@ function renderPickBulbasaur() {
 
 function renderbulbasaur(event, userId, pokemonId) {
   event.preventDefault()
+console.log('COMPONENTS');
+  console.log(userId);
+  console.log(pokemonId);
   fetch(`/api/startpokemons/add/${userId}/${pokemonId}`)
     .then((res) => res.json())
     .then((pokemon) => {
