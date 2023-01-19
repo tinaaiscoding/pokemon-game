@@ -25,9 +25,9 @@ print151Pokemon()
 
 // ${pokemon.moves[0].move.name}
 
-INSERT INTO
-  pokemons(pokedex_number, name, img, hp, attack, defense, speed, moves, nickname, win_count, user_id)
-VALUES 
+// INSERT INTO
+//   pokemons(pokedex_number, name, img, hp, attack, defense, speed, moves, nickname, win_count, user_id)
+// VALUES 
 (1, 'bulbasaur', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png', 45, 49, 65, 45, ARRAY['razor-wind', 'swords-dance', 'cut', 'bind'], 'bulbasaur', 0, 0),
 (2, 'ivysaur', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png', 60, 62, 80, 60, ARRAY['swords-dance', 'cut', 'bind', 'vine-whip'], 'ivysaur', 0, 0),
 (3, 'venusaur', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png', 80, 82, 100, 80, ARRAY['swords-dance', 'cut', 'bind', 'vine-whip'], 'venusaur', 0, 0),
