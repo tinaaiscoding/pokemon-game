@@ -1,7 +1,7 @@
 const db = require('../db/db')
 
 const Starter_Pokemon = {
-    findPokemon: (userId) => {
+    findAll: (userId) => {
         const sql = 'SELECT * FROM pokemons WHERE id = $1'
         return db
         .query(sql, [userId])
