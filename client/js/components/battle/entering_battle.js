@@ -1,7 +1,7 @@
 // each pokemon will have it's own button generated via the party.js file. 
 // Clikcing the button will INSERT THAT pokemon into battle. 
 function pickOpponentPokemon() {
-  let oppIdNum = Math.floor((Math.random() * 7) + 1)
+  let oppIdNum = Math.floor((Math.random() * 151) + 1)
   console.log('RANDOM NUMBER');
   
   console.log(oppIdNum);

@@ -9,20 +9,20 @@ router.get('/', (req, res) => {
     .then(myPokemon => res.json(myPokemon))
 })
 
-router.get('/api/pokemons/', (req, res) => {
-  const pokemonId = req.params.id
-  console.log(pokemonId);
-  Party_Pokemon
-    .findById(pokemonId)
-    .then(pokemon => res.json(pokemon))
-})
+// router.get('/api/pokemons/', (req, res) => {
+//   const pokemonId = req.params.id
+//   console.log(pokemonId);
+//   Party_Pokemon
+//     .findById(pokemonId)
+//     .then(pokemon => res.json(pokemon))
+// })
 
-router.get('/:id', (req, res) => {
-  const opponentId = req.params.id
-  Db_Pokemon
-    .findById(opponentId)
-    .then(opponent => res.json(opponent))
-})
+// router.get('/:id', (req, res) => {
+//   const opponentId = req.params.id
+//   Db_Pokemon
+//     .findById(opponentId)
+//     .then(opponent => res.json(opponent))
+// })
 
 router.put('/:id', (req, res) => {
   const pokemonId = req.params.id

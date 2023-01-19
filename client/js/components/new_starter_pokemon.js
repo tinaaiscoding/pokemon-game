@@ -94,7 +94,7 @@ function renderPickBulbasaur() {
      <img src="./images/new_starter_pokemon/starter_pokemon_bulbasaur.png" alt=""> 
      <br>
      <br>
-     <button onClick="renderbulbasaur(event)" class="button-32">PLAY</button>
+     <button onClick="renderMyPokemonsList(event)" class="button-32">PLAY</button>
    </div>
  </div>
  `
@@ -104,19 +104,19 @@ function renderPickBulbasaur() {
  // backDropOn();
 }
 
-function renderbulbasaur(event) {
-  event.preventDefault() 
-  fetch('/api/mypokemons')
+// function renderbulbasaur(event) {
+//   event.preventDefault() 
+//   fetch('/api/mypokemons')
   
-    .then(res => res.json())
-    .then(pokemon => {
+//     .then(res => res.json())
+//     .then(pokemon => {
 
-        state.myPokemons.push(pokemon)
-        renderMyPokemonsList()
-    })
-    // .then(renderMyPokemonsList() )
+//         state.myPokemons.push(pokemon)
+//         renderMyPokemonsList()
+//     })
+//     // .then(renderMyPokemonsList() )
        
-}
+// }
 
 function renderPickCharmander() {
 
@@ -128,7 +128,7 @@ function renderPickCharmander() {
        <img src="./images/new_starter_pokemon/starter_pokemon_charmander.png" alt=""> 
        <br>
        <br>
-       <button onClick="" class="button-32">PLAY</button>
+       <button onClick="renderMyPokemonsList()" class="button-32">PLAY</button>
      </div>
    </div>
    `
