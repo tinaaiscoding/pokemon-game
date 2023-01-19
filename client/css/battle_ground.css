@@ -1,7 +1,30 @@
-.mainBattleFlex {
-  display: flex;
-  flex-direction: column;
+.battle-ground {
+  background-color: white;
+  background-image: url(../images/landing-page/tiled-png.png);
+  padding: 30px;
+  border: 5px solid black;
+  border-radius: 30px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  margin: 30px;
+}
+
+.battle-ground h1 {
+  font-size: 3rem;
   text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  margin: 20px 100px;
+  margin-top: 50px;
+}
+
+.mainBattleFlex {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 30px;
+  margin: 50px;
+  border-radius: 20px;
 }
 
 .fourColumns {
@@ -10,45 +33,87 @@
   align-items: center;
   justify-content: space-evenly;
 }
+
 .playerStats {
-text-align: left;
+  text-align: left;
 }
-.opponentStats{
-text-align: right;
+
+.opponentStats {
+  text-align: right;
 }
 
 .battleLog {
-  border: 1px solid black;
+  border: 2px solid black;
+  border-radius: 20px;
   background-color: aliceblue;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 50px;
   margin-top: 20px;
+  margin-bottom: 50px;
   height: 250px;
   overflow-y: scroll;
 }
 
-.battleLog > div {
-  padding: 5px;
-  padding-right: 30px;
+.battleLog>div {
+  padding: 10px 20px;
   text-align: left;
   color: red;
+  font-family: "Custom Game Font", Verdana, Tahoma;
 }
 
-.battleLog > p {
-  padding: 5px;
-  padding-left: 40px;
+.battleLog>p {
+  padding: 10px 20px;
   text-align: left;
   margin: 0;
   color: blue;
+  font-family: "Custom Game Font", Verdana, Tahoma;
 }
 
 .imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 400px;
   width: 200px;
 }
 
-.playerStats > div, .opponentStats > div {
-  padding-left: 15px;
-  padding-right: 15px;
+.imageContainer img {
+  width: 100%;
+}
+
+.playerStats>p,
+.opponentStats>p,
+.playerImg>div,
+.opponentImg>div {
+  padding: 5px 15px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.attBtn {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  background-color: rgb(240, 68, 0);
+  width: 250px;
+  padding: 8px 20px;
+  border-radius: 25px;
+  border: 2px solid black;
+  cursor: pointer;
+  margin-top: 20px;
+  margin: 0 auto;
+}
+
+.attBtn:hover {
+  background-color: rgb(206, 58, 0);
+  transition: 0.3s;
+}
+
+#player-health,
+#opponent-health {
+  height: 20px;
+  width: 100%;
 }

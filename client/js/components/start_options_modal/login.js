@@ -3,22 +3,13 @@ function renderLogin() {
       <div id="login-modal">
         <div class="modal-content">
           <form onSubmit="login(event)">
-            <h2 class="modal-title">Login</h2>
-  
-            <fieldset>
-              <label for="">Email: </label>
-              <input type="text" name="email">
-            </fieldset>
-            
-            <fieldset>
-              <label for="">Password: </label>
-              <input type="password" name="password">
-            </fieldset>
-  
-            <button class="btn btn-success">Login</button>
+            <h2 class="modal-title">Welcome Back Trainer!</h2>
+            <div>
+              <input placeholder="Email" type="text" name="email">
+              <input placeholder="Password" type="password" name="password">
+            </div>
+            <button class="btn btn-success">LOGIN</button>
           </form>
-         
-          <button class="btn btn-cancel">Cancel</button>
         </div>
       </div>
       `

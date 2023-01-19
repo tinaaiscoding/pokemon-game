@@ -3,26 +3,15 @@ function renderSignUp() {
     <div id="sign-up-modal">
       <div class="modal-content">
         <form onSubmit="signUp(event)">
-          <h2 class="modal-title">Sign Up</h2>
-          <fieldset>
-            <label for="">Name: </label>
-            <input type="text" name="name">
-          </fieldset>
-
-          <fieldset>
-            <label for="">Email: </label>
-            <input type="text" name="email">
-          </fieldset>
-          
-          <fieldset>
-            <label for="">Password: </label>
-            <input type="password" name="password">
-          </fieldset>
-
-          <button class="btn btn-success">Sign Up</button>
+          <h2 class="modal-title">Welcome New Trainer!</h2>
+          <div>
+            <input placeholder="Name" type="text" name="name">
+            <input placeholder="Email" type="text" name="email">
+            <input placeholder="Password" type="password" name="password">
+          </div>
+          <button class="btn btn-success">SIGN UP</button>
         </form>
        
-        <button class="btn btn-cancel">Cancel</button>
       </div>
     </div>
     `;
@@ -52,7 +41,8 @@ function signUp(event) {
     .then((res) => res.json())
     .then((user) => {
       state.loggedInUserName = user.email
-      state.loggedInId = user.id})
-    
+      state.loggedInId = user.id
+    })
+
     .then(() => renderNewStaterPokemon()) // - RENDER POKEMON STARTER FILE
 }
