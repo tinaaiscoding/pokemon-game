@@ -2,23 +2,52 @@ function renderNewStaterPokemon() {
   backDropOff()
   document.querySelector('.header-nav').innerHTML = ``
   document.querySelector('#page').innerHTML = `
-  <div id="new_starter_pokemon_page">
-    <div class="pokeballs-group">
-      <img class="pokeball pokeball-1" src="./images/new_starter_pokemon/pokeball_close.png" alt="">
-      <img class="pokeball pokeball-2" src="./images/new_starter_pokemon/pokeball_close.png" alt="">
-      <img class="pokeball pokeball-3" src="./images/new_starter_pokemon/pokeball_close.png" alt="">
-    </div>
-    <div class="starter-pokemon-group">
-      <img class="starter-pokemon bulbasaur hidden" src="./images/new_starter_pokemon/selected_bulbasaur.png" alt="">
-      <img class="starter-pokemon charmander hidden" src="./images/new_starter_pokemon/selected_charmander.png" alt="">
-      <img class="starter-pokemon squirtle hidden" src="./images/new_starter_pokemon/selected_squirtle.png" alt="">
-    </div>
-    <div class="select-starters-btn-group">
-      <button class="select-starters-btn btn-bulbasaur button-32" onClick="renderPickBulbasaur()">SELECT</button>
-      <button class="select-starters-btn btn-charmander button-32" onClick="renderPickCharmander()">SELECT</button>
-      <button class="select-starters-btn btn-squirtle button-32" onClick="renderPickCSquirtle()">SELECT</button>
-    </div>
+ 
+  <div class="bigBox">
+  <div>
+    <img class="profTable" src="../images/new_starter_pokemon/bg_professor_oaks_lab.png" alt="">
   </div>
+
+  <div id="new_starter_pokemon_page">
+    
+    <div class="pokeballs-group">
+
+      <div class='bulbTest'>
+        <div>
+          <img class="pokeball pokeball-1" src="./images/new_starter_pokemon/pokeball_close.png" alt="">
+          <img class="starter-pokemon bulbasaur hidden" src="./images/new_starter_pokemon/selected_bulbasaur.png" alt="">
+        </div>
+        <div class="select-starters-btn-group">
+          <button class="select-starters-btn btn-bulbasaur button-32" onClick="renderPickBulbasaur()">SELECT</button>
+        </div>
+      </div>
+
+      <div class='charTest'>
+        <div>
+          <img class="pokeball pokeball-2" src="./images/new_starter_pokemon/pokeball_close.png" alt="">
+          <img class="starter-pokemon charmander hidden" src="./images/new_starter_pokemon/selected_charmander.png" alt="">
+        </div>
+        <div class="select-starters-btn-group">
+          <button class="select-starters-btn btn-charmander button-32" onClick="renderPickCharmander()">SELECT</button>
+        </div>
+      </div>
+
+
+      <div class='squiTest'>
+        <div>
+          <img class="pokeball pokeball-3" src="./images/new_starter_pokemon/pokeball_close.png" alt=""> 
+          <img class="starter-pokemon squirtle hidden" src="./images/new_starter_pokemon/selected_squirtle.png" alt="">
+        </div>
+        <div class="select-starters-btn-group">
+          <button class="select-starters-btn btn-squirtle button-32" onClick="renderPickCSquirtle()">SELECT</button>
+        </div>
+      </div> 
+      
+      
+    </div>
+
+  </div>
+</div>
   `
   const pokeball1 = document.querySelector('.pokeball-1')
   const pokeball2 = document.querySelector('.pokeball-2')
@@ -82,7 +111,7 @@ function renderNewStaterPokemon() {
 const starterPokemonModal = document.createElement('div')
 function renderPickBulbasaur() {
   starterPokemonModal.innerHTML = `
-   <div class="modal visible" id="starter-pokemon-modal">
+   <div class="moveup modal visible" id="starter-pokemon-modal">
    <div class="modal-content">
      <h2>I CHOOSE YOU!</h2>
      <h3>POKEMON NAME</h3>
@@ -114,7 +143,7 @@ console.log('COMPONENTS');
 
 function renderPickCharmander(event, userId, pokemonId) {
   starterPokemonModal.innerHTML = `
-     <div class="modal visible" id="starter-pokemon-modal">
+     <div class="moveup modal visible" id="starter-pokemon-modal">
      <div class="modal-content">
        <h2>I CHOOSE YOU!</h2>
        <h3>POKEMON NAME</h3>
@@ -142,7 +171,7 @@ function renderCharmander(event, userId, pokemonId) {
 
 function renderPickSquirtle() {
   starterPokemonModal.innerHTML = `
-   <div class="modal visible" id="starter-pokemon-modal">
+   <div class="moveup modal visible" id="starter-pokemon-modal">
    <div class="modal-content">
      <h2>I CHOOSE YOU!</h2>
      <h3>POKEMON NAME</h3>

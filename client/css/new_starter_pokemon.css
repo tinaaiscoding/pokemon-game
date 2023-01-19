@@ -9,54 +9,103 @@
   border: none;
   display: none;
 } */
-
 #new_starter_pokemon_page {
-  background-image: url(../images/new_starter_pokemon/bg_professor_oaks_lab.png);
+  /* display: flex;
+  flex-direction: column;
+  border: 1 solid black; */
+  z-index: 0;
+  margin: 0px;  
+}
+
+.profTable {
+  margin: 0 auto;
+  z-index: -1;
+  position: absolute;
+  background-size: auto;
   width: 100%;
+  max-width: 100%;
+  height: auto;
   object-fit: cover;
-  background-size: contain;
-  height: 100vh;
-  position: relative;
+  opacity: 1;
+}
+
+.bigBox {
+  padding-top: 60px;
+}
+
+.content {
+  
+  height: 1000px;
 }
 
 .pokeball {
-  display: inline-block;
-  width: 200px;
-  margin: 0 98px;
+  /* position: relative; */
+
+  flex-direction: column;
+  border: 1 solid black;
+  max-width: 100%;
 }
 
-.pokeballs-group {
+.bulbTest, .charTest, .squiTest {
   position: relative;
-  left: 107px;
-  top: 333px;
-  z-index: 1;
 }
+
+.bulbasaur, .charmander, .squirtle  {
+  max-width: 100%;
+  position: absolute;
+  top: -50%;
+  left: 0;
+}
+
+/* .moveup {
+  max-width: 10%;
+  position: relative;
+  display: inline;
+  top: -30%;
+  left: 0;
+} */
+
+.pokeballs-group {
+  padding-top: 25%;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* left: 107px;
+  top: 333px;
+  z-index: 1; */
+}
+
+.pokeballs-group > div {
+  max-width: 22%;
+}
+
 
 .starter-pokemon {
   width: 300px;
-  margin: 0 58px;
 }
 
 .starter-pokemon-group {
   position: relative;
-  left: 63px;
   bottom: 0px;
 }
 
 .starter-pokemon-group .bulbasaur {
   position: relative;
-  top: 11px;
 }
 
 .select-starters-btn-group {
-  position: relative;
-  left: 93px;
-  bottom: -8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.select-starters-btn-group > button {
+  width: 120px;
 }
 
 .select-starters-btn {
-  position: relative;
-  margin: 0 154px;
+
 }
 
 #starter-pokemon-modal {
@@ -70,7 +119,7 @@
 }
 
 #starter-pokemon-modal .button-32 {
-  width: 40%;
+  width: 200px;
 }
 
 /* BUTTON STYLING */
@@ -96,7 +145,7 @@
 .button-32:not(:disabled):focus {
   outline: 0;
   background: #ffc712;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, .2), 0 3px 8px 0 rgba(0, 0, 0, .15);
+  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
 }
 
 .button-32:disabled {
