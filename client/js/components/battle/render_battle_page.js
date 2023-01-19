@@ -33,7 +33,7 @@ function renderBattleGround() {
       </div>
     </div>
     <div>
-      <button class="attBtn">Attack</button>
+      <button onClick="attackHandler()" class="attBtn">Attack</button>
     </div>
   </div>
   <div class="battleLog" ></div>
