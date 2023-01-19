@@ -46,7 +46,6 @@ CREATE TABLE mypokemons (
 INSERT INTO
   mypokemons (name, nickname, win_counts)
 VALUES
-  ('charmander', 'charmander', 0),
   ('psyduck', 'psyduck', 0)
   ;
 

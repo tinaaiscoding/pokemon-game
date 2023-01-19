@@ -42,15 +42,5 @@ router.delete('/:id', (req, res) => {
     .then(() => res.json({ message: 'deleted successfully' }))
 })
 
-router.delete('/:id', (req, res) => {
-  const pokemonId = req.params.id
-  console.log(pokemonId)
-  Party_Pokemon
-    .delete(pokemonId)
-    .then(() => res.json({ message: 'deleted successfully' }))
-})
-
-
-
 
 module.exports = router

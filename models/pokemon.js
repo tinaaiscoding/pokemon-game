@@ -1,8 +1,8 @@
 const db = require('../db/db')
 
 const Pokemon = {
-    findAll: () => {
-        const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name'
+    insertBulbasaur: () => {
+        const sql = `INSERT INTO mypokemons (name, nickname, win_counts) VALUES ('bulbasaur', 'bulbasaur', 0)`
         
         return db
         .query(sql)

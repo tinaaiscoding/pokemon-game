@@ -34,7 +34,7 @@ function renderNewStaterPokemon() {
   const btn_selected_squirtle = document.querySelector('.select-starters-btn.btn-squirtle')
 
   pokeball1.addEventListener('click', () => {
-
+    console.log('1');
     pokeball1.classList.add('hidden')
     pokeball2.classList.remove('hidden')
     pokeball3.classList.remove('hidden')
@@ -45,7 +45,7 @@ function renderNewStaterPokemon() {
   })
 
   pokeball2.addEventListener('click', () => {
-
+    console.log('2');
     pokeball1.classList.remove('hidden')
     pokeball2.classList.add('hidden')
     pokeball3.classList.remove('hidden')
@@ -94,7 +94,7 @@ function renderPickBulbasaur() {
      <img src="./images/new_starter_pokemon/starter_pokemon_bulbasaur.png" alt=""> 
      <br>
      <br>
-     <button onClick="renderMyPokemonsList()" class="button-32">PLAY</button>
+     <button onClick="renderbulbasaur(event)" class="button-32">PLAY</button>
    </div>
  </div>
  `
@@ -102,6 +102,19 @@ function renderPickBulbasaur() {
  document.querySelector('#page').appendChild(starterPokemonModal)
 
  // backDropOn();
+}
+
+function renderbulbasaur(event) {
+  event.preventDefault()
+  fetch('/api/mypokemons')
+    .then(res => res.json())
+    .then(pokemons => {
+        state.pokemons = pokemons
+        console.log(pokemons)
+        state.myPokemons.push(state.pokemons[0])
+    })
+    
+    renderMyPokemonsList()    
 }
 
 function renderPickCharmander() {
@@ -114,7 +127,7 @@ function renderPickCharmander() {
        <img src="./images/new_starter_pokemon/starter_pokemon_charmander.png" alt=""> 
        <br>
        <br>
-       <button onClick="renderMyPokemonsList()" class="button-32">PLAY</button>
+       <button onClick="" class="button-32">PLAY</button>
      </div>
    </div>
    `
@@ -123,6 +136,9 @@ function renderPickCharmander() {
 
   backDropOn();
 }
+
+
+
 
 function renderPickSquirtle() {
  starterPokemonModal.innerHTML = `
