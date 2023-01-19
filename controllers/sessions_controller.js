@@ -32,8 +32,8 @@ router.post('/', (req, res) => {
         if (user && isValidPassword) {
           req.session.userId = user.id
           console.log(user)
+     
           res.json({loggedInUserName: user.email, loggedInId: user.id})
-          
         }
       }
     })

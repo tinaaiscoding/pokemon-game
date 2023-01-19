@@ -1,8 +1,8 @@
 fetch('/api/pokemons')
-  .then(res => res.json())
-  .then(myPokemons => {
-      state.myPokemons = myPokemons
-})
+  .then((res) => res.json())
+  .then((pokemons) => {
+    state.pokemons = pokemons
+  })
 
 function renderMyPokemonsList() {
   pickOpponentPokemon()
@@ -37,8 +37,7 @@ function renderMyPokemons() {
         </div>
     </section>
     `
-    )
-    .join('')
+    ).join('')
 }
 
 function renderEditModal(event) {
@@ -83,17 +82,16 @@ function editNickname(event) {
 
     const data = Object.fromEntries(new FormData(form))
 
-    fetch(`/api/pokemons/${myPokemonId}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+  fetch(`/api/pokemons/${myPokemonId}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((pokemon) => {
+      state.myPokemons[myPokemonId - 1].nickname = pokemon.nickname
+      renderMyPokemonsList()
     })
-        .then(res => res.json())
-        .then(pokemon => {
-            state.myPokemons[myPokemonId - 1].nickname = pokemon.nickname
-            renderMyPokemonsList()
-        })
-
 }
 
 function releasePokemon(event) {
@@ -101,11 +99,28 @@ function releasePokemon(event) {
   const pokemonDOM = deleteBtn.closest('.myPokemon')
   const pokemonId = pokemonDOM.dataset.id
 
-    fetch(`/api/pokemons/${pokemonId}`, {
-        method: 'DELETE'
-    })
-        .then(() => {
-            state.myPokemons = state.myPokemons.filter(t => t.id != pokemonId)
-            renderMyPokemonsList()
-        })
+  fetch(`/api/pokemons/${pokemonId}`, {
+    method: 'DELETE',
+  }).then(() => {
+    state.myPokemons = state.myPokemons.filter((t) => t.id != pokemonId)
+    renderMyPokemonsList()
+  })
 }
+
+// function shitRenderBtn() {
+//   document.querySelector('#page').innerHTML = `
+//   <section class='myPokemon' data-id='${myPokemon.id}'>
+//   <header>
+//       <h2>${myPokemon.nickname}</h2>
+//       <span class='material-symbols-outlined edit-nickname' onClick="renderEditModal(event)">edit</span>
+//   </header>
+//   <p>HP: ${myPokemon.hp}</p>
+//   <p>ATTACK: ${myPokemon.attack}</p>
+//   <p>DEFENSE: ${myPokemon.defense}</p>
+//   <p>SPEED: ${myPokemon.speed}</p>
+//   <img src="${myPokemon.img}" alt="">
+//   <p>WIN COUNT: ${myPokemon.win_count} </p>
+//   <button onClick="takePokemonToBattle(event)" class="to-battle-btn">BATTLE</button>
+//   <button onClick="releasePokemon(event)" class="to-battle-btn">RELEASE</button>
+// </section>`
+// }

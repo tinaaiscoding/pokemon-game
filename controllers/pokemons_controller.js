@@ -1,12 +1,22 @@
 const express = require('express')
 const router = express.Router()
 // models
-const Party_Pokemon = require('../models/party_pokemon')
+const Pokemon = require('../models/pokemon')
 
 router.get('/', (req, res) => {
-  Party_Pokemon
-    .findAll()
-    .then(myPokemon => res.json(myPokemon))
+  Pokemon
+    .findAllPokemon()
+    .then(pokemons => res.json(pokemons))
+})
+
+router.get('/mypokemon', (req, res) => {
+  Pokemon
+    .findAllMyPokemon(7)
+    .then(myPokemons => {
+      console.log('BEFORE INTO STATE OBJ');
+      console.log(myPokemons);
+      return res.json(myPokemons[0])
+    })
 })
 
 router.put('/:id', (req, res) => {
@@ -14,7 +24,7 @@ router.put('/:id', (req, res) => {
 
   const { nickname } = req.body
 
-  Party_Pokemon
+  Pokemon
     .edit(pokemonId, nickname)
     .then(myPokemon => res.json(myPokemon))
 })
@@ -22,18 +32,9 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   const pokemonId = req.params.id
   console.log(pokemonId)
-  Party_Pokemon
+  Pokemon
     .delete(pokemonId)
     .then(() => res.json({ message: 'deleted successfully' }))
-})
-
-router.get('/mypokemons', (req, res) => {
-  const sessionUserId = state.loggedInId
-  console.log(sessionUserId);
-
-  Party_Pokemon
-    .addBulbasaur(sessionUserId)
-    .then(myPokemon => res.json(myPokemon))
 })
 
 module.exports = router

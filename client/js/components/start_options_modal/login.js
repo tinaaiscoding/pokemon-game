@@ -41,8 +41,17 @@ function login(event) {
       } else {
         state.loggedInId = res.loggedInId
         state.loggedInUserName = res.loggedInUserName
-        renderMyPokemonsList()
+        // renderMyPokemonsList(state.loggedInId)
         backDropOff()
       }
+    })
+
+    fetch('/api/pokemons/mypokemon')
+    .then((res) => res.json())
+    .then((myPokemons) => {
+      console.log(myPokemons);
+      state.myPokemons.push(myPokemons)
+      console.log(state.myPokemons)
+      renderMyPokemonsList()
     })
 }

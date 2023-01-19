@@ -1,41 +1,59 @@
 const db = require('../db/db')
+
 const Pokemon = {
-    findAll: (userId) => {
-        const sql = 'SELECT * FROM pokemons WHERE id = $1'
-        return db
-        .query(sql, [userId])
-        .then(dbRes => {
-            console.log('USER ID');
-            console.log(dbRes.rows[0]);
-            return dbRes.rows[0]
-        })
-    },
-    insertPokemon: (userId, pokemonData) => {
-        const sql = `INSERT INTO pokemons (pokedex_number, name, img, hp, attack, defense, speed, moves, nickname, win_count, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`
-        return db
-        .query(sql, [pokemonData.pokedex_number, pokemonData.name, pokemonData.img, pokemonData.hp, pokemonData.attack, pokemonData.defense, pokemonData.speed, pokemonData.moves, pokemonData.nickname, pokemonData.win_count, userId])
-        .then(dbRes => {
-            console.log('Pokemon ID');
-            console.log(dbRes.rows[0]);
-            return dbRes.rows[0]
-        })
-        // const sql = `INSERT INTO pokemons (pokedex_number, name, img, hp, attack, defense, speed, moves, nickname, win_count, user_id) VALUES ($1, '$2', '$3', $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`
-        return db
-        // .query(sql)
-        // .then(dbRes => {
-        //     // console.log("HELLO")
-        //    return dbRes.rows[0]
-        // })
-    },
-    findById: (opponentId) => {
-        const sql = 'SELECT * FROM pokemons WHERE id = $1'
-        return db
-        .query(sql, [opponentId])
-        .then(dbRes => {
-            console.log('OPPONENT DB DATA');
-            console.log(dbRes.rows[0]);
-            return dbRes.rows[0]
-        })
-    }
+  findAllPokemon: () => {
+    const sql = 'SELECT * FROM pokemons'
+
+    return db
+      .query(sql)
+      .then(dbRes => dbRes.rows)
+  },
+
+  findAllMyPokemon: userId => {
+    const sql = 'SELECT * FROM pokemons WHERE id = $1'
+
+    return db
+      .query(sql, [userId])
+      .then(dbRes => {
+        console.log('FROM DB');
+        console.log(dbRes.rows);
+        return dbRes.rows
+      
+      })
+  },
+
+  findById: (pokemonId) => {
+    const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name WHERE mypokemons.id = $1'
+
+    return db
+      .query(sql, [pokemonId])
+      .then(dbRes => dbRes.rows[0])
+  },
+
+  findOppById: (opponentId) => {
+      const sql = 'SELECT * FROM pokemons WHERE id = $1'
+      return db
+      .query(sql, [opponentId])
+      .then(dbRes => dbRes.rows[0])
+  },
+
+  edit: (pokemonId, nickname) => {
+    const sql = `UPDATE mypokemons 
+        SET nickname = $2
+        WHERE id = $1
+        RETURNING *
+      `
+    return db
+      .query(sql, [pokemonId, nickname])
+      .then(dbRes => dbRes.rows[0])
+  },
+
+  delete: pokemonId => {
+    const sql = 'DELETE FROM mypokemons WHERE id = $1'
+
+    return db
+      .query(sql, [pokemonId])
+  }
 }
+
 module.exports = Pokemon

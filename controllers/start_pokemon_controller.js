@@ -1,7 +1,6 @@
 const express = require('express')
-const { insertPokemon } = require('../models/pokemon')
 const router = express.Router()
-const Pokemon = require('../models/pokemon')
+const Starter_Pokemon = require('../models/starter_pokemon')
 // router.get('/', (req, res) => {
 //   Pokemon
 //     .findAll()
@@ -13,7 +12,7 @@ const Pokemon = require('../models/pokemon')
 router.get('/add/:userId/:pokemonId', (req, res) => {
   const userId = req.params.userId
   const pokemonId = req.params.pokemonId
-    Pokemon
+  Starter_Pokemon
       .findAll(pokemonId)
       .then(pokemonData => insertPokemon(userId, pokemonData))
       .then(myPokemon => {
