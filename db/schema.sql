@@ -186,13 +186,14 @@ CREATE TABLE mypokemons (
   id SERIAL PRIMARY KEY,
   name TEXT,
   nickname TEXT,
-  win_counts INTEGER
+  win_counts INTEGER,
+  user_id INTEGER
 );
 
 INSERT INTO
-  mypokemons (name, nickname, win_counts)
+  mypokemons (name, nickname, win_counts, user_id)
 VALUES
-  ('psyduck', 'psyduck', 0)
+  ('psyduck', 'psyduck', 0, 0)
   ;
 
 CREATE TABLE users(
@@ -201,6 +202,3 @@ CREATE TABLE users(
   email TEXT,
   password_digest TEXT
 );
-
-
-

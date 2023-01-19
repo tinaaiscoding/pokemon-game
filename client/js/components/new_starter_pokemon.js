@@ -78,7 +78,7 @@ function renderNewStaterPokemon() {
     renderPickSquirtle()
   })
 
-   // document.querySelector('#starter-pokemon-modal .button-32').addEventListener('click', () => {
+  // document.querySelector('#starter-pokemon-modal .button-32').addEventListener('click', () => {
   //   renderPokemonParty()
   // })
 }
@@ -98,10 +98,10 @@ function renderPickBulbasaur() {
    </div>
  </div>
  `
- // button 92 should add bulbsaour on our renderMyPokemons function. 
- document.querySelector('#page').appendChild(starterPokemonModal)
+  // button 92 should add bulbsaour on our renderMyPokemons function. 
+  document.querySelector('#page').appendChild(starterPokemonModal)
 
- // backDropOn();
+  // backDropOn();
 }
 
 // function renderbulbasaur(event) {
@@ -120,7 +120,7 @@ function renderPickBulbasaur() {
 
 function renderPickCharmander() {
 
- starterPokemonModal.innerHTML = `
+  starterPokemonModal.innerHTML = `
      <div class="modal visible" id="starter-pokemon-modal">
      <div class="modal-content">
        <h2>I CHOOSE YOU!</h2>
@@ -132,8 +132,8 @@ function renderPickCharmander() {
      </div>
    </div>
    `
-   
- document.querySelector('#page').appendChild(starterPokemonModal)
+
+  document.querySelector('#page').appendChild(starterPokemonModal)
 
   backDropOn();
 }
@@ -142,7 +142,7 @@ function renderPickCharmander() {
 
 
 function renderPickSquirtle() {
- starterPokemonModal.innerHTML = `
+  starterPokemonModal.innerHTML = `
    <div class="modal visible" id="starter-pokemon-modal">
    <div class="modal-content">
      <h2>I CHOOSE YOU!</h2>
@@ -154,7 +154,20 @@ function renderPickSquirtle() {
    </div>
  </div>
  `
- document.querySelector('#page').appendChild(starterPokemonModal)
+  document.querySelector('#page').appendChild(starterPokemonModal)
 
-//  backDropOn();
+  //  backDropOn();
 }
+
+
+//function renderbulbasaur(event) {
+//  event.preventDefault()
+ // fetch('/api/mypokemons')
+ //   .then(res => res.json())
+  //  .then(pokemons => {
+    //  state.pokemons = pokemons
+      // console.log(pokemons)
+      // state.myPokemons.push(state.pokemons[0])
+   // })
+  // renderMyPokemonList()
+// }

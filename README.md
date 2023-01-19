@@ -217,3 +217,5 @@ Wireframing / Conceptual Design of website<br/>
 ## Conclusions
 ![Collab Photo 1](./client/images/README-images/Collab_01.png)
 *Teamwork!!*
+![Collab Photo 2](./client/images/README-images/Collab_02.png)
+*Team Background Power Move*
