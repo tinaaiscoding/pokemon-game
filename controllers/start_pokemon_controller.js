@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
     Pokemon
       .insertBulbasaur()
       .then(myPokemon => {
-        console.log("hi")
         console.log(myPokemon)
       return res.json(myPokemon)
      
