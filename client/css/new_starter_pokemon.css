@@ -1,8 +1,12 @@
 #new_starter_pokemon_page {
   background-image: url(../images/new_starter_pokemon/bg_professor_oaks_lab.png);
-  background-size: contain;
-  height: 100vh;
+  width: 100%;
+  object-fit: cover;  
   position: relative;
+}
+
+.content {
+  height: 1000px;
 }
 
 .pokeball {
