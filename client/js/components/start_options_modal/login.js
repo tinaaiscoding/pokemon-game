@@ -14,12 +14,12 @@ function renderLogin() {
       </div>
       `
 
-  const loginModal = document.querySelector('#login-modal');
-  const allUserInputs = document.querySelectorAll('input');
+  const loginModal = document.querySelector('#login-modal')
+  const allUserInputs = document.querySelectorAll('input')
 
   loginModal.querySelector('.btn-cancel').addEventListener('click', () => {
-    closeFormModal('start-option-modal', allUserInputs);
-  });
+    closeFormModal('start-option-modal', allUserInputs)
+  })
 }
 
 function login(event) {
@@ -31,18 +31,24 @@ function login(event) {
   fetch('/api/sessions', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   })
-    .then(res => res.json())
-    .then(res => {
+    .then((res) => res.json())
+    .then((res) => {
       if (res.error) {
         renderLogin()
         renderError(res.error)
       } else {
         state.loggedInId = res.loggedInId
         state.loggedInUserName = res.loggedInUserName
-        renderMyPokemonsList()
         backDropOff()
+
+        fetch(`/api/pokemons/${state.loggedInId}/mypokemon`)
+          .then((res) => res.json())
+          .then((myPokemons) => {
+            state.myPokemons.push(myPokemons)
+            renderMyPokemonsList()
+          })
       }
     })
 }

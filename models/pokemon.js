@@ -1,31 +1,62 @@
 const db = require('../db/db')
 
 const Pokemon = {
-    findAll: () => {
-    const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name'
-    // insertBulbasaur: () => {
-    //     const sql = `INSERT INTO pokemons (pokedex_number, name, img, hp, attack, defense, speed, moves, nickname, win_count, user_id) VALUES (1, 'bulbasaur', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png', 45, 49, 49, 45, ARRAY['razor-wind', 'swords-dance', 'cut', 'bind'], 'bulbasaur', 0, 1) RETURNING *`
-        
-        return db
-        .query(sql)
-        .then(dbRes => dbRes.rows)
-        // .then(dbRes => {
-        //     console.log("HELLO")
-        //    return dbRes.rows[0]
-        // })
-    },
+  findAllPokemon: () => {
+    const sql = 'SELECT * FROM pokemons'
 
-    findById: (opponentId) => {
-        const sql = 'SELECT * FROM pokemons WHERE id = $1'
-  
-        return db
-        .query(sql, [opponentId])
-        .then(dbRes => {
-            console.log('OPPONENT DB DATA');
-            console.log(dbRes.rows[0]);    
-            return dbRes.rows[0]
-        })
-    }
+    return db
+      .query(sql)
+      .then(dbRes => dbRes.rows)
+  },
+
+  findAllMyPokemon: userId => {
+    const sql = 'SELECT * FROM pokemons WHERE id = $1'
+
+    return db
+      .query(sql, [userId])
+      .then(dbRes => {
+        return dbRes.rows
+      })
+  },
+
+  findById: (pokemonId) => {
+    const sql = 'SELECT * FROM pokemons WHERE id = $1'
+
+    return db
+      .query(sql, [pokemonId])
+      .then(dbRes =>{
+        console.log('MODEL');
+        console.log(dbRes);
+
+        console.log('DB RESSSSS');
+        console.log(dbRes.rows[0]);
+        return dbRes.rows[0]})
+  },
+
+  findOppById: (opponentId) => {
+      const sql = 'SELECT * FROM pokemons WHERE id = $1'
+      return db
+      .query(sql, [opponentId])
+      .then(dbRes => dbRes.rows[0])
+  },
+
+  edit: (pokemonId, nickname) => {
+    const sql = `UPDATE mypokemons 
+        SET nickname = $2
+        WHERE id = $1
+        RETURNING *
+      `
+    return db
+      .query(sql, [pokemonId, nickname])
+      .then(dbRes => dbRes.rows[0])
+  },
+
+  delete: pokemonId => {
+    const sql = 'DELETE FROM mypokemons WHERE id = $1'
+
+    return db
+      .query(sql, [pokemonId])
+  }
 }
 
 module.exports = Pokemon

@@ -1,46 +1,41 @@
 const express = require('express')
+const session = require('express-session')
 const router = express.Router()
 // models
-const Party_Pokemon = require('../models/party_pokemon')
+const Pokemon = require('../models/pokemon')
 
 router.get('/', (req, res) => {
-  Party_Pokemon
-    .findAll()
-    .then(myPokemon => res.json(myPokemon))
+  Pokemon
+    .findAllPokemon()
+    .then(pokemons => res.json(pokemons))
 })
 
-// router.get('/api/pokemons/', (req, res) => {
-//   const pokemonId = req.params.id
-//   console.log(pokemonId);
-//   Party_Pokemon
-//     .findById(pokemonId)
-//     .then(pokemon => res.json(pokemon))
-// })
-
-// router.get('/:id', (req, res) => {
-//   const opponentId = req.params.id
-//   Db_Pokemon
-//     .findById(opponentId)
-//     .then(opponent => res.json(opponent))
-// })
+router.get('/:id/mypokemon', (req, res) => {
+  console.log('USER ID SESSION');
+  const userId = req.params.id
+  console.log(userId);
+  Pokemon
+    .findAllMyPokemon(userId)
+    .then(myPokemons => {
+      return res.json(myPokemons[0])
+    })
+})
 
 router.put('/:id', (req, res) => {
   const pokemonId = req.params.id
 
   const { nickname } = req.body
 
-  Party_Pokemon
+  Pokemon
     .edit(pokemonId, nickname)
     .then(myPokemon => res.json(myPokemon))
 })
 
 router.delete('/:id', (req, res) => {
   const pokemonId = req.params.id
-  console.log(pokemonId)
-  Party_Pokemon
+  Pokemon
     .delete(pokemonId)
     .then(() => res.json({ message: 'deleted successfully' }))
 })
-
 
 module.exports = router
