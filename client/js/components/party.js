@@ -1,19 +1,12 @@
 fetch('/api/pokemons')
-    .then(res => res.json())
-    .then(myPokemons => {
-        state.myPokemons = myPokemons
-    })
-
-// fetch('/api/mypokemons')
-//     .then(res => res.json())
-//     .then(pokemons => {
-//         state.pokemons = pokemons
-//     })
+  .then(res => res.json())
+  .then(myPokemons => {
+      state.myPokemons = myPokemons
+})
 
 function renderMyPokemonsList() {
-    backDropOff()
-    document.querySelector('.header-nav').innerHTML = ``
-    document.querySelector('#page').innerHTML = `
+  backDropOff()
+  document.querySelector('#page').innerHTML = `
         <section class='party-pokemon-list'>
             <h1 class="h1-title" >MY PARTY</h1>
             ${renderMyPokemons()}
@@ -42,14 +35,16 @@ function renderMyPokemons() {
             </div>
         </div>
     </section>
-    `).join('')
+    `
+    )
+    .join('')
 }
 
 function renderEditModal(event) {
-    const editBtn = event.target
-    const myPokemonDOM = editBtn.closest('.myPokemon')
-    const myPokemonId = myPokemonDOM.dataset.id
-    const myPokemons = state.myPokemons
+  const editBtn = event.target
+  const myPokemonDOM = editBtn.closest('.myPokemon')
+  const myPokemonId = myPokemonDOM.dataset.id
+  const myPokemons = state.myPokemons
 
     myPokemons.forEach(myPokemon => {
         const myPokemonId1 = Number(myPokemonId)
@@ -100,12 +95,10 @@ function editNickname(event) {
 
 }
 
-
-
 function releasePokemon(event) {
-    const deleteBtn = event.target
-    const pokemonDOM = deleteBtn.closest('.myPokemon')
-    const pokemonId = pokemonDOM.dataset.id
+  const deleteBtn = event.target
+  const pokemonDOM = deleteBtn.closest('.myPokemon')
+  const pokemonId = pokemonDOM.dataset.id
 
     fetch(`/api/pokemons/${pokemonId}`, {
         method: 'DELETE'
@@ -115,4 +108,3 @@ function releasePokemon(event) {
             renderMyPokemonsList()
         })
 }
-

@@ -3,8 +3,6 @@ const db = require('../db/db')
 const Party_Pokemon = {
   findAll: () => {
     const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name ORDER BY mypokemons.id'
-      // const sql = 'SELECT * FROM pokemons'
-
 
     return db
       .query(sql)
@@ -13,7 +11,6 @@ const Party_Pokemon = {
 
   findById: (pokemonId) => {
     const sql = 'SELECT * FROM pokemons INNER JOIN mypokemons ON pokemons.name = mypokemons.name WHERE mypokemons.id = $1'
-    // const sql = 'SELECT * FROM pokemons'
 
     return db
       .query(sql, [pokemonId])
@@ -38,8 +35,21 @@ const Party_Pokemon = {
     // const sql = 'DELETE FROM pokemons WHERE id = $1'
 
     return db.query(sql, [pokemonId])
+  },
+
+  addBulbasaur: (sessionUserId) => {
+    const sql = `
+    INSERT INTO  
+      mypokemons(name, nickname, win_counts, user_id)
+    VALUES
+      ('bulbasaur', 'bulbasaur', 0, $1)`
+
+    return db
+      .query(sql, [sessionUserId])
+ 
   }
 }
+
 
 
 module.exports = Party_Pokemon
