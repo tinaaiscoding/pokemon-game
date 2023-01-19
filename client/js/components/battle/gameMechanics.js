@@ -21,14 +21,19 @@ function battle() {
   let maxLifePlayer = hp;
   let maxLifeOpponent = hp2;
 
-  let currentPlayerHP = hp
-  let currentOpponentHP = hp2
+  let currentPlayerHP = document.querySelector(
+    '.numericalPlayerHealth'
+  ).innerHTML;
+  console.log(currentPlayerHP);
+  let currentOpponentHP = document.querySelector(
+    '.numericalOpponentHealth'
+  ).innerHTML;
+  console.log(currentOpponentHP);
 
   speedCheck(speed, speed2, playerPokemonChosen, opponentPokemonChosen);
 
   if (playerToAttackFrist === 'player') {
     attackOpponent(attack, defense2, currentOpponentHP, maxLifePlayer);
-    checkWinner(currentPlayerHP, currentOpponentHP);
     // middle functions needed
     retaliateText();
     attackPlayer(
@@ -39,8 +44,7 @@ function battle() {
       currentPlayerHP,
       maxLifePlayer
     );
-    checkWinner(currentPlayerHP, currentOpponentHP);
-  } else {
+  } else if (battleToContinue === true) {
     attackPlayer(
       attack2,
       defense,
@@ -49,24 +53,32 @@ function battle() {
       currentPlayerHP,
       maxLifePlayer
     );
-    checkWinner(currentPlayerHP, currentOpponentHP);
     // middle functions needed
     retaliateText();
     attackOpponent(attack, defense2, currentOpponentHP, maxLifePlayer);
-    checkWinner(currentPlayerHP, currentOpponentHP);
   }
 }
 
 function attackOpponent(attack, defense2, currentOpponentHP) {
   // let currentOpponentHP = +document.querySelector('.numericalOpponentHealth').innerHTML
   const damageToOpponent = dealPlayerDamage(attack, defense2);
-  currentOpponentHP -= damageToOpponent;
-  //code to prevent < 0 health
-  if (currentOpponentHP < 0) {
-    currentOpponentHP = 0;
+  console.log(damageToOpponent);
+  console.log(currentOpponentHP);
+
+  if (damageToOpponent !== undefined) {
+    currentOpponentHP = +currentOpponentHP - damageToOpponent; 
   }
-  document.querySelector('.numericalOpponentHealth').innerHTML =
-    currentOpponentHP
+
+  //code to prevent < 0 health
+  document.querySelector('.numericalOpponentHealth').innerHTML = currentOpponentHP;
+  
+  if (+currentOpponentHP < 0) {
+    document.querySelector('.numericalOpponentHealth').innerHTML = 0;
+  }
+
+  if (battleToContinue === true) {
+    checkWinner();
+  }
 }
 
 function attackPlayer(
@@ -82,13 +94,21 @@ function attackPlayer(
     playerPokemonChosen,
     opponentPokemonChosen
   );
-  currentPlayerHP -= damageToPlayer;
-  //code to prevent < 0 health
-  if (currentPlayerHP < 0) {
-    currentPlayerHP = 0;
+
+  if (damageToPlayer !== undefined) {
+  currentPlayerHP =  +currentPlayerHP - damageToPlayer;
   }
-  document.querySelector('.numericalPlayerHealth').innerHTML =
-    currentPlayerHP
+  //code to prevent < 0 health
+
+  document.querySelector('.numericalPlayerHealth').innerHTML = currentPlayerHP;
+  
+  if (+currentPlayerHP < 0) {
+    document.querySelector('.numericalPlayerHealth').innerHTML = 0;
+  }
+
+  if (battleToContinue === true) {
+    checkWinner();
+  }
 }
 
 function attackHandler() {
@@ -112,7 +132,7 @@ function adjustHealthBars(maxLifeP, maxlifeOpp) {
 
 // dmg FROM Player TO Opponent
 function dealPlayerDamage(playerPokeDmg, defense2) {
-  let opponentHp = document.querySelector('.numericalOpponentHealth');
+  let opponentHp = document.querySelector('.numericalOpponentHealth').innerHTML;
   let oppenentHealthBar = document.querySelector('#opponent-health');
   let playerPokemonName = state.playerPokemonToBattle.name;
   let opponentPokemonName = state.opponentPokemon.name;
@@ -127,6 +147,7 @@ function dealPlayerDamage(playerPokeDmg, defense2) {
       opponentDefend = dealtDamage;
       console.log('all damage was defended');
     }
+
     oppenentHealthBar.value =
       +oppenentHealthBar.value - (dealtDamage - opponentDefend);
     opponentHp.value = +opponentHp.value - (dealtDamage - opponentDefend);
@@ -148,23 +169,20 @@ function dealOpponentDamage(
   playerPokemonName,
   opponentPokemonName
 ) {
-  const playerHp = document.querySelector('.numericalPlayerHealth').innerHTML;
-  const playerHealthBar = document.querySelector('#player-health');
-console.log(playerHp);
+  let playerHp = document.querySelector('.numericalPlayerHealth').innerHTML;
+  let playerHealthBar = document.querySelector('#player-health');
+
   if (battleToContinue === true) {
     const dealtDamage = Math.floor(Math.random() * opponenetPokeDmg);
     let playerDefend = Math.floor(Math.floor(Math.random() * defense) / 1.3);
-    console.log(dealtDamage);
-    console.log(playerDefend);
+
     if (playerDefend > dealtDamage) {
       playerDefend = dealtDamage;
       console.log('all damage was defended');
     }
     playerHealthBar.value =
       +playerHealthBar.value - (dealtDamage - playerDefend);
-    playerHp = +playerHp - (dealtDamage - playerDefend);
-
-    console.log(+playerHp);
+    playerHp.value = +playerHp.value - (dealtDamage - playerDefend);
     // code to log on HTML page
     const battleLogStrike = document.createElement('p');
     battleLogStrike.innerHTML = `${opponentPokemonName} used ATT and produced ${dealtDamage} damage, ${playerPokemonName} defended ${playerDefend} damage. ${playerPokemonName} recieved a total of ${
@@ -206,23 +224,24 @@ function retaliateText() {
   }
 }
 
-function checkWinner(currentPlayerHP, currentOpponentHP) {
+function checkWinner() {
   const playerPokemonName = state.playerPokemonToBattle.name;
   const opponentPokemonName = state.opponentPokemon.name;
-  if (currentPlayerHP <= 0) {
+
+  if (document.querySelector('.numericalPlayerHealth').innerHTML <= 0) {
     const battleLogOpponentWin = document.createElement('p');
     battleLogOpponentWin.innerHTML = `${playerPokemonName} has fainted! ${opponentPokemonName} wins the battle!`;
     document.querySelector('.battleLog').appendChild(battleLogOpponentWin);
     battleToContinue = false;
-    console.log('winner');
+    console.log('winner opponent');
     winner = 'opponent';
   }
-  if (currentOpponentHP <= 0) {
+  if (document.querySelector('.numericalOpponentHealth').innerHTML <= 0) {
     const battleLogPlayerWin = document.createElement('div');
     battleLogPlayerWin.innerHTML = `${opponentPokemonName} has fainted! ${playerPokemonName} wins the battle!`;
     document.querySelector('.battleLog').appendChild(battleLogPlayerWin);
     battleToContinue = false;
-    console.log('winner');
+    console.log('winner player');
     winner = 'player';
   }
   return winner;
