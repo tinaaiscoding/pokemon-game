@@ -1,5 +1,4 @@
 function renderHomePage() {
-  
   document.querySelector('#page').innerHTML = `
     <nav class="header-nav">
     <img src="./images/landing-page/PokeBattles.png" alt="PokeBattles Logo">

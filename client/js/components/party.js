@@ -8,7 +8,7 @@ function renderMyPokemonsList() {
   pickOpponentPokemon()
   backDropOff()
   document.querySelector('#page').innerHTML = `
-    <button onClick="renderHomePage()">LOG OUT</button>
+    <button class="button-32" onClick="renderHomePage(event)">LOG OUT</button>
         <section class='party-pokemon-list'>
             <h1 class="h1-title" >MY PARTY</h1>
             ${renderMyPokemons()}
@@ -17,7 +17,7 @@ function renderMyPokemonsList() {
 }
 
 function renderMyPokemons() {
-    return state.myPokemons[0].map(myPokemon => `
+    return state.myPokemons.map(myPokemon => `
     <section class='myPokemon' data-id='${myPokemon.id}'>
         <div class="cards">
             <header>
@@ -47,22 +47,28 @@ function renderEditModal(event) {
   const myPokemons = state.myPokemons
 
     myPokemons.forEach(myPokemon => {
-        const myPokemonId1 = Number(myPokemonId)
-        if (myPokemonId1 === myPokemon.id) {
-            document.querySelector('#page').innerHTML = `
-                <section class="modal visible" id="edit-modal">
-                    <div class="modal-content edit-nickname" data-id="${myPokemon.id}">
-                        <button class="close-btn" onClick="closeFormModal('edit-modal')">X</button>               
-                        <form onSubmit="editNickname(event)">
-                            <h2 class="modal-title">Edit ${myPokemon.nickname}'s Name</h2>
+      const myPokemonId1 = Number(myPokemonId)
 
-                            <input placeholder="New Nickname" type="text" name="nickname">
+      if (+myPokemonId1 === +myPokemon.id) {
+          const mainPage = document.querySelector('#page')
+          const editModal = document.createElement('div')
+          editModal.innerHTML = `
+              <section class="modal visible" id="edit-modal">
+                  <div class="modal-content edit-nickname" data-id="${myPokemon.id}">
+                      <button class="close-btn" onClick="closeFormModal('edit-modal')">X</button>               
+                      <form onSubmit="editNickname(event)">
+                          <h2 class="modal-title">Edit ${myPokemon.nickname}'s Name</h2>
 
-                            <button class="btn btn-edit"">EDIT NICKNAME</button>
-                        </form>
-                    </div>
-                </section>
-            `
+                          <input placeholder="New Nickname" type="text" name="nickname">
+
+                          <button class="btn btn-edit"">EDIT NICKNAME</button>
+                      </form>
+                  </div>
+              </section>
+          `
+
+          backDropOn()
+          mainPage.appendChild(editModal)
         }
     })
     const editNameModal = document.querySelector('#edit-modal');
@@ -82,7 +88,7 @@ function editNickname(event) {
 
     const data = Object.fromEntries(new FormData(form))
 
-  fetch(`/api/pokemons/${state.loggedInId}/edit`, {
+  fetch(`/api/pokemons/${state.loggedInId}/edit/${myPokemonId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -95,7 +101,6 @@ function editNickname(event) {
           return myPokemon
         }
       })
-console.log(matchId);
     
       renderMyPokemonsList()
     })

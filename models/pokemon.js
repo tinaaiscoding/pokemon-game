@@ -10,16 +10,15 @@ const Pokemon = {
   },
 
   findAllMyPokemon: userId => {
-    const sql = 'SELECT * FROM pokemons WHERE user_id = $1'
+    const sql = `
+        SELECT * FROM pokemons 
+        WHERE user_id = $1 
+        ORDER BY id
+      `
 
     return db
       .query(sql, [userId])
-      .then(dbRes => {
-        console.log('');
-        
-        console.log(dbRes);
-        console.log(dbRes.rows);
-        return dbRes.rows})
+      .then(dbRes => dbRes.rows)
   },
 
   findById: (pokemonId) => {
@@ -27,13 +26,7 @@ const Pokemon = {
 
     return db
       .query(sql, [pokemonId])
-      .then(dbRes =>{
-        console.log('MODEL');
-        console.log(dbRes);
-
-        console.log('DB RESSSSS');
-        console.log(dbRes.rows[0]);
-        return dbRes.rows[0]})
+      .then(dbRes => dbRes.rows[0])
   },
 
   findOppById: (opponentId) => {
@@ -43,22 +36,15 @@ const Pokemon = {
       .then(dbRes => dbRes.rows[0])
   },
 
-  edit: (userId, nickname) => {
+  edit: (userId, pokemonId, nickname) => {
     const sql = `UPDATE pokemons 
-        SET nickname = $2
-        WHERE user_id = $1
+        SET nickname = $3
+        WHERE user_id = $1 AND id = $2
         RETURNING *
       `
     return db
-      .query(sql, [userId, nickname])
-      .then(dbRes => {
-        console.log('FROM DB EDIT NICKNAME');
-        console.log(dbRes);
-        console.log('ROWS');
-        
-        console.log(dbRes.rows);
-
-        return dbRes.rows[0]})
+      .query(sql, [userId, pokemonId, nickname])
+      .then(dbRes => dbRes.rows[0])
   },
 
   delete: pokemonId => {
