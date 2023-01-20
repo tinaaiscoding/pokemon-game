@@ -8,7 +8,7 @@ function renderMyPokemonsList() {
   pickOpponentPokemon()
   backDropOff()
   document.querySelector('#page').innerHTML = `
-    <button onClick="renderHomePage(event)">LOG OUT</button>
+    <button class="button-32" onClick="renderHomePage(event)">LOG OUT</button>
         <section class='party-pokemon-list'>
             <h1 class="h1-title" >MY PARTY</h1>
             ${renderMyPokemons()}
