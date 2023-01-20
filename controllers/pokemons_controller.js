@@ -19,13 +19,14 @@ router.get('/:id/mypokemon', (req, res) => {
     })
 })
 
-router.put('/:userId/edit', (req, res) => {
+router.put('/:userId/edit/:pokemonId', (req, res) => {
   const userId = req.params.userId
+  const pokemonId = req.params.pokemonId
 
   const { nickname } = req.body
 
   Pokemon
-    .edit(userId, nickname)
+    .edit(userId, pokemonId, nickname)
     .then(updatedPokemon => {
       console.log('EDIT NICKNAME ROUTE');
       console.log(updatedPokemon);

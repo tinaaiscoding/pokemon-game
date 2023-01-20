@@ -10,7 +10,11 @@ const Pokemon = {
   },
 
   findAllMyPokemon: userId => {
-    const sql = 'SELECT * FROM pokemons WHERE user_id = $1'
+    const sql = `
+        SELECT * FROM pokemons 
+        WHERE user_id = $1 
+        ORDER BY id
+      `
 
     return db
       .query(sql, [userId])
@@ -43,14 +47,15 @@ const Pokemon = {
       .then(dbRes => dbRes.rows[0])
   },
 
-  edit: (userId, nickname) => {
+  edit: (userId, pokemonId, nickname) => {
     const sql = `UPDATE pokemons 
-        SET nickname = $2
-        WHERE user_id = $1
+        SET nickname = $3
+        WHERE user_id = $1 AND id = $2
+        ORDER BY id
         RETURNING *
       `
     return db
-      .query(sql, [userId, nickname])
+      .query(sql, [userId, pokemonId, nickname])
       .then(dbRes => {
         console.log('FROM DB EDIT NICKNAME');
         console.log(dbRes);

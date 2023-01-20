@@ -94,7 +94,7 @@ function editNickname(event) {
 
     const data = Object.fromEntries(new FormData(form))
 
-  fetch(`/api/pokemons/${state.loggedInId}/edit`, {
+  fetch(`/api/pokemons/${state.loggedInId}/edit/${myPokemonId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
