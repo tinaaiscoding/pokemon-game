@@ -112,7 +112,7 @@ function renderPickBulbasaur() {
    <div class="moveup modal visible" id="starter-pokemon-modal">
    <div class="modal-content">
      <h2>I CHOOSE YOU!</h2>
-     <h3>POKEMON NAME</h3>
+     <h3>BULBASAUR</h3>
      <img src="./images/new_starter_pokemon/starter_pokemon_bulbasaur.png" alt="">
      <br>
      <br>
@@ -145,7 +145,7 @@ function renderPickCharmander(userId, pokemonId) {
      <div class="moveup modal visible" id="starter-pokemon-modal">
      <div class="modal-content">
        <h2>I CHOOSE YOU!</h2>
-       <h3>POKEMON NAME</h3>
+       <h3>CHARMANDER</h3>
        <img src="./images/new_starter_pokemon/starter_pokemon_charmander.png" alt="">
        <br>
        <br>
@@ -177,7 +177,7 @@ function renderPickSquirtle() {
    <div class="moveup modal visible" id="starter-pokemon-modal">
    <div class="modal-content">
      <h2>I CHOOSE YOU!</h2>
-     <h3>POKEMON NAME</h3>
+     <h3>SQUIRTLE</h3>
      <img src="./images/new_starter_pokemon/starter_pokemon_squirtle.png" alt="">
      <br>
      <br>

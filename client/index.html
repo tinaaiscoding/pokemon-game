@@ -20,6 +20,7 @@
   <script defer src="./js/components/battle/entering_battle.js"></script>
   <script defer src="./js/components/battle/gameMechanics.js"></script>
   <script defer src="./js/components/battle/gameMechanicsExpanded.js"></script>
+  <script defer src="./js/components/homepage.js"></script>
 
 
   <link rel="stylesheet" href="./css/main.css">
@@ -41,23 +42,24 @@
 </header>
 
 <body class="landing-page">
-  <nav class="header-nav">
-    <img src="./images/landing-page/PokeBattles.png" alt="PokeBattles Logo">
-    <section class="landing-btns">
-      <div>
-        <button class="landing-btn start-btn" onClick="renderStartOptions()"></button>
-        <h1>START</h1>
-      </div>
-      <div>
-        <button class="landing-btn how-to-btn" onClick="renderHowToPlayModal()"></button>
-        <h1>HOW TO PLAY</h1>
-      </div>
 
-    </section>
-
-  </nav>
-
-  <main id="page" class="content"></main>
+  <main id="page" class="content">
+    <nav class="header-nav">
+      <img src="./images/landing-page/PokeBattles.png" alt="PokeBattles Logo">
+      <section class="landing-btns">
+        <div>
+          <button class="landing-btn start-btn" onClick="renderStartOptions()"></button>
+          <h1>START</h1>
+        </div>
+        <div>
+          <button class="landing-btn how-to-btn" onClick="renderHowToPlayModal()"></button>
+          <h1>HOW TO PLAY</h1>
+        </div>
+  
+      </section>
+  
+    </nav>
+  </main>
   <div id="backdrop"></div>
 
   <div class="view-pokemon"></div>
