@@ -171,7 +171,12 @@ VALUES
 (148, 'dragonair', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/148.png', 61, 84, 70, 70, ARRAY['bind', 'slam', 'headbutt', 'horn-drill'], 'dragonair', 0, 0),
 (149, 'dragonite', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png', 91, 134, 100, 80, ARRAY['mega-punch', 'fire-punch', 'ice-punch', 'thunder-punch'], 'dragonite', 0, 0),
 (150, 'mewtwo', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png', 106, 110, 90, 130, ARRAY['mega-punch', 'pay-day', 'fire-punch', 'ice-punch'], 'mewtwo', 0, 0),
-(151, 'mew', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png', 100, 100, 100, 100, ARRAY['pound', 'mega-punch', 'pay-day', 'fire-punch'], 'mew', 0, 0);
+(151, 'mew', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png', 100, 100, 100, 100, ARRAY['pound', 'mega-punch', 'pay-day', 'fire-punch'], 'mew', 0, 0),
+(152, 'magikarp', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png', 200, 10, 201, 80, ARRAY['tackle', 'hydro-pump', 'submission', 'flail'], 'Gone Fishing', 0, 1),
+(153, 'chansey', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/113.png', 250, 5, 105, 50, ARRAY['pound', 'double-slap', 'mega-punch', 'fire-punch'], 'Humpty Dumpty', 0, 1),
+(154, 'gengar', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png', 60, 65, 75, 110, ARRAY['mega-punch', 'fire-punch', 'ice-punch', 'thunder-punch'], 'Fat Ghost', 0, 1)
+(155, 'eevee', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png', 55, 55, 65, 55, ARRAY['pay-day', 'double-kick', 'sand-attack', 'headbutt'], 'Basic B*tch', 0, 1),
+(156, 'articuno', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/144.png', 90, 85, 125, 85, ARRAY['razor-wind', 'hydro-pump', 'whirlwind', 'fly'], 'Cold Chicken', 0, 1);
   
   -- start
 -- User signs up -> grab 3 pokemon (db, bulb,squir,chari) -> view pokemon (db) -> battle Opponent(API) 

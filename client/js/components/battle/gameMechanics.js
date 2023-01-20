@@ -21,6 +21,8 @@ function battle() {
   let maxLifePlayer = hp;
   let maxLifeOpponent = hp2;
 
+  
+
   let currentPlayerHP = document.querySelector(
     '.numericalPlayerHealth'
   ).innerHTML;
@@ -35,6 +37,7 @@ function battle() {
   if (playerToAttackFrist === 'player') {
     attackOpponent(attack, defense2, currentOpponentHP, maxLifePlayer);
     // middle functions needed
+    chanceToCatch()
     retaliateText();
     attackPlayer(
       attack2,
@@ -63,6 +66,12 @@ function attackOpponent(attack, defense2, currentOpponentHP) {
   // let currentOpponentHP = +document.querySelector('.numericalOpponentHealth').innerHTML
   const damageToOpponent = dealPlayerDamage(attack, defense2);
   console.log(damageToOpponent);
+  
+  document.querySelector('.percent').innerHTML = +document.querySelector('.percent').innerHTML + damageToOpponent
+  if (document.querySelector('.percent').innerHTML === 'NaN') {
+    document.querySelector('.percent').innerHTML = 0
+  }
+
   console.log(currentOpponentHP);
 
   if (damageToOpponent !== undefined) {
@@ -77,7 +86,6 @@ function attackOpponent(attack, defense2, currentOpponentHP) {
   }
 
   if (battleToContinue === true) {
-    checkWinner();
   }
 }
 
@@ -161,6 +169,8 @@ function dealPlayerDamage(playerPokeDmg, defense2) {
     return dealtDamage - opponentDefend;
   }
 }
+
+
 
 // dmg FROM Opponent TO Player
 function dealOpponentDamage(
@@ -246,3 +256,11 @@ function checkWinner() {
   }
   return winner;
 }
+
+// function chanceToCatch() {
+//   let missingHealth = state.opponentPokemon.hp - document.querySelector('.numericalOpponentHealth').innerHTML - state.opponentPokemon.hp 
+//   console.log(missingHealth);
+//   let chance =  20 + missingHealth
+//   console.log(chance);
+//   document.querySelector('.percentage').innerHTML = chance
+// }
