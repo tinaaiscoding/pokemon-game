@@ -6,12 +6,22 @@ function renderBattleGround() {
       <div class="mainBattleFlex">
         <div class="fourColumns">
           <div class="playerStats">
+            <p class="nameP"> Nickname: ${state.playerPokemonToBattle.nickname}</p>
             <p class="nameP"> Name: ${state.playerPokemonToBattle.name}</p>
             <p class="hpP"> HP: ${state.playerPokemonToBattle.hp}</p>
             <p class="attackP"> Attack = ${state.playerPokemonToBattle.attack}</p>
             <p class="defenseP"> Defense = ${state.playerPokemonToBattle.defense}</p>
             <p class="speedP"> Speed = ${state.playerPokemonToBattle.speed}</p>
-          </div>
+            <p> </p>
+            <p> </p>
+            <p> </p>
+            <p>MOVES:</p>
+            <p>${state.playerPokemonToBattle.moves[0]}</p>
+            <p>${state.playerPokemonToBattle.moves[1]}</p>
+            <p>${state.playerPokemonToBattle.moves[2]}</p>
+            <p>${state.playerPokemonToBattle.moves[3]}</p>
+
+            </div>
           <div class="playerImg">
             <div>HP: <span class="numericalPlayerHealth">${state.playerPokemonToBattle.hp}</span><span>/${state.playerPokemonToBattle.hp}</span></div>
             <progress id="player-health" max="${state.playerPokemonToBattle.hp}" value="${state.playerPokemonToBattle.hp}"></progress>
@@ -31,6 +41,14 @@ function renderBattleGround() {
             <p class="attackP"> Attack = ${state.opponentPokemon.attack}</p>
             <p class="defenseP"> Defense = ${state.opponentPokemon.defense}</p>
             <p class="speedP"> Speed = ${state.opponentPokemon.speed}</p>
+            <p> </p>
+            <p> </p>
+            <p> </p>
+            <p>MOVES:</p>
+            <p>${state.opponentPokemon.moves[0]}</p>
+            <p>${state.opponentPokemon.moves[1]}</p>
+            <p>${state.opponentPokemon.moves[2]}</p>
+            <p>${state.opponentPokemon.moves[3]}</p>
           </div>
         </div>
       <div>
