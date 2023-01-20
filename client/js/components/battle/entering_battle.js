@@ -13,7 +13,7 @@ function takePokemonToBattle(event) {
   const pokemonDOM = battleBTN.closest('.myPokemon')
   const pokemonId = pokemonDOM.dataset.id
 
-  pickOpponentPokemon()
+  // pickOpponentPokemon()
 
   fetch(`/api/battle/${pokemonId}`)
     .then(res => res.json())
