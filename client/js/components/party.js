@@ -17,7 +17,7 @@ function renderMyPokemonsList() {
 }
 
 function renderMyPokemons() {
-    return state.myPokemons.map(myPokemon => `
+    return state.myPokemons[0].map(myPokemon => `
     <section class='myPokemon' data-id='${myPokemon.id}'>
         <div class="cards">
             <header>

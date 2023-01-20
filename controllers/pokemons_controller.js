@@ -15,7 +15,7 @@ router.get('/:id/mypokemon', (req, res) => {
   Pokemon
     .findAllMyPokemon(userId)
     .then(myPokemons => {
-      return res.json(myPokemons[0])
+      return res.json(myPokemons)
     })
 })
 

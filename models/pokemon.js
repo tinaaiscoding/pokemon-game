@@ -14,7 +14,12 @@ const Pokemon = {
 
     return db
       .query(sql, [userId])
-      .then(dbRes => dbRes.rows)
+      .then(dbRes => {
+        console.log('');
+        
+        console.log(dbRes);
+        console.log(dbRes.rows);
+        return dbRes.rows})
   },
 
   findById: (pokemonId) => {
