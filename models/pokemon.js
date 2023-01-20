@@ -51,7 +51,6 @@ const Pokemon = {
     const sql = `UPDATE pokemons 
         SET nickname = $3
         WHERE user_id = $1 AND id = $2
-        ORDER BY id
         RETURNING *
       `
     return db

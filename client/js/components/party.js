@@ -41,40 +41,34 @@ function renderMyPokemons() {
 }
 
 function renderEditModal(event) {
-  console.log('in function');
   const editBtn = event.target
   const myPokemonDOM = editBtn.closest('.myPokemon')
   const myPokemonId = myPokemonDOM.dataset.id
   const myPokemons = state.myPokemons
 
     myPokemons.forEach(myPokemon => {
-      console.log('In foreach');
-      
       const myPokemonId1 = Number(myPokemonId)
-      console.log(myPokemon); //
-      console.log(+myPokemonId1);
 
-      console.log(+myPokemonId1 === myPokemon.id);
-        if (+myPokemonId1 === +myPokemon.id) {
-            const mainPage = document.querySelector('#page')
-            const editModal = document.createElement('div')
-            editModal.innerHTML = `
-                <section class="modal visible" id="edit-modal">
-                    <div class="modal-content edit-nickname" data-id="${myPokemon.id}">
-                        <button class="close-btn" onClick="closeFormModal('edit-modal')">X</button>               
-                        <form onSubmit="editNickname(event)">
-                            <h2 class="modal-title">Edit ${myPokemon.nickname}'s Name</h2>
+      if (+myPokemonId1 === +myPokemon.id) {
+          const mainPage = document.querySelector('#page')
+          const editModal = document.createElement('div')
+          editModal.innerHTML = `
+              <section class="modal visible" id="edit-modal">
+                  <div class="modal-content edit-nickname" data-id="${myPokemon.id}">
+                      <button class="close-btn" onClick="closeFormModal('edit-modal')">X</button>               
+                      <form onSubmit="editNickname(event)">
+                          <h2 class="modal-title">Edit ${myPokemon.nickname}'s Name</h2>
 
-                            <input placeholder="New Nickname" type="text" name="nickname">
+                          <input placeholder="New Nickname" type="text" name="nickname">
 
-                            <button class="btn btn-edit"">EDIT NICKNAME</button>
-                        </form>
-                    </div>
-                </section>
-            `
+                          <button class="btn btn-edit"">EDIT NICKNAME</button>
+                      </form>
+                  </div>
+              </section>
+          `
 
-            backDropOn()
-            mainPage.appendChild(editModal)
+          backDropOn()
+          mainPage.appendChild(editModal)
         }
     })
     const editNameModal = document.querySelector('#edit-modal');
@@ -107,7 +101,7 @@ function editNickname(event) {
           return myPokemon
         }
       })
-console.log(matchId);
+  console.log(matchId);
     
       renderMyPokemonsList()
     })
