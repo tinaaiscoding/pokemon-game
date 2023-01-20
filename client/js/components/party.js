@@ -17,7 +17,7 @@ function renderMyPokemonsList() {
 }
 
 function renderMyPokemons() {
-    return state.myPokemons[0].map(myPokemon => `
+    return state.myPokemons.map(myPokemon => `
     <section class='myPokemon' data-id='${myPokemon.id}'>
         <div class="cards">
             <header>
@@ -41,15 +41,24 @@ function renderMyPokemons() {
 }
 
 function renderEditModal(event) {
+  console.log('in function');
   const editBtn = event.target
   const myPokemonDOM = editBtn.closest('.myPokemon')
   const myPokemonId = myPokemonDOM.dataset.id
   const myPokemons = state.myPokemons
 
     myPokemons.forEach(myPokemon => {
-        const myPokemonId1 = Number(myPokemonId)
-        if (myPokemonId1 === myPokemon.id) {
-            document.querySelector('#page').innerHTML = `
+      console.log('In foreach');
+      
+      const myPokemonId1 = Number(myPokemonId)
+      console.log(myPokemon); //
+      console.log(+myPokemonId1);
+
+      console.log(+myPokemonId1 === myPokemon.id);
+        if (+myPokemonId1 === +myPokemon.id) {
+            const mainPage = document.querySelector('#page')
+            const editModal = document.createElement('div')
+            editModal.innerHTML = `
                 <section class="modal visible" id="edit-modal">
                     <div class="modal-content edit-nickname" data-id="${myPokemon.id}">
                         <button class="close-btn" onClick="closeFormModal('edit-modal')">X</button>               
@@ -63,6 +72,8 @@ function renderEditModal(event) {
                     </div>
                 </section>
             `
+
+            mainPage.appendChild(editModal)
         }
     })
     const editNameModal = document.querySelector('#edit-modal');
