@@ -8,6 +8,7 @@ function renderMyPokemonsList() {
   pickOpponentPokemon()
   backDropOff()
   document.querySelector('#page').innerHTML = `
+    <button onClick="renderHomePage()">LOG OUT</button>
         <section class='party-pokemon-list'>
             <h1 class="h1-title" >MY PARTY</h1>
             ${renderMyPokemons()}
@@ -16,7 +17,6 @@ function renderMyPokemonsList() {
 }
 
 function renderMyPokemons() {
-
     return state.myPokemons.map(myPokemon => `
     <section class='myPokemon' data-id='${myPokemon.id}'>
         <div class="cards">
@@ -82,14 +82,21 @@ function editNickname(event) {
 
     const data = Object.fromEntries(new FormData(form))
 
-  fetch(`/api/pokemons/${myPokemonId}`, {
+  fetch(`/api/pokemons/${state.loggedInId}/edit`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
-    .then((pokemon) => {
-      state.myPokemons[myPokemonId - 1].nickname = pokemon.nickname
+    .then((updatePokemon) => {
+      const matchId = state.myPokemons.map(myPokemon => {
+        if (+myPokemon.id === +myPokemonId) {
+          myPokemon.nickname = updatePokemon.nickname
+          return myPokemon
+        }
+      })
+console.log(matchId);
+    
       renderMyPokemonsList()
     })
 }
@@ -106,21 +113,3 @@ function releasePokemon(event) {
     renderMyPokemonsList()
   })
 }
-
-// function shitRenderBtn() {
-//   document.querySelector('#page').innerHTML = `
-//   <section class='myPokemon' data-id='${myPokemon.id}'>
-//   <header>
-//       <h2>${myPokemon.nickname}</h2>
-//       <span class='material-symbols-outlined edit-nickname' onClick="renderEditModal(event)">edit</span>
-//   </header>
-//   <p>HP: ${myPokemon.hp}</p>
-//   <p>ATTACK: ${myPokemon.attack}</p>
-//   <p>DEFENSE: ${myPokemon.defense}</p>
-//   <p>SPEED: ${myPokemon.speed}</p>
-//   <img src="${myPokemon.img}" alt="">
-//   <p>WIN COUNT: ${myPokemon.win_count} </p>
-//   <button onClick="takePokemonToBattle(event)" class="to-battle-btn">BATTLE</button>
-//   <button onClick="releasePokemon(event)" class="to-battle-btn">RELEASE</button>
-// </section>`
-// }

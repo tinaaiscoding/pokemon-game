@@ -1,7 +1,9 @@
 function renderBattleGround() {
 
   document.querySelector('#page').innerHTML =
-    `<section class="battle-ground">
+    `
+    <button onClick="renderHomePage()">LOG OUT</button>
+    <section class="battle-ground">
       <h1>Battle Ground</h1>
       <div class="mainBattleFlex">
         <div class="fourColumns">

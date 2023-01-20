@@ -1,6 +1,6 @@
 function renderNewStaterPokemon() {
   backDropOff()
-  document.querySelector('.header-nav').innerHTML = ``
+  // document.querySelector('.header-nav').innerHTML = ``
   document.querySelector('#page').innerHTML = `
  
   <div class="bigBox">
@@ -69,7 +69,6 @@ function renderNewStaterPokemon() {
     '.select-starters-btn.btn-squirtle'
   )
   pokeball1.addEventListener('click', () => {
-    console.log('1')
     pokeball1.classList.add('hidden')
     pokeball2.classList.remove('hidden')
     pokeball3.classList.remove('hidden')
@@ -78,7 +77,6 @@ function renderNewStaterPokemon() {
     selected_squirtle.classList.add('hidden')
   })
   pokeball2.addEventListener('click', () => {
-    console.log('2')
     pokeball1.classList.remove('hidden')
     pokeball2.classList.add('hidden')
     pokeball3.classList.remove('hidden')
@@ -114,11 +112,11 @@ function renderPickBulbasaur() {
    <div class="moveup modal visible" id="starter-pokemon-modal">
    <div class="modal-content">
      <h2>I CHOOSE YOU!</h2>
-     <h3>POKEMON NAME</h3>
+     <h3>BULBASAUR</h3>
      <img src="./images/new_starter_pokemon/starter_pokemon_bulbasaur.png" alt="">
      <br>
      <br>
-     <button onClick="renderbulbasaur(event, state.loggedInId, 1)" class="button-32">PLAY</button>
+     <button onClick="renderbulbasaur(state.loggedInId, 1)" class="button-32">PLAY</button>
    </div>
  </div>
  `
@@ -127,30 +125,31 @@ function renderPickBulbasaur() {
   // backDropOn()
 }
 
-function renderbulbasaur(event, userId, pokemonId) {
-  event.preventDefault()
-console.log('COMPONENTS');
-  console.log(userId);
-  console.log(pokemonId);
-  fetch(`/api/startpokemons/add/${userId}/${pokemonId}`)
+function renderbulbasaur(userId, pokemonId) {
+  const data = state.pokemons[pokemonId - 1];
+
+  fetch(`/api/startpokemons/${userId}/add_starter_pokemon`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  })
     .then((res) => res.json())
     .then((pokemon) => {
       state.myPokemons.push(pokemon)
       renderMyPokemonsList()
     })
-  // .then(renderMyPokemonsList() )
 }
 
-function renderPickCharmander(event, userId, pokemonId) {
+function renderPickCharmander(userId, pokemonId) {
   starterPokemonModal.innerHTML = `
      <div class="moveup modal visible" id="starter-pokemon-modal">
      <div class="modal-content">
        <h2>I CHOOSE YOU!</h2>
-       <h3>POKEMON NAME</h3>
+       <h3>CHARMANDER</h3>
        <img src="./images/new_starter_pokemon/starter_pokemon_charmander.png" alt="">
        <br>
        <br>
-       <button onClick="renderCharmander(event, state.loggedInId, 4)" class="button-32">PLAY</button>
+       <button onClick="renderCharmander(state.loggedInId, 4)" class="button-32">PLAY</button>
      </div>
    </div>
    `
@@ -158,15 +157,19 @@ function renderPickCharmander(event, userId, pokemonId) {
   backDropOn()
 }
 
-function renderCharmander(event, userId, pokemonId) {
-  event.preventDefault()
-  fetch(`/api/startpokemons/add/${userId}/${pokemonId}`)
+function renderCharmander(userId, pokemonId) {
+  const data = state.pokemons[pokemonId - 1];
+
+  fetch(`/api/startpokemons/${userId}/add_starter_pokemon`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  })
     .then((res) => res.json())
     .then((pokemon) => {
       state.myPokemons.push(pokemon)
       renderMyPokemonsList()
     })
-  // .then(renderMyPokemonsList() )
 }
 
 function renderPickSquirtle() {
@@ -174,11 +177,11 @@ function renderPickSquirtle() {
    <div class="moveup modal visible" id="starter-pokemon-modal">
    <div class="modal-content">
      <h2>I CHOOSE YOU!</h2>
-     <h3>POKEMON NAME</h3>
+     <h3>SQUIRTLE</h3>
      <img src="./images/new_starter_pokemon/starter_pokemon_squirtle.png" alt="">
      <br>
      <br>
-     <button onClick="renderSquirtle(event, state.loggedInId, 7)" class="button-32">PLAY</button>
+     <button onClick="renderSquirtle(state.loggedInId, 7)" class="button-32">PLAY</button>
    </div>
  </div>
  `
@@ -186,9 +189,14 @@ function renderPickSquirtle() {
   //  backDropOn()
 }
 
-function renderSquirtle(event, userId, pokemonId) {
-  event.preventDefault()
-  fetch(`/api/startpokemons/add/${userId}/${pokemonId}`)
+function renderSquirtle(userId, pokemonId) {
+  const data = state.pokemons[pokemonId - 1];
+
+  fetch(`/api/startpokemons/${userId}/add_starter_pokemon`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  })
     .then((res) => res.json())
     .then((pokemon) => {
       state.myPokemons.push(pokemon)
