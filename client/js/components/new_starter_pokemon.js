@@ -1,6 +1,6 @@
 function renderNewStaterPokemon() {
   backDropOff()
-  document.querySelector('.header-nav').innerHTML = ``
+  // document.querySelector('.header-nav').innerHTML = ``
   document.querySelector('#page').innerHTML = `
  
   <div class="bigBox">
