@@ -37,7 +37,7 @@ function battle() {
   if (playerToAttackFrist === 'player') {
     attackOpponent(attack, defense2, currentOpponentHP, maxLifePlayer);
     // middle functions needed
-    chanceToCatch()
+    // chanceToCatch()
     retaliateText();
     attackPlayer(
       attack2,
