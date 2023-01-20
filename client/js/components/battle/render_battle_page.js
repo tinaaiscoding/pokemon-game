@@ -51,8 +51,9 @@ function renderBattleGround() {
             <p>${state.opponentPokemon.moves[3]}</p>
           </div>
         </div>
-      <div>
+      <div class='sideBySide'>
         <button onClick="attackHandler()" class="attBtn">ATTACK</button>
+        <button onClick="" class="catchBtn">CATCH: <span class='percent'>20</span>%</button>
       </div>
     </div>
 
