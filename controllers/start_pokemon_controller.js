@@ -3,24 +3,16 @@ const router = express.Router()
 
 // MODELS
 const Starter_Pokemon = require('../models/starter_pokemon.js')
-// router.get('/', (req, res) => {
-//   Pokemon
-//     .findAll()
-//     .then(myPokemon => {
-//       console.log(myPokemon)
-//     return res.json(myPokemon)
-//   })
-// })
-router.get('/add/:userId/:pokemonId', (req, res) => {
+
+router.post('/:userId/add_starter_pokemon', (req, res) => {
   const userId = req.params.userId
-  const pokemonId = req.params.pokemonId
-console.log('ROUTE');
-  console.log(userId);
-  console.log(pokemonId);
+  const data = req.body
+
+  console.log(data);
+
 
   Starter_Pokemon
-      .findPokemon(pokemonId)
-      .then(pokemonData => insertPokemon(userId,pokemonData))
+      .addStarterPokemon(userId, data)
       .then(myPokemon => {
         console.log(myPokemon)
       return res.json(myPokemon)

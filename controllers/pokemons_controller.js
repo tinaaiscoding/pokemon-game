@@ -11,9 +11,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id/mypokemon', (req, res) => {
-  console.log('USER ID SESSION');
   const userId = req.params.id
-  console.log(userId);
   Pokemon
     .findAllMyPokemon(userId)
     .then(myPokemons => {
@@ -21,14 +19,17 @@ router.get('/:id/mypokemon', (req, res) => {
     })
 })
 
-router.put('/:id', (req, res) => {
-  const pokemonId = req.params.id
+router.put('/:userId/edit', (req, res) => {
+  const userId = req.params.userId
 
   const { nickname } = req.body
 
   Pokemon
-    .edit(pokemonId, nickname)
-    .then(myPokemon => res.json(myPokemon))
+    .edit(userId, nickname)
+    .then(updatedPokemon => {
+      console.log('EDIT NICKNAME ROUTE');
+      console.log(updatedPokemon);
+      return res.json(updatedPokemon)})
 })
 
 router.delete('/:id', (req, res) => {

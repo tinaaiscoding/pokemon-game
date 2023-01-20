@@ -17,9 +17,9 @@ function renderLogin() {
   const loginModal = document.querySelector('#login-modal')
   const allUserInputs = document.querySelectorAll('input')
 
-  loginModal.querySelector('.btn-cancel').addEventListener('click', () => {
-    closeFormModal('start-option-modal', allUserInputs)
-  })
+  // loginModal.querySelector('.btn-cancel').addEventListener('click', () => {
+  //   closeFormModal('start-option-modal', allUserInputs)
+  // })
 }
 
 function login(event) {

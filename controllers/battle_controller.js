@@ -18,12 +18,7 @@ router.get('/opponent/:id', (req, res) => {
 
   Pokemon
     .findOppById(opponentId)
-    .then(opponent => {
-      console.log('OPPONENT');
-      
-      console.log(opponent);
-      return res.json(opponent)
-    }) 
+    .then(opponent => res.json(opponent)) 
 })
 
 module.exports = router
