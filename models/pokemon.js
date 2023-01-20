@@ -18,12 +18,7 @@ const Pokemon = {
 
     return db
       .query(sql, [userId])
-      .then(dbRes => {
-        console.log('DATABASEEEEE!!!!');
-        
-        console.log(dbRes);
-        console.log(dbRes.rows);
-        return dbRes.rows})
+      .then(dbRes => dbRes.rows)
   },
 
   findById: (pokemonId) => {
@@ -31,13 +26,7 @@ const Pokemon = {
 
     return db
       .query(sql, [pokemonId])
-      .then(dbRes =>{
-        console.log('MODEL');
-        console.log(dbRes);
-
-        console.log('DB RESSSSS');
-        console.log(dbRes.rows[0]);
-        return dbRes.rows[0]})
+      .then(dbRes => dbRes.rows[0])
   },
 
   findOppById: (opponentId) => {
@@ -55,14 +44,7 @@ const Pokemon = {
       `
     return db
       .query(sql, [userId, pokemonId, nickname])
-      .then(dbRes => {
-        console.log('FROM DB EDIT NICKNAME');
-        console.log(dbRes);
-        console.log('ROWS');
-        
-        console.log(dbRes.rows);
-
-        return dbRes.rows[0]})
+      .then(dbRes => dbRes.rows[0])
   },
 
   delete: pokemonId => {

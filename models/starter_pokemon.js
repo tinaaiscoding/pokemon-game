@@ -30,11 +30,7 @@ const Starter_Pokemon = {
             pokemonData.win_count,
             userId,
             ])
-        .then(dbRes => {
-            console.log('Pokemon ID');
-            console.log(dbRes.rows[0]);
-            return dbRes.rows[0]
-        })
+        .then(dbRes => dbRes.rows[0])
   },
 };
 module.exports = Starter_Pokemon;

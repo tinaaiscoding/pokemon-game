@@ -101,7 +101,6 @@ function editNickname(event) {
           return myPokemon
         }
       })
-  console.log(matchId);
     
       renderMyPokemonsList()
     })

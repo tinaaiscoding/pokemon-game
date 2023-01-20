@@ -27,10 +27,7 @@ router.put('/:userId/edit/:pokemonId', (req, res) => {
 
   Pokemon
     .edit(userId, pokemonId, nickname)
-    .then(updatedPokemon => {
-      console.log('EDIT NICKNAME ROUTE');
-      console.log(updatedPokemon);
-      return res.json(updatedPokemon)})
+    .then(updatedPokemon => res.json(updatedPokemon))
 })
 
 router.delete('/:id', (req, res) => {
