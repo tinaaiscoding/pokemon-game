@@ -8,7 +8,7 @@ function renderMyPokemonsList() {
   pickOpponentPokemon()
   backDropOff()
   document.querySelector('#page').innerHTML = `
-    <button onClick="renderHomePage()">LOG OUT</button>
+    <button onClick="renderHomePage(event)">LOG OUT</button>
         <section class='party-pokemon-list'>
             <h1 class="h1-title" >MY PARTY</h1>
             ${renderMyPokemons()}
@@ -73,6 +73,7 @@ function renderEditModal(event) {
                 </section>
             `
 
+            backDropOn()
             mainPage.appendChild(editModal)
         }
     })
