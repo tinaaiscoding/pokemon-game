@@ -21,7 +21,7 @@ function battle() {
   let maxLifePlayer = hp;
   let maxLifeOpponent = hp2;
 
-  
+
 
   let currentPlayerHP = document.querySelector(
     '.numericalPlayerHealth'
@@ -145,8 +145,23 @@ function dealPlayerDamage(playerPokeDmg, defense2) {
   let playerPokemonName = state.playerPokemonToBattle.name;
   let opponentPokemonName = state.opponentPokemon.name;
 
-  console.log(`This is opp heatlh ${opponentHp.value}`);
-  console.log(`This is opp bar ${oppenentHealthBar.value}`);
+  // console.log(`This is opp heatlh ${opponentHp.value}`);
+  // console.log(`This is opp bar ${oppenentHealthBar.value}`);
+
+  let thisMove = 'ATT'
+
+  function pickPlayerMove() {
+    let allPlayerMoves = state.playerPokemonToBattle.moves
+    function whichMove() {
+      return Math.floor(Math.random() * 4)
+    } 
+    let numOf4 = whichMove()
+  
+    return thisMove = allPlayerMoves[numOf4]
+  }
+  
+  let playerAttName = pickPlayerMove()
+
 
   if (battleToContinue === true) {
     const dealtDamage = Math.floor(Math.random() * playerPokeDmg);
@@ -162,7 +177,7 @@ function dealPlayerDamage(playerPokeDmg, defense2) {
 
     // code to log on HTML page
     const battleLogStrike = document.createElement('div');
-    battleLogStrike.innerHTML = `${playerPokemonName} used ATT and produced ${dealtDamage} damage, ${opponentPokemonName} defended ${opponentDefend} damage. ${opponentPokemonName} recieved a total of ${
+    battleLogStrike.innerHTML = `${playerPokemonName} used <span style='color:black;font-size:1rem'>${playerAttName}</span> and produced ${dealtDamage} damage, ${opponentPokemonName} defended ${opponentDefend} damage. ${opponentPokemonName} recieved a total of ${
       dealtDamage - opponentDefend
     } damage.`;
     document.querySelector('.battleLog').appendChild(battleLogStrike);
@@ -182,6 +197,21 @@ function dealOpponentDamage(
   let playerHp = document.querySelector('.numericalPlayerHealth').innerHTML;
   let playerHealthBar = document.querySelector('#player-health');
 
+
+  let thisMove = 'ATT'
+
+  function pickOppMove() {
+    let allPlayerMoves = state.opponentPokemon.moves
+    function whichMoveOpp() {
+      return Math.floor(Math.random() * 4)
+    } 
+    let numOf4 = whichMoveOpp()
+  
+    return thisMove = allPlayerMoves[numOf4]
+  }
+  
+  let oppAttName = pickOppMove()
+
   if (battleToContinue === true) {
     const dealtDamage = Math.floor(Math.random() * opponenetPokeDmg);
     let playerDefend = Math.floor(Math.floor(Math.random() * defense) / 1.3);
@@ -195,7 +225,7 @@ function dealOpponentDamage(
     playerHp.value = +playerHp.value - (dealtDamage - playerDefend);
     // code to log on HTML page
     const battleLogStrike = document.createElement('p');
-    battleLogStrike.innerHTML = `${opponentPokemonName} used ATT and produced ${dealtDamage} damage, ${playerPokemonName} defended ${playerDefend} damage. ${playerPokemonName} recieved a total of ${
+    battleLogStrike.innerHTML = `${opponentPokemonName} used <span style='color:black;font-size:1rem' >${oppAttName}</span> and produced ${dealtDamage} damage, ${playerPokemonName} defended ${playerDefend} damage. ${playerPokemonName} recieved a total of ${
       dealtDamage - playerDefend
     } damage.`;
     document.querySelector('.battleLog').appendChild(battleLogStrike);
