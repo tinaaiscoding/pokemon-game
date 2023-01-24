@@ -1,3 +1,38 @@
+
+// Mitch - Showing how scoping works - you will need to call the functions
+
+// let someState = {
+//   name: "wayne",
+// };
+
+// function main() {
+//   console.log(someState);
+//   player = someState;
+//   someState["test"] = "test";
+//   console.log("Running Inner1");
+
+//   inner1(player);
+//   console.log(someState);
+//   console.log(player);
+//   console.log("Running Inner2");
+
+//   inner2(player);
+
+//   console.log(someState);
+//   console.log(player);
+// }
+
+// main();
+
+// function inner1(player) {
+//   player.name = "mitch";
+//   console.log(player.test);
+// }
+
+// function inner2(player) {
+//   player.name = "lara";
+// }
+
 let allThePokemonArr = []
 
 // wont work for ditto who is 132 as he crashes the loop as there is NO ${pokemon.moves[1].move.name} or above for Ditto, only has transform
@@ -21,7 +56,7 @@ print151Pokemon()
 // }
 
 // printAfterFetch()
-
+ 
 
 // ${pokemon.moves[0].move.name}
 
