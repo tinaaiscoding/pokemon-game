@@ -2,7 +2,7 @@ function renderBattleGround() {
   setStats()
   document.querySelector('#page').innerHTML =
     `
-    <button onClick="renderHomePage()">LOG OUT</button>
+    <button class="button-32" onClick="renderHomePage()">LOG OUT</button>
     <section class="battle-ground">
       <h1>Battle Ground</h1>
       <div class="mainBattleFlex">
