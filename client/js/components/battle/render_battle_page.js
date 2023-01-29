@@ -1,5 +1,5 @@
 function renderBattleGround() {
-
+  setStats()
   document.querySelector('#page').innerHTML =
     `
     <button onClick="renderHomePage()">LOG OUT</button>
