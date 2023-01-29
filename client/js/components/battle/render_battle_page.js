@@ -60,6 +60,10 @@ function renderBattleGround() {
     </div>
 
     <div class="battleLog" ></div>
+    <div class='return-btn-control'>
+      <button id="to-party-btn" class="return-btn hidden" onClick="renderMyPokemonsList()">BACK TO PARTY</button>
+    </div>
   </section>
+  <div class="blank-space"></div>
   `
 }
