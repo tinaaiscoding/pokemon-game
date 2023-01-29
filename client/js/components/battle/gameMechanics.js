@@ -4,30 +4,30 @@ let winner = '';
 let battleToContinue = true;
 
 const player = {
-pokemon: {},
-moveToUse: 'state.playerPokemonToBattle.moves[0]',
-currentHealth: 0,
-damageDelt: 0,
-damageSaved: 0,
-damageMultiplier: 1,
-typeMultiplier: false
+  pokemon: {},
+  moveToUse: 'state.playerPokemonToBattle.moves[0]',
+  currentHealth: 0,
+  damageDelt: 0,
+  damageSaved: 0,
+  damageMultiplier: 1,
+  typeMultiplier: false
 }
 
 const opponent = {
-pokemon: {},
-moveToUse: 'na',
-currentHealth: 0,
-damageDelt: 0,
-damageSaved: 0,
-damageMultiplier: 1,
-damagePerTrun: 0,
-typeMultiplier: false,
-catchPercent: 20
+  pokemon: {},
+  moveToUse: 'na',
+  currentHealth: 0,
+  damageDelt: 0,
+  damageSaved: 0,
+  damageMultiplier: 1,
+  damagePerTrun: 0,
+  typeMultiplier: false,
+  catchPercent: 20
 }
 
 function attackHandler() {
   if (battleToContinue === true) {
-  speedCheck()
+    speedCheck()
   }
   // round 1
   if (playerToAttack === 'player' && battleToContinue === true) {
@@ -40,7 +40,7 @@ function attackHandler() {
     checkIfPlayerWon()
   }
 
-    // change turns
+  // change turns
   if (playerToAttack === 'player') {
     playerToAttack = 'opponent'
   } else {
@@ -57,7 +57,7 @@ function attackHandler() {
     OpponentAttackPlayer()
     checkIfOpponentrWon()
     checkIfPlayerWon()
-  }  
+  }
 }
 
 attackHandler()
