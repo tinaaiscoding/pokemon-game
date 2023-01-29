@@ -36,6 +36,9 @@ function speedCheck() {
 
 
 function playerAttackOpponent() {
+  var battlelog = document.querySelector('.battleLog')
+  battlelog.scrollTop = battlelog.scrollHeight
+
   player.damageDelt = Math.floor(Math.random() * player.pokemon.attack)
   setPlayerMove()
   player.damageDelt = Math.floor(player.damageDelt * player.damageMultiplier)
@@ -49,6 +52,9 @@ function playerAttackOpponent() {
 
 
 function OpponentAttackPlayer() {
+  var battlelog = document.querySelector('.battleLog')
+  battlelog.scrollTop = battlelog.scrollHeight
+
   opponent.damageDelt = Math.floor(Math.random() * opponent.pokemon.attack)
   setOppositionMove()
   opponent.damageDelt = Math.floor(Math.random() * opponent.pokemon.attack)
@@ -62,6 +68,9 @@ function OpponentAttackPlayer() {
 }
 
 function checkIfPlayerWon() {
+  var battlelog = document.querySelector('.battleLog')
+  battlelog.scrollTop = battlelog.scrollHeight
+
   if (player.currentHealth < 1) {
     const battleLogPlayerWin = document.createElement('p');
     battleLogPlayerWin.innerHTML = `${player.pokemon.name} has fainted! ${opponent.pokemon.name} wins the battle!`;
@@ -75,6 +84,8 @@ function checkIfPlayerWon() {
 }
 
 function checkIfOpponentrWon() {
+  var battlelog = document.querySelector('.battleLog')
+  battlelog.scrollTop = battlelog.scrollHeight
   if (opponent.currentHealth < 1) {
     const battleLogOpponentWin = document.createElement('div');
     battleLogOpponentWin.innerHTML = `${opponent.pokemon.name} has fainted! ${player.pokemon.name} wins the battle!`;
@@ -88,6 +99,9 @@ function checkIfOpponentrWon() {
 }
 
 function applyOpponentDamage() {
+  var battlelog = document.querySelector('.battleLog')
+  battlelog.scrollTop = battlelog.scrollHeight
+
   // Damage to Player
   player.damageSaved = Math.floor(Math.floor(Math.random() * player.pokemon.defense) / 1.3)
 
@@ -116,6 +130,9 @@ function applyOpponentDamage() {
 
 
 function applyPlayerDamage() {
+  var battlelog = document.querySelector('.battleLog')
+  battlelog.scrollTop = battlelog.scrollHeight
+
   //Player Damage to Opponent
   opponent.damageSaved = Math.floor(Math.floor(Math.random() * opponent.pokemon.defense) / 1.3)
 
@@ -187,5 +204,4 @@ function setOppositionMove() {
     opponent.damageMultiplier = 1.6
   }
 }
-
 
