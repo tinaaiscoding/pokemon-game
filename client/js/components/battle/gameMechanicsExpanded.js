@@ -32,7 +32,6 @@ function speedCheck() {
     battleLogSpeed.innerHTML = `${opponent.pokemon.name} has the faster attack speed and attacks ${player.pokemon.name} first....`;
     document.querySelector('.battleLog').appendChild(battleLogSpeed)
     player.count += 1
-    console.log(player.count);
 
   } if (opponent.pokemon.speed <= player.pokemon.speed) {
     playerToAttack = 'player'
@@ -40,8 +39,6 @@ function speedCheck() {
     battleLogSpeed.innerHTML = `${player.pokemon.name} has the faster attack speed and attacks ${opponent.pokemon.name} first....`;
     document.querySelector('.battleLog').appendChild(battleLogSpeed)
     player.count += 1
-    console.log(player.count);
-
   }
 }
 
@@ -69,7 +66,7 @@ function OpponentAttackPlayer() {
 
   opponent.damageDelt = Math.floor(Math.random() * opponent.pokemon.attack)
   setOppositionMove()
-  opponent.damageDelt = Math.floor(Math.random() * opponent.pokemon.attack)
+  opponent.damageDelt = Math.floor(opponent.damageDelt * opponent.damageMultiplier)
 
   const battleLogStrike = document.createElement('p')
   battleLogStrike.innerHTML = `${opponent.pokemon.name} used <span style='color:black;font-size:1rem'>${opponent.moveToUse}</span> and produced ${opponent.damageDelt} damage`
@@ -115,9 +112,10 @@ function applyOpponentDamage() {
   battlelog.scrollTop = battlelog.scrollHeight
 
   // Damage to Player
+  // the / 1.3 is used to make the fight go quicker by reducing the game's overall defense. 
   player.damageSaved = Math.floor(Math.floor(Math.random() * player.pokemon.defense) / 1.3)
 
-  let dmgToPlayer = Math.floor(player.damageDelt - player.damageSaved)
+  let dmgToPlayer = Math.floor(opponent.damageDelt - player.damageSaved)
   if (dmgToPlayer < 0) {
     dmgToPlayer = 0
     const battleLogStrike = document.createElement('div');
@@ -146,9 +144,10 @@ function applyPlayerDamage() {
   battlelog.scrollTop = battlelog.scrollHeight
 
   //Player Damage to Opponent
+  // the / 1.3 is used to make the fight go quicker by reducing the game's overall defense. 
   opponent.damageSaved = Math.floor(Math.floor(Math.random() * opponent.pokemon.defense) / 1.3)
 
-  let dmgToOpponent = Math.floor(opponent.damageDelt - opponent.damageSaved)
+  let dmgToOpponent = Math.floor(player.damageDelt - opponent.damageSaved)
   if (dmgToOpponent < 0) {
     dmgToOpponent = 0
     const battleLogStrike = document.createElement('p');

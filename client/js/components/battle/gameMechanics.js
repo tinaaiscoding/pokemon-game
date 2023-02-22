@@ -29,8 +29,6 @@ const opponent = {
 }
 
 function attackHandler() {
-  console.log(player.count);
-  console.log(player.battleToContinue);
   if (battleToContinue === true && player.count === 0) {
     speedCheck()
   }
