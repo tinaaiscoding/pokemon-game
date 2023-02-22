@@ -1,15 +1,21 @@
 // to start
 function setStats() {
+
   if (battleStarted === false) {
     player["currentHealth"] = state.playerPokemonToBattle.hp
     opponent["currentHealth"] = state.opponentPokemon.hp
+
+    // game start and count details held in player object. 
+    player['battleToContinue'] = true
+    player['count'] = 0
+
 
     player["pokemon"] = state.playerPokemonToBattle
     player["moveToUse"] = state.playerPokemonToBattle.moves[0]
     opponent["pokemon"] = state.opponentPokemon
     opponent["moveToUse"] = state.opponentPokemon.moves[0]
   }
-  battleStarted = true
+  player.battleStarted = true
 }
 
 // not built yet - take user back to home screen. 
@@ -25,11 +31,17 @@ function speedCheck() {
     const battleLogSpeed = document.createElement('p');
     battleLogSpeed.innerHTML = `${opponent.pokemon.name} has the faster attack speed and attacks ${player.pokemon.name} first....`;
     document.querySelector('.battleLog').appendChild(battleLogSpeed)
+    player.count += 1
+    console.log(player.count);
+
   } if (opponent.pokemon.speed <= player.pokemon.speed) {
     playerToAttack = 'player'
     const battleLogSpeed = document.createElement('div');
     battleLogSpeed.innerHTML = `${player.pokemon.name} has the faster attack speed and attacks ${opponent.pokemon.name} first....`;
     document.querySelector('.battleLog').appendChild(battleLogSpeed)
+    player.count += 1
+    console.log(player.count);
+
   }
 }
 
@@ -77,9 +89,9 @@ function checkIfPlayerWon() {
     document.querySelector('.battleLog').appendChild(battleLogPlayerWin);
     console.log('winner opponent');
     winner = 'opponent'
-    battleToContinue = false;
+    player.battleToContinue = false;
     revealBtn('to-party-btn')
-    return battleToContinue
+    return player.battleToContinue
   }
 }
 
@@ -92,9 +104,9 @@ function checkIfOpponentrWon() {
     document.querySelector('.battleLog').appendChild(battleLogOpponentWin);
     console.log('winner player');
     winner = 'player'
-    battleToContinue = false;
+    player.battleToContinue = false;
     revealBtn('to-party-btn')
-    return battleToContinue
+    return player.battleToContinue
   }
 }
 

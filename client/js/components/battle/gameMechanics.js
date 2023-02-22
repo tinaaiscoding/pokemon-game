@@ -10,7 +10,10 @@ const player = {
   damageDelt: 0,
   damageSaved: 0,
   damageMultiplier: 1,
-  typeMultiplier: false
+  typeMultiplier: false,
+  // game start and count details held in player object. 
+  count: 0,
+  battleToContinue: true
 }
 
 const opponent = {
@@ -26,15 +29,17 @@ const opponent = {
 }
 
 function attackHandler() {
-  if (battleToContinue === true) {
+  console.log(player.count);
+  console.log(player.battleToContinue);
+  if (battleToContinue === true && player.count === 0) {
     speedCheck()
   }
   // round 1
-  if (playerToAttack === 'player' && battleToContinue === true) {
+  if (playerToAttack === 'player' && player.battleToContinue === true) {
     playerAttackOpponent()
     checkIfOpponentrWon()
     checkIfPlayerWon()
-  } if (playerToAttack === 'opponent' && battleToContinue === true) {
+  } if (playerToAttack === 'opponent' && player.battleToContinue === true) {
     OpponentAttackPlayer()
     checkIfOpponentrWon()
     checkIfPlayerWon()
@@ -48,12 +53,12 @@ function attackHandler() {
   }
 
   // round 2
-  if (playerToAttack === 'player' && battleToContinue === true) {
+  if (playerToAttack === 'player' && player.battleToContinue === true) {
     playerAttackOpponent()
     checkIfOpponentrWon()
     checkIfPlayerWon()
   }
-  if (playerToAttack === 'opponent' && battleToContinue === true) {
+  if (playerToAttack === 'opponent' && player.battleToContinue === true) {
     OpponentAttackPlayer()
     checkIfOpponentrWon()
     checkIfPlayerWon()
