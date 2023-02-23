@@ -1,4 +1,5 @@
 function renderNewStaterPokemon() {
+  closeModal()
   backDropOff()
   // document.querySelector('.header-nav').innerHTML = ``
   document.querySelector('#page').innerHTML = `

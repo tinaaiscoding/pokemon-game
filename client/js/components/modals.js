@@ -1,5 +1,6 @@
 const backdrop = document.querySelector('#backdrop');
 const navbar = document.querySelector('#header-nav');
+const modalWrapper = document.querySelector('#modal-wrapper');
 
 function backDropOn() {
   backdrop.classList.add('visible');
@@ -9,8 +10,8 @@ function backDropOff() {
   backdrop.classList.remove('visible');
 }
 
-function closeFormModal(modalId, inputs = []) {
-  document.querySelector(`#${modalId}`).classList.remove('visible');
+function closeFormModal(inputs = []) {
+  modalWrapper.innerHTML = ''
   backDropOff();
   resetForm(inputs);
 }
@@ -19,8 +20,8 @@ function resetForm(inputs) {
   inputs.forEach((input) => (input.value = ''));
 }
 
-function closeModal(modalId) {
-  document.querySelector(`#${modalId}`).classList.remove('visible');
+function closeModal() {
+  modalWrapper.innerHTML = ''
   backDropOff();
 }
 
