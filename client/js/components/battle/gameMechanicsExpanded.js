@@ -222,3 +222,19 @@ function successChance(chance) {
   const randomNum = Math.random()
   return randomNum < chance
 }
+
+function addCaughtPokemon() {
+  let data = state.opponentPokemon
+  data.user_id = state.loggedInId
+
+  console.log(data)
+
+  fetch(`/api/pokemons/${state.loggedInId}/mypokemon`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  })
+
+  state.myPokemons.push(data)
+
+}
