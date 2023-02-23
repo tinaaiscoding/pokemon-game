@@ -81,6 +81,10 @@ function catchHandler() {
       player.pokeballs = player.pokeballs - 1
       console.log("missed catch")
       console.log(`${player.pokeballs} pokeballs left`)
+      OpponentAttackPlayer()
+      checkIfOpponentrWon()
+      checkIfPlayerWon()
+      playerToAttack = 'player'
     }
   }
 
