@@ -1,15 +1,21 @@
 // to start
 function setStats() {
+
   if (battleStarted === false) {
     player["currentHealth"] = state.playerPokemonToBattle.hp
     opponent["currentHealth"] = state.opponentPokemon.hp
+
+    // game start and count details held in player object. 
+    player['battleToContinue'] = true
+    player['count'] = 0
+
 
     player["pokemon"] = state.playerPokemonToBattle
     player["moveToUse"] = state.playerPokemonToBattle.moves[0]
     opponent["pokemon"] = state.opponentPokemon
     opponent["moveToUse"] = state.opponentPokemon.moves[0]
   }
-  battleStarted = true
+  player.battleStarted = true
 }
 
 // not built yet - take user back to home screen. 
@@ -25,11 +31,14 @@ function speedCheck() {
     const battleLogSpeed = document.createElement('p');
     battleLogSpeed.innerHTML = `${opponent.pokemon.name} has the faster attack speed and attacks ${player.pokemon.name} first....`;
     document.querySelector('.battleLog').appendChild(battleLogSpeed)
+    player.count += 1
+
   } if (opponent.pokemon.speed <= player.pokemon.speed) {
     playerToAttack = 'player'
     const battleLogSpeed = document.createElement('div');
     battleLogSpeed.innerHTML = `${player.pokemon.name} has the faster attack speed and attacks ${opponent.pokemon.name} first....`;
     document.querySelector('.battleLog').appendChild(battleLogSpeed)
+    player.count += 1
   }
 }
 
@@ -57,7 +66,7 @@ function OpponentAttackPlayer() {
 
   opponent.damageDelt = Math.floor(Math.random() * opponent.pokemon.attack)
   setOppositionMove()
-  opponent.damageDelt = Math.floor(Math.random() * opponent.pokemon.attack)
+  opponent.damageDelt = Math.floor(opponent.damageDelt * opponent.damageMultiplier)
 
   const battleLogStrike = document.createElement('p')
   battleLogStrike.innerHTML = `${opponent.pokemon.name} used <span style='color:black;font-size:1rem'>${opponent.moveToUse}</span> and produced ${opponent.damageDelt} damage`
@@ -77,9 +86,10 @@ function checkIfPlayerWon() {
     document.querySelector('.battleLog').appendChild(battleLogPlayerWin);
     console.log('winner opponent');
     winner = 'opponent'
-    battleToContinue = false;
+    player.battleToContinue = false;
     revealBtn('to-party-btn')
-    return battleToContinue
+    opponent.catchPercent = 0
+    return player.battleToContinue
   }
 }
 
@@ -92,9 +102,10 @@ function checkIfOpponentrWon() {
     document.querySelector('.battleLog').appendChild(battleLogOpponentWin);
     console.log('winner player');
     winner = 'player'
-    battleToContinue = false;
+    player.battleToContinue = false;
     revealBtn('to-party-btn')
-    return battleToContinue
+    opponent.catchPercent = 0
+    return player.battleToContinue
   }
 }
 
@@ -103,9 +114,10 @@ function applyOpponentDamage() {
   battlelog.scrollTop = battlelog.scrollHeight
 
   // Damage to Player
+  // the / 1.3 is used to make the fight go quicker by reducing the game's overall defense. 
   player.damageSaved = Math.floor(Math.floor(Math.random() * player.pokemon.defense) / 1.3)
 
-  let dmgToPlayer = Math.floor(player.damageDelt - player.damageSaved)
+  let dmgToPlayer = Math.floor(opponent.damageDelt - player.damageSaved)
   if (dmgToPlayer < 0) {
     dmgToPlayer = 0
     const battleLogStrike = document.createElement('div');
@@ -134,9 +146,10 @@ function applyPlayerDamage() {
   battlelog.scrollTop = battlelog.scrollHeight
 
   //Player Damage to Opponent
+  // the / 1.3 is used to make the fight go quicker by reducing the game's overall defense. 
   opponent.damageSaved = Math.floor(Math.floor(Math.random() * opponent.pokemon.defense) / 1.3)
 
-  let dmgToOpponent = Math.floor(opponent.damageDelt - opponent.damageSaved)
+  let dmgToOpponent = Math.floor(player.damageDelt - opponent.damageSaved)
   if (dmgToOpponent < 0) {
     dmgToOpponent = 0
     const battleLogStrike = document.createElement('p');
