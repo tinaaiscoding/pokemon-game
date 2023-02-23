@@ -55,7 +55,7 @@ function renderBattleGround() {
         </div>
       <div class='sideBySide'>
         <button onClick="attackHandler()" class="attBtn">ATTACK</button>
-        <button onClick="" class="catchBtn">CATCH: <span class='percent'>20</span>%</button>
+        <button onClick="catchHandler()" class="catchBtn">CATCH: <span class='percent'>20</span>%</button>
       </div>
     </div>
 
