@@ -8,7 +8,7 @@ function setStats() {
     // game start and count details held in player object. 
     player['battleToContinue'] = true
     player['count'] = 0
-    player['pokeballs'] = 5
+    player['pokeballs'] = 2
 
 
 
@@ -91,7 +91,6 @@ function checkIfPlayerWon() {
     player.battleToContinue = false;
     revealBtn('to-party-btn')
     opponent.catchPercent = 0
-    return player.battleToContinue
   }
 }
 
@@ -107,7 +106,6 @@ function checkIfOpponentrWon() {
     player.battleToContinue = false;
     revealBtn('to-party-btn')
     opponent.catchPercent = 0
-    return player.battleToContinue
   }
 }
 

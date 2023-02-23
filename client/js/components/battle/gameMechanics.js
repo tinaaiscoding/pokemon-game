@@ -14,7 +14,7 @@ const player = {
   // game start and count details held in player object. 
   count: 0,
   battleToContinue: true,
-  pokeballs: 5
+  pokeballs: 2
 }
 
 const opponent = {
@@ -68,26 +68,31 @@ attackHandler()
 
 
 function catchHandler() {
+  var battlelog = document.querySelector('.battleLog')
+  battlelog.scrollTop = battlelog.scrollHeight
   const successCatch = successChance(opponent.catchPercent / 100)
-  console.log(player.pokeballs)
-  console.log(opponent.catchPercent)
 
   if (player.pokeballs === 0) {
-    console.log("No pokeballs left")
+    const battleLogZeroBalls = document.createElement('p');
+    battleLogZeroBalls.innerHTML = `You don't have enough pokeballs!`
+    document.querySelector('.battleLog').appendChild(battleLogZeroBalls)
   } else {
     if (successCatch) {
-      console.log("caught!")
+      const battleLogCatchSucessful = document.createElement('p');
+      battleLogCatchSucessful.innerHTML = `Nice! You caught ${opponent.pokemon.name}`
+      document.querySelector('.battleLog').appendChild(battleLogCatchSucessful)
+      revealBtn('to-party-btn')
     } else {
       player.pokeballs = player.pokeballs - 1
-      console.log("missed catch")
-      console.log(`${player.pokeballs} pokeballs left`)
+      const battleLogCatchFailed = document.createElement('p');
+      battleLogCatchFailed.innerHTML = `Catch failed. It was so close! You have ${player.pokeballs} pokeballs left.`
+      document.querySelector('.battleLog').appendChild(battleLogCatchFailed)
       OpponentAttackPlayer()
       checkIfOpponentrWon()
       checkIfPlayerWon()
       playerToAttack = 'player'
     }
   }
-
 }
 
 catchHandler()
