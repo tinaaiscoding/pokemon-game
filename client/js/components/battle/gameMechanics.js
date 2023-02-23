@@ -13,7 +13,8 @@ const player = {
   typeMultiplier: false,
   // game start and count details held in player object. 
   count: 0,
-  battleToContinue: true
+  battleToContinue: true,
+  pokeballs: 5
 }
 
 const opponent = {
@@ -64,3 +65,29 @@ function attackHandler() {
 }
 
 attackHandler()
+
+
+function catchHandler() {
+  const successCatch = successChance(opponent.catchPercent / 100)
+  console.log(player.pokeballs)
+  console.log(opponent.catchPercent)
+
+  if (player.pokeballs === 0) {
+    console.log("No pokeballs left")
+  } else {
+    if (successCatch) {
+      console.log("caught!")
+    } else {
+      player.pokeballs = player.pokeballs - 1
+      console.log("missed catch")
+      console.log(`${player.pokeballs} pokeballs left`)
+      OpponentAttackPlayer()
+      checkIfOpponentrWon()
+      checkIfPlayerWon()
+      playerToAttack = 'player'
+    }
+  }
+
+}
+
+catchHandler()

@@ -8,6 +8,8 @@ function setStats() {
     // game start and count details held in player object. 
     player['battleToContinue'] = true
     player['count'] = 0
+    player['pokeballs'] = 5
+
 
 
     player["pokemon"] = state.playerPokemonToBattle
@@ -218,3 +220,7 @@ function setOppositionMove() {
   }
 }
 
+function successChance(chance) {
+  const randomNum = Math.random()
+  return randomNum < chance
+}
