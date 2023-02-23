@@ -1,5 +1,5 @@
 function renderStartOptions() {
-  document.querySelector('#page').innerHTML = `
+  document.querySelector('#page').innerHTML += `
     <div class="modal visible" id="start-option-modal">
       <div class="modal-content">
         <section class="start-nav">
