@@ -1,7 +1,6 @@
 let battleStarted = false
 let playerToAttack = 'player'
 let winner = '';
-let battleToContinue = true;
 
 const player = {
   pokemon: {},
@@ -30,7 +29,7 @@ const opponent = {
 }
 
 function attackHandler() {
-  if (battleToContinue === true && player.count === 0) {
+  if (player.battleToContinue === true && player.count === 0) {
     speedCheck()
   }
   // round 1
@@ -82,6 +81,9 @@ function catchHandler() {
       battleLogCatchSucessful.innerHTML = `Nice! You caught ${opponent.pokemon.name}`
       document.querySelector('.battleLog').appendChild(battleLogCatchSucessful)
       revealBtn('to-party-btn')
+      player.battleToContinue = false
+      addCaughtPokemon()
+      // function fetch request
     } else {
       player.pokeballs = player.pokeballs - 1
       const battleLogCatchFailed = document.createElement('p');
