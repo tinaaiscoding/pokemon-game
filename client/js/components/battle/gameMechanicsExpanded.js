@@ -88,6 +88,7 @@ function checkIfPlayerWon() {
     winner = 'opponent'
     player.battleToContinue = false;
     revealBtn('to-party-btn')
+    opponent.catchPercent = 0
     return player.battleToContinue
   }
 }
@@ -103,6 +104,7 @@ function checkIfOpponentrWon() {
     winner = 'player'
     player.battleToContinue = false;
     revealBtn('to-party-btn')
+    opponent.catchPercent = 0
     return player.battleToContinue
   }
 }
