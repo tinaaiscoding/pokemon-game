@@ -9,6 +9,8 @@ function setStats() {
     player['count'] = 0;
     player['pokeballs'] = 2;
 
+    opponent['caught'] = false
+
     player['pokemon'] = state.playerPokemonToBattle;
     player['moveToUse'] = state.playerPokemonToBattle.moves[0];
     opponent['pokemon'] = state.opponentPokemon;
@@ -87,6 +89,7 @@ function checkIfOpponentWon() {
     player.battleToContinue = false;
     revealBtn('to-party-btn');
     opponent.catchPercent = 0;
+    disableBttns()
   }
 }
 
@@ -103,6 +106,7 @@ function checkIfPlayerWon() {
     player.battleToContinue = false;
     revealBtn('to-party-btn');
     opponent.catchPercent = 0;
+    disableBttns()
   }
 }
 
@@ -264,4 +268,12 @@ function increaseWinCount() {
         }
       });
     })
+}
+
+function disableBttns() {
+  let attBtn = document.querySelector('.attBtn');
+  attBtn.setAttribute('disabled', '');
+
+  let catchBtn = document.querySelector('.catchBtn');
+  catchBtn.setAttribute('disabled', '');
 }

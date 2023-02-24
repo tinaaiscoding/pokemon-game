@@ -25,7 +25,7 @@ const opponent = {
   damageMultiplier: 1,
   damagePerTrun: 0,
   typeMultiplier: false,
-  catchPercent: 20
+  catchPercent: 20,
 }
 
 function attackHandler() {
@@ -37,7 +37,7 @@ function attackHandler() {
     playerAttackOpponent()
     checkIfPlayerWon()
     checkIfOpponentWon()
-  } if (playerToAttack === 'opponent' && player.battleToContinue === true) {
+  } if (playerToAttack === 'opponent' && player.battleToContinue === true ) {
     OpponentAttackPlayer()
     checkIfPlayerWon()
     checkIfOpponentWon()
@@ -56,7 +56,7 @@ function attackHandler() {
     checkIfPlayerWon()
     checkIfOpponentWon()
   }
-  if (playerToAttack === 'opponent' && player.battleToContinue === true) {
+  if (playerToAttack === 'opponent' && player.battleToContinue === true ) {
     OpponentAttackPlayer()
     checkIfPlayerWon()
     checkIfOpponentWon()
@@ -83,6 +83,7 @@ function catchHandler() {
       revealBtn('to-party-btn')
       player.battleToContinue = false
       addCaughtPokemon()
+      disableBttns()
       // function fetch request
     } else {
       player.pokeballs = player.pokeballs - 1
