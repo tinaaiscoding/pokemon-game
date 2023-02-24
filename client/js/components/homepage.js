@@ -24,6 +24,5 @@ function renderHomePage() {
     state.opponentPokemon = [],
     state.loggedInUserName = null,
     state.loggedInId = null
-  
 }
 
