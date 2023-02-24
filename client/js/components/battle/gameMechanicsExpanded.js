@@ -237,7 +237,8 @@ function addCaughtPokemon() {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
-  });
-
-  state.myPokemons.push(data);
+  })
+    .then((res) => res.json())
+    .then((caughtPokemonFromDB) => 
+    state.myPokemons.push(caughtPokemonFromDB))
 }

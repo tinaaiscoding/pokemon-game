@@ -44,6 +44,7 @@ router.post('/:userId/caughtPokemon', (req, res) => {
 
   Pokemon
     .addCaughtPokemon(userId, caughtPokemon)
+    .then(caughtPokemon => res.json(caughtPokemon))
 })
 
 
