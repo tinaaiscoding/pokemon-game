@@ -187,24 +187,24 @@ VALUES
 
   -- unfortunately as rattata's 4th abilities is scratch so scratch will be the strongest.
 
-CREATE TABLE mypokemons (
-  id SERIAL PRIMARY KEY,
-  name TEXT,
-  nickname TEXT,
-  win_counts INTEGER,
-  user_id INTEGER
-);
+-- CREATE TABLE mypokemons (
+--   id SERIAL PRIMARY KEY,
+--   name TEXT,
+--   nickname TEXT,
+--   win_counts INTEGER,
+--   user_id INTEGER
+-- );
 
-INSERT INTO
-  mypokemons (name, nickname, win_counts, user_id)
-VALUES
-  ('charmander', 'charmander', 0, 0),
-  ('dratini', 'dratini', 0, 0),
-  ('mew', 'mew', 0, 0),
-  ('cubone', 'cubone', 0, 0),
-  ('snorlax', 'snorlax', 0, 0),
-  ('gengar', 'gengar', 0, 0)
-  ;
+-- INSERT INTO
+--   mypokemons (name, nickname, win_counts, user_id)
+-- VALUES
+--   ('charmander', 'charmander', 0, 0),
+--   ('dratini', 'dratini', 0, 0),
+--   ('mew', 'mew', 0, 0),
+--   ('cubone', 'cubone', 0, 0),
+--   ('snorlax', 'snorlax', 0, 0),
+--   ('gengar', 'gengar', 0, 0)
+--   ;
 
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,

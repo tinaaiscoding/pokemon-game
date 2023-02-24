@@ -32,9 +32,19 @@ router.put('/:userId/edit/:pokemonId', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const pokemonId = req.params.id
+
   Pokemon
     .delete(pokemonId)
     .then(() => res.json({ message: 'deleted successfully' }))
 })
+
+router.post('/:userId/caughtPokemon', (req, res) => {
+  const userId = req.params.userId
+  const caughtPokemon = req.body
+
+  Pokemon
+    .addCaughtPokemon(userId, caughtPokemon)
+})
+
 
 module.exports = router
