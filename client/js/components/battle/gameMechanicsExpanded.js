@@ -74,7 +74,7 @@ function OpponentAttackPlayer() {
   //   player.currentHealth = player.currentHealth - opponent.damageDelt
 }
 
-function checkIfPlayerWon() {
+function checkIfOpponentWon() {
   var battlelog = document.querySelector('.battleLog');
   battlelog.scrollTop = battlelog.scrollHeight;
 
@@ -90,7 +90,7 @@ function checkIfPlayerWon() {
   }
 }
 
-function checkIfOpponentrWon() {
+function checkIfPlayerWon() {
   var battlelog = document.querySelector('.battleLog');
   battlelog.scrollTop = battlelog.scrollHeight;
   if (opponent.currentHealth < 1) {
@@ -99,6 +99,7 @@ function checkIfOpponentrWon() {
     document.querySelector('.battleLog').appendChild(battleLogOpponentWin);
     console.log('winner player');
     winner = 'player';
+    increaseWinCount()
     player.battleToContinue = false;
     revealBtn('to-party-btn');
     opponent.catchPercent = 0;
@@ -231,7 +232,7 @@ function addCaughtPokemon() {
   let data = state.opponentPokemon;
   data.user_id = state.loggedInId;
 
-  console.log(data);
+  // console.log(data);
 
   fetch(`/api/pokemons/${state.loggedInId}/caughtPokemon`, {
     method: 'POST',
@@ -241,4 +242,26 @@ function addCaughtPokemon() {
     .then((res) => res.json())
     .then((caughtPokemonFromDB) => 
     state.myPokemons.push(caughtPokemonFromDB))
+}
+
+
+function increaseWinCount() {
+  let pokemonBattling = state.playerPokemonToBattle
+  pokemonBattling.win_count += 1
+  // console.log(pokemonBattling);
+
+  fetch(`/api/pokemons/${state.loggedInId}/win/${pokemonBattling.id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(pokemonBattling),
+  })
+    .then((res) => res.json())
+    .then((updatePokemon) => {
+      const matchId = state.myPokemons.map((myPokemon) => {
+        if (+myPokemon.id === +updatePokemon.id) {
+          myPokemon.win_count = updatePokemon.win_count;
+          return myPokemon;
+        }
+      });
+    })
 }

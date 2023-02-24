@@ -35,12 +35,12 @@ function attackHandler() {
   // round 1
   if (playerToAttack === 'player' && player.battleToContinue === true) {
     playerAttackOpponent()
-    checkIfOpponentrWon()
     checkIfPlayerWon()
+    checkIfOpponentWon()
   } if (playerToAttack === 'opponent' && player.battleToContinue === true) {
     OpponentAttackPlayer()
-    checkIfOpponentrWon()
     checkIfPlayerWon()
+    checkIfOpponentWon()
   }
 
   // change turns
@@ -53,13 +53,13 @@ function attackHandler() {
   // round 2
   if (playerToAttack === 'player' && player.battleToContinue === true) {
     playerAttackOpponent()
-    checkIfOpponentrWon()
     checkIfPlayerWon()
+    checkIfOpponentWon()
   }
   if (playerToAttack === 'opponent' && player.battleToContinue === true) {
     OpponentAttackPlayer()
-    checkIfOpponentrWon()
     checkIfPlayerWon()
+    checkIfOpponentWon()
   }
 }
 
@@ -90,8 +90,8 @@ function catchHandler() {
       battleLogCatchFailed.innerHTML = `Catch failed. It was so close! You have ${player.pokeballs} pokeballs left.`
       document.querySelector('.battleLog').appendChild(battleLogCatchFailed)
       OpponentAttackPlayer()
-      checkIfOpponentrWon()
       checkIfPlayerWon()
+      checkIfOpponentWon()
       playerToAttack = 'player'
     }
   }

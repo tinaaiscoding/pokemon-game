@@ -71,6 +71,18 @@ const Pokemon = {
       // console.log(dbRes) + put curls in if you want to log.
     );
   },
+
+  win: (userId, pokemonId, winCount) => {
+    const sql = `UPDATE pokemons 
+        SET win_count = $3
+        WHERE user_id = $1 AND id = $2
+        RETURNING *
+      `;
+    return db
+      .query(sql, [userId, pokemonId, winCount])
+      .then((dbRes) => dbRes.rows[0]);
+  },
+
 };
 
 module.exports = Pokemon;
