@@ -52,7 +52,8 @@ const Pokemon = {
     VALUES 
         ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *`;
 
-    return db.query(sql, [
+    return db
+      .query(sql, [
       caughtPokemon.pokedex_number,
       caughtPokemon.name,
       caughtPokemon.img,
@@ -64,8 +65,24 @@ const Pokemon = {
       caughtPokemon.nickname,
       caughtPokemon.win_count,
       userId,
-    ]);
+    ])
+    .then(dbRes => 
+      dbRes.rows[0]
+      // console.log(dbRes) + put curls in if you want to log.
+    );
   },
+
+  win: (userId, pokemonId, winCount) => {
+    const sql = `UPDATE pokemons 
+        SET win_count = $3
+        WHERE user_id = $1 AND id = $2
+        RETURNING *
+      `;
+    return db
+      .query(sql, [userId, pokemonId, winCount])
+      .then((dbRes) => dbRes.rows[0]);
+  },
+
 };
 
 module.exports = Pokemon;

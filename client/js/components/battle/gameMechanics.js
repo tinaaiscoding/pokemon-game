@@ -25,7 +25,7 @@ const opponent = {
   damageMultiplier: 1,
   damagePerTrun: 0,
   typeMultiplier: false,
-  catchPercent: 20
+  catchPercent: 20,
 }
 
 function attackHandler() {
@@ -35,12 +35,12 @@ function attackHandler() {
   // round 1
   if (playerToAttack === 'player' && player.battleToContinue === true) {
     playerAttackOpponent()
-    checkIfOpponentrWon()
     checkIfPlayerWon()
-  } if (playerToAttack === 'opponent' && player.battleToContinue === true) {
+    checkIfOpponentWon()
+  } if (playerToAttack === 'opponent' && player.battleToContinue === true ) {
     OpponentAttackPlayer()
-    checkIfOpponentrWon()
     checkIfPlayerWon()
+    checkIfOpponentWon()
   }
 
   // change turns
@@ -53,13 +53,13 @@ function attackHandler() {
   // round 2
   if (playerToAttack === 'player' && player.battleToContinue === true) {
     playerAttackOpponent()
-    checkIfOpponentrWon()
     checkIfPlayerWon()
+    checkIfOpponentWon()
   }
-  if (playerToAttack === 'opponent' && player.battleToContinue === true) {
+  if (playerToAttack === 'opponent' && player.battleToContinue === true ) {
     OpponentAttackPlayer()
-    checkIfOpponentrWon()
     checkIfPlayerWon()
+    checkIfOpponentWon()
   }
 }
 
@@ -83,6 +83,7 @@ function catchHandler() {
       revealBtn('to-party-btn')
       player.battleToContinue = false
       addCaughtPokemon()
+      disableBttns()
       // function fetch request
     } else {
       player.pokeballs = player.pokeballs - 1
@@ -90,8 +91,8 @@ function catchHandler() {
       battleLogCatchFailed.innerHTML = `Catch failed. It was so close! You have ${player.pokeballs} pokeballs left.`
       document.querySelector('.battleLog').appendChild(battleLogCatchFailed)
       OpponentAttackPlayer()
-      checkIfOpponentrWon()
       checkIfPlayerWon()
+      checkIfOpponentWon()
       playerToAttack = 'player'
     }
   }

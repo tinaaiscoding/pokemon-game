@@ -44,6 +44,18 @@ router.post('/:userId/caughtPokemon', (req, res) => {
 
   Pokemon
     .addCaughtPokemon(userId, caughtPokemon)
+    .then(caughtPokemon => res.json(caughtPokemon))
+})
+
+router.put('/:userId/win/:pokemonId', (req, res) => {
+  const userId = req.params.userId
+  const pokemonId = req.params.pokemonId
+  const pokemonBattling  = req.body
+
+
+  Pokemon
+    .win(userId, pokemonId, pokemonBattling.win_count)
+    .then(updatedWinCount => res.json(updatedWinCount))
 })
 
 
