@@ -4,7 +4,7 @@ The third project of the Software Engineering Immersive Course at General Assemb
 The theme we have chosen is Pokemon and it will be a smaller version of the classic game. As a user, the goal of the game is to win battles in order to evolve the Pokemon and then have the ability to attain more Pokemon to complete the Pokedex. 
 
 **Team Members:**<br/> 
-[Tina Vo](https://github.com/tinanvo)<br/>
+[Tina Vo](https://github.com/tinaaiscoding)<br/>
 [Phil Wong](https://github.com/pwong-it)<br/>
 [Mitchell O'Brien](https://github.com/OB-CODE)<br/>
 [Harry Hwang]()<br/>
