@@ -12,7 +12,7 @@ The theme we have chosen is Pokemon and it will be a smaller version of the clas
 Date Received: 16/01/23<br/>
 Date Due: 20/01/22
 
-## :computer: [Click here]() to see the live project!
+## :computer: [Click here](https://pokebattles.mitch-obrien.com/) to see the live project!
 
 ## :page_facing_up: About
 The below are the criteria set out by the course that we will need to meet:
