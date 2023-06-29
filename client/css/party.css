@@ -1,91 +1,167 @@
 .party-pokemon-list {
-    background-image: url(../images/landing-page/tiled-png.png);
-    padding: 40px;
-    border: 5px solid black;
-    border-radius: 30px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  background-image: url(../images/landing-page/tiled-png.png);
+  padding: 40px;
+  border: 5px solid black;
+  border-radius: 30px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
 }
 
 .h1-title {
-    font-size: 3rem;
-    text-align: center;
-    border: 2px solid black;
-    border-radius: 5px;
-    background-color: white;
-    margin: 20px 100px;
+  font-size: 3rem;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+  margin: 20px 100px;
+}
+
+.myPokemons {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  width: 700px;
+  justify-content: space-evenly;
+  gap: 22px;
+  row-gap: 28px;
+  margin: 40px auto;
 }
 
 .myPokemon {
-    display: inline-grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    margin: 0 5px 10px;
+  text-align: center;
 }
 
 .cards {
-    border: 10px solid rgb(255, 222, 78);
-    background-color: rgb(250, 163, 128);
-    border-radius: 20px;
-    padding: 18px;
+  background: rgb(206 235 255) url(../images/pokeball.png) no-repeat;
+  background-blend-mode: overlay;
+  border: 6px solid #8db7da;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 5px 4px 2px 0px #636363;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-top {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .cards h2 {
-    margin: 5px;
+  margin: 5px 0 10px;
+  cursor: pointer;
 }
 
-.cards img {
-    width: 100%;
-    border: 2px solid black;
-    border-radius: 5px;
-    background-color: white;
+.cards .card-img {
+  width: 100%;
 }
 
-.cards header {
-    display: flex;
+.card-img img {
+  border-radius: 15px;
+  background-color: #ffffffe8;
+  border: 1px solid #b0bdcf;
 }
 
 .cards p {
-    font-weight: 600;
+  font-weight: 600;
+}
+
+.cards span {
+  color: #5c7589;
 }
 
 .cards span,
-button {
-    cursor: pointer;
-    font-weight: 600;
+.cards button {
+  margin-bottom: 2px;
+  font-weight: 600;
 }
 
 .cards button {
-    border-radius: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  justify-content: center;
+  font-weight: 600;
+  background-color: rgb(255, 222, 78);
+  padding: 8px 11px;
+  border-radius: 25px;
+  border: 2px solid black;
+  cursor: pointer;
 }
 
-.cards div {
-    display: flex;
-    justify-content: space-evenly;
+.cards button:disabled {
+  cursor: default;
+  background-color: #b2b2b2;
+}
+
+.cards button:hover {
+  color: white;
+  background-color: rgb(253, 214, 42);
+  transition: 0.3s;
+}
+
+.cards .button-release {
+  background-color: #ff404e;
+}
+
+.cards .button-release:hover {
+  color: white;
+  background-color: #fa3b48;
+  transition: 0.3s;
 }
 
 .material-symbols-outlined.edit-nickname {
-    color: rgb(9, 51, 98);
-    display: flex;
-    align-items: center;
+  color: rgb(9, 51, 98);
+  display: flex;
+  align-items: center;
 }
 
+.cards progress {
+  border-radius: 20px;
+  height: 10px;
+  margin-top: 4px;
+/* border: 1px solid #5c7589; */
+}
+
+.cards progress::-webkit-progress-bar {
+  background-color: rgb(242, 242, 242);
+  border-radius: 20px;
+  border: 1px solid rgb(224, 224, 224);;
+}
+
+.cards progress::-webkit-progress-value {
+  background-color: rgb(253, 214, 42);
+  border-radius: 20px;
+  border: 1px solid rgb(232, 193, 16);;
+}
 
 /* EDIT NICKNAME */
 .btn-edit {
-    display: flex;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 600;
-    background-color: rgb(255, 222, 78);
-    width: 250px;
-    padding: 8px 20px;
-    border-radius: 25px;
-    border: 2px solid black;
-    cursor: pointer;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-color: rgb(255, 222, 78);
+  width: 250px;
+  padding: 8px 20px;
+  border-radius: 25px;
+  border: 2px solid black;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
-.modal-content.edit-nickname>form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.modal-content.edit-nickname > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

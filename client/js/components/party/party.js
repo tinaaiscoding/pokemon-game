@@ -12,7 +12,9 @@ function renderMyPokemonsList() {
     <button class="button-32" onClick="renderHomePage(event)">LOG OUT</button>
         <section class='party-pokemon-list'>
             <h1 class="h1-title" >MY PARTY</h1>
-            ${renderMyPokemons()}
+            <div class="myPokemons">
+              ${renderMyPokemons()}
+            </div>
         </section>
     `;
 }
@@ -21,29 +23,46 @@ function renderMyPokemons() {
   return state.myPokemons
     .map(
       (myPokemon) => `
-    <section class='myPokemon' data-id='${myPokemon.id}'>
-        <div class="cards">
-            <header>
-                <h2>${myPokemon.nickname}</h2>
-                <span class='material-symbols-outlined edit-nickname' onClick="renderEditModal(event)">edit</span>
-            </header>
-            <img src="${myPokemon.img}" alt="">
-            <p>HP: ${myPokemon.hp}</p>
-            <p>ATTACK: ${myPokemon.attack}</p>
-            <p>DEFENSE: ${myPokemon.defense}</p>
-            <p>SPEED: ${myPokemon.speed}</p>
-            <p>WIN COUNT: ${myPokemon.win_count} </p>
-            <div>
-                <button onClick="takePokemonToBattle(event)" class="to-battle-btn">BATTLE</button>
-                ${
-                  state.myPokemons.length > 1
-                    ? `<button onClick="releasePokemon(event)" class="to-battle-btn">RELEASE</button>`
-                    : `<button>Can't Release</button>`
-                }
+        <section class='myPokemon' data-id='${myPokemon.id}'>
+          <div class="cards">
+            <div class="card-top">
+              <div class="card-header">
+                <h2 onClick="renderEditModal(event)">
+                  ${myPokemon.nickname}
+                </h2>
+
+                <span>
+                  HP ${myPokemon.hp - 10} / ${myPokemon.hp}
+                </span>
+                <progress 
+                  id="pokemon-hp" 
+                  value="${myPokemon.hp - 10}" 
+                  max="${myPokemon.hp}"
+                ></progress>
+              </div>
                 
+              <div class='card-img'>
+                <img src="${myPokemon.img}" alt="">
+              </div>
             </div>
-        </div>
-    </section>
+
+            <div class="card-buttons">
+              <button 
+                onClick="takePokemonToBattle(event)" 
+                class="to-battle-btn">BATTLE
+              </button>
+            
+              <button 
+                onClick="releasePokemon(event)" 
+                class="button-release"
+                {${state.myPokemons.length > 1 && `disabled='false'`}
+              >
+                RELEASE
+              </button>
+              
+            </div>
+          </div>
+        </section>  
     `
     )
     .join('');
