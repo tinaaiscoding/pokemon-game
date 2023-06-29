@@ -9,7 +9,7 @@ body {
 }
 
 main {
-  width: 80%;
+  width: 60%;
 }
 
 .visible {
@@ -29,10 +29,15 @@ main {
 }
 
 @font-face {
-  font-family: "Custom Game Font";
-  src: url(../images/fonts/pokemongb-raeo-webfont.woff) format("truetype");
+  font-family: 'Custom Game Font';
+  src: url(../images/fonts/pokemongb-raeo-webfont.woff) format('truetype');
 }
 
 .header-nav {
   text-align: center;
+}
+
+#modal-wrapper {
+  position: absolute;
+  display: flex;
 }
