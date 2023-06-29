@@ -84,7 +84,7 @@ function checkIfOpponentWon() {
     const battleLogPlayerWin = document.createElement('p');
     battleLogPlayerWin.innerHTML = `${player.pokemon.name} has fainted! ${opponent.pokemon.name} wins the battle!`;
     document.querySelector('.battleLog').appendChild(battleLogPlayerWin);
-    console.log('winner opponent');
+    // console.log('winner opponent');
     winner = 'opponent';
     player.battleToContinue = false;
     revealBtn('to-party-btn');
@@ -100,7 +100,7 @@ function checkIfPlayerWon() {
     const battleLogOpponentWin = document.createElement('div');
     battleLogOpponentWin.innerHTML = `${opponent.pokemon.name} has fainted! ${player.pokemon.name} wins the battle!`;
     document.querySelector('.battleLog').appendChild(battleLogOpponentWin);
-    console.log('winner player');
+    // console.log('winner player');
     winner = 'player';
     increaseWinCount()
     player.battleToContinue = false;
@@ -176,13 +176,13 @@ function applyPlayerDamage() {
 
     // UPDATE % chance to catch too!
     let healthLost = opponent.pokemon.hp - opponent.currentHealth;
-    console.log(healthLost);
+    // console.log(healthLost);
     if (healthLost > 70) {
       healthLost = 70;
     }
 
     opponent.catchPercent = 20 + healthLost;
-    console.log(opponent.catchPercent);
+    // console.log(opponent.catchPercent);
     document.querySelector('.percent').innerHTML = opponent.catchPercent;
   }
 }

@@ -11,17 +11,19 @@ function backDropOff() {
 }
 
 function closeFormModal(inputs = []) {
-  modalWrapper.innerHTML = ''
+  modalWrapper.innerHTML = '';
   backDropOff();
   resetForm(inputs);
 }
 
 function resetForm(inputs) {
-  inputs.forEach((input) => (input.value = ''));
+  if (inputs.length > 0) {
+    inputs.forEach((input) => (input.value = ''));
+  }
 }
 
 function closeModal() {
-  modalWrapper.innerHTML = ''
+  modalWrapper.innerHTML = '';
   backDropOff();
 }
 
